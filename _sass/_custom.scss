@@ -1,7 +1,61 @@
-/*
+/*******************************
  * My own customizations
- */
+ ******************************/
 
-.social-media-list-2 {
-    list-style: circle;
+/*
+ * Change colors and margins
+ */
+a, a:hover {
+    color: $brand-color;
 }
+
+a:visited {
+    color: darken($brand-color, 15%);
+}
+
+.site-header-1 {
+    min-height: $header-height;
+    margin-bottom: 2rem;
+    //padding-top: 1rem;
+    //padding-bottom: 1rem;
+
+    border-top: 1px solid $grey-color-light;
+    border-bottom: 1px solid $grey-color-light;
+
+    background-color: $brand-color;
+}
+
+.site-title-1 {
+    line-height: $header-height;
+
+    &,
+    &:visited {
+        color: $background-color;
+    }
+}
+
+.site-nav {
+    line-height: $header-height;
+
+    .page-link-1 {
+        &,
+        &:visited {
+            color: $background-color;
+        }
+    }
+}
+
+.post-title {
+    color: $brand-color;
+}
+
+
+/*
+ * Change bullets
+ */
+.social-media-list-1 {
+    list-style: circle;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
