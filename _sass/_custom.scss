@@ -19,33 +19,37 @@ a:visited {
     //padding-top: 1rem;
     //padding-bottom: 1rem;
 
-    border-top: 1px solid $grey-color-light;
+    border-top: 0px;
+    //border-top: 1px solid $grey-color-light;
     border-bottom: 1px solid $grey-color-light;
 
-    background-color: $brand-color;
+    background-color: #f8f8f8;
 }
 
 .site-title-1 {
     line-height: $header-height;
+    letter-spacing: -0.5px;
 
     &,
     &:visited {
-        color: $background-color;
+        color: #999;
     }
 }
 
 .site-nav {
     line-height: $header-height;
+    background-color: #f8f8f8;
 
     .page-link-1 {
         &,
         &:visited {
-            color: $background-color;
+            color: #999;
         }
     }
 }
 
 .post-title {
+    letter-spacing: -0.5px;
     color: $brand-color;
 }
 
