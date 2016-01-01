@@ -6,11 +6,11 @@
  * Change colors and margins
  */
 a, a:hover {
-    color: $brand-color;
+    color: $link-color;
 }
 
 a:visited {
-    color: darken($brand-color, 15%);
+    color: darken($link-color, 15%);
 }
 
 .site-header-1 {
@@ -50,7 +50,7 @@ a:visited {
 
 .post-title {
     letter-spacing: -0.5px;
-    color: $brand-color;
+    color: $link-color;
 }
 
 

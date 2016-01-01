@@ -10,14 +10,15 @@ $base-font-family: Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
-$header-height: 66px;
+$header-height:    66px;
 
 $spacing-unit:     30px;
 
 $text-color:       #111;
-$background-color: #fdfdfd;
+$background-color: #fff;
 //$brand-color:      #2a7ae2;
 $brand-color:      #ac4142;
+$link-color:       $brand-color;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 30%);

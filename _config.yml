@@ -1,6 +1,8 @@
 # Site settings
 title: Jia Fu's site
-email: jiafu.low@gmail.com
+author:
+  name: Jia Fu Low
+  email: jiafu.low@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   An awesome description here. 
 baseurl: "" # the subpath of your site, e.g. /blog/
