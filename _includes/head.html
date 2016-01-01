@@ -7,8 +7,15 @@
     <meta name="author" content="{{ site.author.name }}">
     <meta name="description" content="{{ site.description }}">
 
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ "/css/starter-template.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/css/jekyll-template.css" | prepend: site.baseurl }}">
+
+    <!--link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}"-->
+    <!--link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"-->
 
     <!--link rel="icon" href="favicon.ico"-->
 </head>
