@@ -2,11 +2,13 @@
  * Bootstrap starter template
  */
 body {
-  min-height: 2000px;
+  min-height: 750px;
 }
 .navbar-static-top {
   margin-bottom: 19px;
 }
 .starter-template {
-  padding: 40px 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 970px;
 }

@@ -6,3 +6,30 @@
     margin-left: 1em;
     margin-right: 1em;
 }
+
+/**
+ * Posts
+ */
+.post-list {
+  margin-left: 0;
+  list-style: none; }
+
+.post-list > li {
+  margin-bottom: 30px; }
+
+.post-meta {
+  font-size: 14px;
+  color: #828282; }
+
+.post-link {
+  display: block; }
+
+.post-header {
+  margin-bottom: 30px; }
+
+.post-title {
+  display: block; }
+
+.post-content {
+  margin-bottom: 30px; }
+
