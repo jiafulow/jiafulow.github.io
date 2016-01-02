@@ -1,14 +1,52 @@
 /*
  * Bootstrap starter template
  */
+
 body {
-  min-height: 750px;
+  min-height: 100%;
 }
-.navbar-static-top {
-  margin-bottom: 19px;
-}
-.starter-template {
+
+body > .container {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.navbar-static-top {
+  /* Static top navbar */
+  margin-bottom: 19px;
+}
+
+.starter-template {
+  /* Fixed container size */
   max-width: 970px;
 }
+
+.sticky-footer {
+  border-top: solid 1px #e7e7e7;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+
+.sticky-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sticky-footer ul li {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.sticky-footer ul li:first-child {
+  margin-left: 0;
+}
+
+.page, .home, .blog {
+  min-height: 360px;
+}
+
+.post { }
+

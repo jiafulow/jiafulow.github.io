@@ -9,6 +9,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://jiafulow.github.io" # the base hostname & protocol for your site
 github_username:  jiafulow
 linkedin_username: jiafulow
+source_repo: https://github.com/jiafulow/jiafulow.github.io
 
 # Pagination
 paginate: 5
