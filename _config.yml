@@ -6,10 +6,16 @@ author:
 description: > # this means to ignore newlines until "baseurl:"
   An awesome description here. 
 baseurl: "" # the subpath of your site, e.g. /blog/
-paginate: 5
 url: "http://jiafulow.github.io" # the base hostname & protocol for your site
 github_username:  jiafulow
 linkedin_username: jiafulow
+
+# Pagination
+paginate: 5
+paginate_path: "/blog/page:num"
+
+# Blog separator
+excerpt_separator: <!--more-->
 
 # Build settings
 markdown: kramdown
