@@ -43,10 +43,3 @@ body > .container {
 .sticky-footer ul li:first-child {
   margin-left: 0;
 }
-
-.page, .home, .blog {
-  min-height: 360px;
-}
-
-.post { }
-

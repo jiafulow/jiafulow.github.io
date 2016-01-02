@@ -1,35 +1,74 @@
-.icon > svg { display: inline-block; width: 16px; height: 16px; vertical-align: middle; }
-.icon > svg path { fill: #999; }
+/**
+ * Body
+ */
+.page, .home, .blog {
+  font-size: 16px;
+  line-height: 1.5;
 
-.social-media-list {
-    list-style: circle;
+  min-height: 360px;
 }
 
-/**
- * Posts
- */
-.post-list {
-  margin-left: 0;
-  list-style: none; }
+.post {
+  font-size: 16px;
+  line-height: 1.5;
+}
 
-.post-list > li {
-  margin-bottom: 30px; }
-
-.post-meta {
+h1,
+.h1 {
+  font-size: 42px;
+}
+h2,
+.h2 {
+  font-size: 34px;
+}
+h3,
+.h3 {
+  font-size: 28px;
+}
+h4,
+.h4 {
+  font-size: 20px;
+}
+h5,
+.h5 {
+  font-size: 16px;
+}
+h6,
+.h6 {
   font-size: 14px;
-  color: #828282; }
+}
 
-.post-link {
-  display: block; }
+@media (max-width: 767px) {
+  .page, .home, .blog, .post {
+    font-size: 14px;
+  }
 
-.post-header {
-  margin-bottom: 30px; }
+  h1,
+  .h1 {
+    font-size: 36px;
+  }
+  h2,
+  .h2 {
+    font-size: 30px;
+  }
+  h3,
+  .h3 {
+    font-size: 24px;
+  }
+  h4,
+  .h4 {
+    font-size: 18px;
+  }
+  h5,
+  .h5 {
+    font-size: 14px;
+  }
+  h6,
+  .h6 {
+    font-size: 12px;
+  }
+}
 
-.post-title {
-  display: block; }
-
-.post-content {
-  margin-bottom: 30px; }
 
 /**
  * Links
@@ -48,3 +87,40 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+
+/**
+ * Posts
+ */
+.post-list {
+  margin-left: 0;
+  list-style: none; }
+
+.post-list > li {
+  margin-bottom: 25px; }
+
+.post-meta {
+  font-size: 14px;
+  color: #828282; }
+
+.post-link {
+  display: block; }
+
+.post-header {
+  margin-bottom: 25px; }
+
+.post-title {
+  display: block; }
+
+.post-content {
+  margin-bottom: 25px; }
+
+/**
+ * Other
+ */
+.icon > svg { display: inline-block; width: 16px; height: 16px; vertical-align: middle; }
+.icon > svg path { fill: #999; }
+
+.social-media-list {
+    list-style: circle;
+}
+
