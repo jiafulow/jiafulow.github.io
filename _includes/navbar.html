@@ -23,10 +23,14 @@
 
       {% for node in site.pages %}
         {% if node.title %}
-          {% if page.url == node.url %}
-          <li class="active"><a href="#">{{ node.title }}</a></li>
-          {% else %}
-          <li><a href="{{ node.url | prepend: site.baseurl }}">{{ node.title }}</a></li>
+          {% if node.title != "Blog" or node.url == "/blog/index.html" %}
+            {% if page.title == node.title %}
+            <li class="active"><a href="#">{{ node.title }}</a></li>
+            {% elsif node.title == "Blog" %}
+            <li><a href="{{ "/blog/" | prepend: site.baseurl }}">{{ node.title }}</a></li>
+            {% else %}
+            <li><a href="{{ node.url | prepend: site.baseurl }}">{{ node.title }}</a></li>
+            {% endif %}
           {% endif %}
         {% endif %}
       {% endfor %}
