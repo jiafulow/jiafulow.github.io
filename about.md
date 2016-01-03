@@ -15,7 +15,7 @@ The subject of my dissertation is the search for the standard model Higgs boson
 decaying to bottom quarks in the associated production mode with a Z boson 
 decaying to neutrinos. My Ph.D. advisor is Dr. Jacobo Konigsberg. 
 Click <a href="{{ "/assets/pdf/cv_jiafu.pdf" | prepend: site.baseurl }}">here</a> 
-to read my curriculum vitae.
+to read my curriculum vitae (last updated Jan 2, 2016).
 
 You can find my GitHub and LinkedIn profiles below:
 {% include social_media_list.html %}
