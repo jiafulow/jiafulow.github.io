@@ -1,74 +1,50 @@
 /**
  * Body
  */
-.page, .home, .blog {
+.page, .home, .blog, .post {
   font-size: 16px;
-  line-height: 1.5;
-
-  min-height: 360px;
-}
-
-.post {
-  font-size: 16px;
+  font-weight: normal;
   line-height: 1.5;
 }
 
-h1,
-.h1 {
-  font-size: 42px;
-}
-h2,
-.h2 {
-  font-size: 34px;
-}
-h3,
-.h3 {
-  font-size: 28px;
-}
-h4,
-.h4 {
-  font-size: 20px;
-}
-h5,
-.h5 {
-  font-size: 16px;
-}
-h6,
-.h6 {
-  font-size: 14px;
-}
+h1, .h1 { font-size: 42px; }
+h2, .h2 { font-size: 34px; }
+h3, .h3 { font-size: 28px; }
+h4, .h4 { font-size: 20px; }
+h5, .h5 { font-size: 16px; }
+h6, .h6 { font-size: 14px; }
 
-@media (max-width: 767px) {
+/*
+ * Responsive - tablet
+ */
+@media screen and (max-width: 767px) {
   .page, .home, .blog, .post {
     font-size: 14px;
   }
 
-  h1,
-  .h1 {
-    font-size: 36px;
-  }
-  h2,
-  .h2 {
-    font-size: 30px;
-  }
-  h3,
-  .h3 {
-    font-size: 24px;
-  }
-  h4,
-  .h4 {
-    font-size: 18px;
-  }
-  h5,
-  .h5 {
-    font-size: 14px;
-  }
-  h6,
-  .h6 {
-    font-size: 12px;
-  }
+  h1, .h1 { font-size: 36px; }
+  h2, .h2 { font-size: 30px; }
+  h3, .h3 { font-size: 24px; }
+  h4, .h4 { font-size: 18px; }
+  h5, .h5 { font-size: 14px; }
+  h6, .h6 { font-size: 12px; }
 }
 
+/*
+ * Responsive - phone
+ */
+@media screen and (max-width: 359px) {
+  .page, .home, .blog, .post {
+    font-size: 12px;
+  }
+
+  h1, .h1 { font-size: 32px; }
+  h2, .h2 { font-size: 24px; }
+  h3, .h3 { font-size: 18px; }
+  h4, .h4 { font-size: 14px; }
+  h5, .h5 { font-size: 12px; }
+  h6, .h6 { font-size: 10px; }
+}
 
 /**
  * Links
@@ -101,18 +77,20 @@ a:focus {
 .post-meta {
   font-size: 14px;
   color: #828282; }
-
+/*
 .post-link {
   display: block; }
-
+*/
 .post-header {
-  margin-bottom: 25px; }
-
+  display:block;
+  margin-bottom: 30px; }
+/*
 .post-title {
   display: block; }
-
+*/
 .post-content {
-  margin-bottom: 25px; }
+  display:block;
+  margin-bottom: 30px; }
 
 .post-title a, a:hover, a:focus {
   color: #333; }

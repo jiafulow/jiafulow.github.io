@@ -2,13 +2,9 @@
  * Bootstrap starter template
  */
 
-body {
+html {
+  position: relative;
   min-height: 100%;
-}
-
-body > .container {
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 .navbar-static-top {
@@ -18,12 +14,22 @@ body > .container {
 
 .starter-template {
   /* Fixed container size */
-  max-width: 970px;
+  max-width: 720px;
+  float: none;
+  padding: 0;
+  margin: 0 auto;
+  /* Padding bottom by footer height */
+  padding-bottom: 60px;
 }
 
 .sticky-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   border-top: solid 1px #e7e7e7;
-  margin-top: 10px;
+}
+
+.sticky-footer > .container {
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 12px;

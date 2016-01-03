@@ -5,7 +5,11 @@ layout: default
 
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
-    <span class="post-meta">{{ page.date | date: "%b %-d, %Y  %r" }}{% if page.author %} &middot; {{ page.author }}{% endif %}{% if page.meta %} &middot; {{ page.meta }}{% endif %}</span>
+    <span class="post-meta">
+      {% if page.category %} in {{ page.category }} {% endif %}
+      on {{ page.date | date: "%b %-d, %Y  %r" }}.
+      {% if page.tags.size > 0 %} Tags: {{ page.tags | array_to_sentence_string }}{% endif %}
+    </span>
   </header>
 
   <article class="post-content">

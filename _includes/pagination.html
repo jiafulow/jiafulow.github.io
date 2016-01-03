@@ -4,8 +4,8 @@
   <div class="post">
 
     <header class="post-header">
-      <h1 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y  %r" }}{% if post.author %} &middot; {{ post.author }}{% endif %}{% if post.meta %} &middot; {{ post.meta }}{% endif %}</span>
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <h1 class="post-title" style="margin-top: 5px;"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
     </header>
 
     <article class="post-content">
