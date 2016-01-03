@@ -14,14 +14,10 @@ and my Ph.D. degree in Experimental Particle Physics from the University of Flor
 The subject of my dissertation is the search for the standard model Higgs boson 
 decaying to bottom quarks in the associated production mode with a Z boson 
 decaying to neutrinos. My Ph.D. advisor is Dr. Jacobo Konigsberg. 
-Click <a href="{{ "/assets/pdf/cv_jiafu.pdf" | prepend: site.baseurl }}">here</a> 
-to read my curriculum vitae (last updated Jan 2, 2016).
 
-You can find my GitHub and LinkedIn profiles below:
+My CV (and my contact info):
+{% include curriculum_vitae.html %}
+
+My profiles at social media:
 {% include social_media_list.html %}
-
-My contact information is listed in my <a href="{{ "/assets/pdf/cv_jiafu.pdf" | prepend: site.baseurl }}">CV</a>. 
-
-
-(This page was last updated on {{ page.date | date: "%b %-d, %Y" }}.)
 
