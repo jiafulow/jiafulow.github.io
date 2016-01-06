@@ -7,6 +7,12 @@
   line-height: 1.5;
 }
 
+.blog > .post-header, .post > .post-header {
+  text-align: center;
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 15px;
+}
+
 h1, .h1 { font-size: 42px; }
 h2, .h2 { font-size: 34px; }
 h3, .h3 { font-size: 28px; }
@@ -82,14 +88,14 @@ a:focus {
   display: block; }
 */
 .post-header {
-  display:block;
+  display: block;
   margin-bottom: 30px; }
 /*
 .post-title {
   display: block; }
 */
 .post-content {
-  display:block;
+  display: block;
   margin-bottom: 30px; }
 
 .post-title a, a:hover, a:focus {
