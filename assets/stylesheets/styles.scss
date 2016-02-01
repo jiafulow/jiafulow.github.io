@@ -133,11 +133,16 @@ body {
   background-color: $pager-bg;
   border-top: 1px solid $pager-border;
 }
-.footer > .container .text-muted {
+.footer p {
   margin: 10px 0 0 0;
-  font-size: $font-size-small;
-  color: $pager-disabled-color;
   text-align: center;
+  font-size: $font-size-small;
+}
+.text-muted {
+  color: $gray-light;
+  a, a:visited {
+    color: $brand-inverse;
+  }
 }
 
 // Posts
@@ -195,12 +200,19 @@ body {
   }
 }
 
+/* Social media */
 .social-media-list {
   list-style: none;
   margin-left: 0;
   padding-left: 20px;
 
   .fa {
-    color: $gray;
+    color: $gray-light;
   }
+}
+.my-fa-linkedin-square:before {
+  content: "\f08c";
+}
+.my-fa-twitter-square:before {
+  content: "\f081";
 }

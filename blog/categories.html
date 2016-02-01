@@ -29,10 +29,8 @@ permalink: /blog/categories/
                 <li class="post-list-item"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><br/>
                   <span class="post-meta"><time>{{ post.date | date: "%b %-d, %Y" }}</time>
                     {% if post.tags.size > 0 %}
-                    {% assign tags = post.tags | sort %}
-                    | Tagged 
-                    {% for tag in tags %}<a class="tag-link" href="/blog/tags#{{ tag | slugify }}">{{ tag }}</a>
-                    {% if forloop.last %}{% else %}, {% endif %}{% endfor %}
+                    {% assign tags_list = post.tags | sort: first %}
+                    | Tagged {% include tags_list.html %}
                     {% endif %}
                   </span>
                 </li>

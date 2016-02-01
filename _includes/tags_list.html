@@ -1,0 +1,6 @@
+{% assign my_array = "" | split:"|"  %}
+{% for tag in tags_list %}
+  {% capture my_element %}<a class="tag-link" href="/blog/tags/#{{ tag | slugify }}">{{ tag }}</a>{% endcapture %}
+  {% assign my_array = my_array | push: my_element %}
+{% endfor %}
+{{ my_array | join: ', ' }}
