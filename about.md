@@ -13,11 +13,12 @@ I received my Bachelor's degree in Physics from the University of Nebraska-Linco
 and my Ph.D. degree in Experimental Particle Physics from the University of Florida. 
 The subject of my dissertation is the search for the standard model Higgs boson 
 decaying to bottom quarks in the associated production mode with a Z boson 
-decaying to neutrinos. My Ph.D. advisor is Dr. Jacobo Konigsberg. 
+decaying to neutrinos. My Ph.D. advisor was Dr. Jacobo Konigsberg. 
 
-My CV (and my contact info):
+My CV:
+
 {% include curriculum_vitae.html %}
 
 My profiles at social media:
-{% include social_media_list.html %}
 
+{% include social_media_list.html %}

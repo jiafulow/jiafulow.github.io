@@ -1,0 +1,33 @@
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ "/assets/javascripts/jquery-1.12.0.min.js" | prepend: site.baseurl }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ "/assets/javascripts/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('[data-toggle="popover"]').popover();
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+
+    <!-- AnchorIS -->
+    <script src="{{ "/assets/javascripts/anchor-3.0.0.min.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript">
+      anchors.options = {
+        placement: 'left'
+      };
+      var selector = '.post-content > h2, .post-content > h3, .post-content > h4, .post-content > h5, .post-content > h6';
+      anchors.add(selector);
+    </script>
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>

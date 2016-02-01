@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
   {% include head.html %}
 
@@ -12,10 +12,8 @@
     {% include navbar.html %}
 
     <div class="container">
-      <div class="col-md-12 starter-template">
-        {{ content }}
-      </div>
-    </div>
+      {{ content }}
+    </div><!-- /.container -->
 
     {% comment %}
     {% include footer.html %}
@@ -23,7 +21,7 @@
 
     {% include footnote.html %}
 
-    {% include javascript.html %}
+    {% include javascripts.html %}
 
   </body>
 

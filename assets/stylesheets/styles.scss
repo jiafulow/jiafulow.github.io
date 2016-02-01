@@ -1,0 +1,200 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+// Override Bootstrap variables
+// --------------------------------------------------
+
+//== Colors
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20.0%) !default; // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 50.0%) !default; // #808080
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:          #AD2324 !default;
+
+//== Typography
+$font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, "Liberation Sans", "Segoe UI", Arial, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:   Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+$font-size-base:          16px !default;
+$font-size-large:         ceil(($font-size-base * 1.2)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-h1:            floor(($font-size-base * 2.4)) !default; // ~36px
+$font-size-h2:            floor(($font-size-base * 2.0)) !default; // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.5)) !default; // ~24px
+$font-size-h4:            $font-size-large !default;
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            $font-size-small !default;
+
+$line-height-base:        1.5 !default; // 24/16
+
+$headings-font-weight:    600 !default;
+$headings-line-height:    inherit !default;
+
+//== Navbar
+$navbar-inverse-color:                      rgba(255,255,255,.9) !default;
+$navbar-inverse-bg:                         $gray-darker !default;
+$navbar-inverse-border:                     $navbar-inverse-bg !default;
+
+$navbar-inverse-link-color:                 $navbar-inverse-color !default;
+$navbar-inverse-link-hover-color:           #fff !default;
+$navbar-inverse-link-hover-bg:              transparent !default;
+$navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;
+$navbar-inverse-link-active-bg:             lighten($navbar-inverse-bg, 10%) !default;
+
+$navbar-inverse-brand-color:                $navbar-inverse-link-color !default;
+$navbar-inverse-brand-hover-color:          $navbar-inverse-link-hover-color !default;
+$navbar-inverse-brand-hover-bg:             $navbar-inverse-link-hover-bg !default;
+
+$navbar-inverse-toggle-hover-bg:            $navbar-inverse-link-hover-bg !default;
+$navbar-inverse-toggle-icon-bar-bg:         $navbar-inverse-link-color !default;
+$navbar-inverse-toggle-border-color:        $navbar-inverse-border !default;
+
+//== Wells
+$well-bg:                     $gray-lighter !default;
+
+//== Code
+$code-color:                  $gray-dark !default;
+$code-bg:                     #f5f5f5 !default;
+
+$kbd-color:                   #555 !default;
+$kbd-bg:                      #fcfcfc !default;
+
+$pre-bg:                      #f5f5f5 !default;
+$pre-color:                   $gray-dark !default;
+$pre-border-color:            #ccc !default;
+$pre-scrollable-max-height:   340px !default;
+$pre-font-size:               14px !default;
+$pre-line-height:             20px !default;
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "bootstrap",
+        "syntax",
+        "anchor"
+;
+
+// Typography
+// -------------------------
+
+$web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700" !default;
+@import url($web-font-path);
+$font-awesome-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css";
+@import url($font-awesome-path);
+
+// Code
+// -------------------------
+
+pre {
+  font-size: $pre-font-size;
+  line-height: $pre-line-height;
+}
+
+// END Override Bootstrap variables
+// --------------------------------------------------
+
+// Navbar
+// -------------------------
+
+.navbar-nav > li > a, .navbar-brand {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: $font-size-small;
+  font-weight: 600;
+}
+
+
+// Footer
+// -------------------------
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 40px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  background-color: $pager-bg;
+  border-top: 1px solid $pager-border;
+}
+.footer > .container .text-muted {
+  margin: 10px 0 0 0;
+  font-size: $font-size-small;
+  color: $pager-disabled-color;
+  text-align: center;
+}
+
+// Posts
+// -------------------------
+
+/* Typography */
+.post {
+//  font-size: 16px;
+//  font-weight: normal;
+//  line-height: 1.5;
+}
+.post-title {
+//  font-size: 3em;
+  font-weight: normal;
+  line-height: 1.1em;
+  margin-bottom: 0.2em;
+}
+.post-meta {
+  color: #999;
+  font-size: 0.85em;
+
+  a, a:visited {
+    color: #555;
+  }
+}
+.post-header {
+  display: block;
+  margin-bottom: 30px;
+}
+.post-content {
+  display: block;
+  margin-bottom: 60px;
+}
+.post-header > .post-title, .post-header > .post-meta {
+  text-align: center;
+}
+
+/* Pagination */
+.pager {
+  margin-bottom: 60px;
+}
+
+/* Categories and Tags */
+.category-list,
+.tag-list,
+.post-list {
+  list-style: none;
+  margin-left: 0;
+
+  .glyphicon {
+    font-size: 0.85em;
+  }
+}
+
+.social-media-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 20px;
+
+  .fa {
+    color: $gray;
+  }
+}

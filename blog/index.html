@@ -3,12 +3,65 @@ layout: default
 title: Blog
 ---
 
-<div class="blog">
+<div class="blog-main blog-content">
 
-  <header class="post-header">
-    <h1 class="post-title">Blog</h1>
-  </header>
+  <!-- This loops through the paginated posts -->
+  {% for post in paginator.posts %}
+    <div class="post">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 
-  {% include pagination.html %}
+          <header class="post-header">
+            <h1 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
+            <p class="post-meta">Posted on <a href="{{ post.url | prepend: site.baseurl }}"><time>{{ post.date | date: "%b %-d, %Y" }}</time></a>
+              {% if post.categories.size > 0 %}
+              {% assign categories = post.categories | sort: first %}
+              in 
+              {% for category in categories %}<a class="category-link" href="/blog/categories#{{ category | slugify }}">{{ category }}</a>
+              {% if forloop.last %}{% else %}, {% endif %}{% endfor %}
+              {% endif %}
+              {% if post.tags.size > 0 %}
+              {% assign tags = post.tags | sort: first %}
+              | Tagged 
+              {% for tag in tags %}<a class="tag-link" href="/blog/tags#{{ tag | slugify }}">{{ tag }}</a>
+              {% if forloop.last %}{% else %}, {% endif %}{% endfor %}
+              {% endif %}
+            </p>
+          </header>
 
-</div>
+          <div class="post-content">
+            {{ post.content }}
+          </div>
+
+          {% if forloop.last %}{% else %}<hr class="post-separator">{% endif %}
+
+        </div><!-- /.col-md-8 -->
+      </div><!-- /.row -->
+    </div><!-- /.post -->
+
+  {% endfor %}
+
+  <!-- Pagination links -->
+  <nav>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+
+        <!-- In Jekyll, 'next' means older -->
+        <ul class="pager">
+          {% if paginator.previous_page %}
+          <li class="previous"><a href="{{ paginator.previous_page_path }}"><span aria-hidden="true">&larr;</span> Newer</a></li>
+          {% else %}
+          <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Newer</a></li>
+          {% endif %}
+          {% if paginator.next_page %}
+          <li class="next"><a href="{{ paginator.next_page_path }}">Older <span aria-hidden="true">&rarr;</span></a></li>
+          {% else %}
+          <li class="next disabled"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
+          {% endif %}
+        </ul>
+
+      </div><!-- /.col-md-8 -->
+    </div><!-- /.row -->
+  </nav>
+
+</div><!-- /.blog-main -->

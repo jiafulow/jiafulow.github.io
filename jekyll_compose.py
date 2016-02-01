@@ -7,8 +7,7 @@ import datetime
 
 # Configurations
 ext = 'md'
-#postdir = '_posts/'
-postdir = 'blog/_posts/'
+postdir = '_posts/'
 title = 'title me'
 content = 'write me'
 
@@ -27,14 +26,14 @@ def main():
 
   # Decide post name
   # Increment post number if multiple posts in one day
-  i = 1
-  filename = '%s-post-%i.%s' % (now.date(), i, ext)
+  i = 0
+  filename = '%s-entry.%s' % (now.date(), ext)
 
   while True:
     if filename not in os.listdir(postdir):
       break
     i += 1
-    filename = '%s-post-%i.%s' % (now.date(), i, ext)
+    filename = '%s-entry-%i.%s' % (now.date(), i, ext)
 
   writeme = [
     '---',

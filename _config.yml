@@ -4,12 +4,13 @@ author:
   name: Jia Fu Low
   email: jiafu.low@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  An awesome description here. 
+  An awesome description for an awesome site.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://jiafulow.github.io" # the base hostname & protocol for your site
 timezone: America/Chicago
 encoding: utf-8
 #safe: true
+#lsi: false
 
 exclude:
   - README.md
@@ -24,11 +25,30 @@ github_repo: https://github.com/jiafulow/jiafulow.github.io
 paginate: 5
 paginate_path: "/blog/page:num"
 
+# Blog permalink
+permalink: /blog/:year/:month/:day/:title/
+
 # Blog separator
 excerpt_separator: <!--more-->
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
+#markdown: kramdown
+#highlighter: pygments
+
+kramdown:
+  input: GFM
+
+redcarpet:
+  extensions: ["no_intra_emphasis", "tables", "fenced_code_blocks", "autolink", "strikethrough", "with_toc_data"]
+
+sass:
+  sass_dir: assets/stylesheets/
+  #style: compressed
 
 gems:
   - jemoji
+  - jekyll-mentions
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-feed
