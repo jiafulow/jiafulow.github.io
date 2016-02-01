@@ -14,6 +14,7 @@ $gray-light:             lighten($gray-base, 50.0%) !default; // #808080
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
 $brand-primary:          #AD2324 !default;
+$brand-inverse:          #1A3333 !default;
 
 //== Typography
 $font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, "Liberation Sans", "Segoe UI", Arial, sans-serif !default;
@@ -38,7 +39,8 @@ $headings-line-height:    inherit !default;
 
 //== Navbar
 $navbar-inverse-color:                      rgba(255,255,255,.9) !default;
-$navbar-inverse-bg:                         $gray-darker !default;
+//$navbar-inverse-bg:                         $gray-darker !default;
+$navbar-inverse-bg:                         $brand-inverse !default;
 $navbar-inverse-border:                     $navbar-inverse-bg !default;
 
 $navbar-inverse-link-color:                 $navbar-inverse-color !default;
@@ -69,13 +71,14 @@ $pre-bg:                      #f5f5f5 !default;
 $pre-color:                   $gray-dark !default;
 $pre-border-color:            #ccc !default;
 $pre-scrollable-max-height:   340px !default;
-$pre-font-size:               14px !default;
-$pre-line-height:             20px !default;
+$pre-font-size-base:          14px !default;
+$pre-font-size:               ceil(($pre-font-size-base * 0.9)) !default;
+$pre-line-height:             1.4 !default;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "bootstrap",
-        "syntax",
+        "pygments",
         "anchor"
 ;
 
@@ -153,11 +156,11 @@ body {
   margin-bottom: 0.2em;
 }
 .post-meta {
-  color: #999;
+  color: $gray-light;
   font-size: 0.85em;
 
   a, a:visited {
-    color: #555;
+    color: $brand-inverse;
   }
 }
 .post-header {
@@ -170,6 +173,9 @@ body {
 }
 .post-header > .post-title, .post-header > .post-meta {
   text-align: center;
+}
+.post-separator {
+  border-top-width: 3px;
 }
 
 /* Pagination */
