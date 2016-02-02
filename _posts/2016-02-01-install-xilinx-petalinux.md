@@ -45,29 +45,29 @@ The following is a super simple walkthrough of how to use PetaLinux tools.
 
 1. To create a PetaLinux project using [Zynq][5] for instance:
 
-    ``` sh
-    petalinux-create -t project -n MYPROJECT --template zynq
-    ```
+   ``` sh
+   petalinux-create -t project -n MYPROJECT --template zynq
+   ```
 
 2. Get hardware description from Vivado. The hardware description is usually exported by Vivado into e.g. MYVIVADOPROJECT.sdk of a Vivado project.
 
-    ``` sh
-    cd MYPROJECT
-    petalinux-config --get-hw-description=MYVIVADOPROJECT.sdk
-    ```
+   ``` sh
+   cd MYPROJECT
+   petalinux-config --get-hw-description=MYVIVADOPROJECT.sdk
+   ```
 
 3. Make necessary changes to rootfs and device tree (using `petalinux -c rootfs` or directly editing files under `subsystems/linux/configs/`). Then, build the embedded OS for Zynq:
 
-    ``` sh
-    petalinux-build
-    ```
+   ``` sh
+   petalinux-build
+   ```
 
 4. Make the SD card image:
 
-    ``` sh
-    cd images/linux
-    petalinux-package --boot --fsbl zynq_fsbl.elf --fpga system_wrapper.bit --uboot
-    ```
+   ``` sh
+   cd images/linux
+   petalinux-package --boot --fsbl zynq_fsbl.elf --fpga system_wrapper.bit --uboot
+   ```
 
 5. Copy `BOOT.BIN` and `image.ub` in that directory to the SD card and use the SD card to boot the Zynq hardware.
 
