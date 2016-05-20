@@ -56,3 +56,5 @@ gems:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-gist
+  - jekyll-seo-tag
