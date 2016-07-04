@@ -18,7 +18,7 @@ permalink: /blog/tags/
 
           <ul class="tag-list">
             <!-- This loops through the tags -->
-            {% assign tags = site.tags | sort: first %}
+            {% assign tags = site.tags | sort %}
             {% for tag in tags %}
             <li class="tag-list-item"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
               <span id="{{ tag[0] | slugify }}">{{ tag[0] }}</span>
