@@ -13,10 +13,14 @@ Xrootd is a service that allows the user to remotely read data located at variou
 Once you have a valid grid proxy (obtained by doing `voms-proxy-init --voms cms`), you can read a file on a remote site by using a ROOT command like.
 
 ``` sh
-TFile *f = TFile::Open("root://cmsxrootd.fnal.gov//store/mc/blah/blah/dataset.root");
+TFile *f = TFile::Open("root://cmsxrootd.fnal.gov//store/mc/path/to/file");
 ```
 
 The prefix `root://cmsxrootd.fnal.gov/` is known as the redirector. In this case, it is the Fermilab redirector. 
-The `/store/mc/...` is known as the Logical File Name (LFN) of the file, which is the global identifier of an official CMS dataset. 
+The `/store/mc/...` or `/store/data/...` is known as the Logical File Name (LFN) of the file, which is the global identifier of an official CMS dataset. 
 You can also access non-official files stored under `/store/user/username/...` at any CMS storage element that provides Xrootd service.
+If you want to download the file, you can do
 
+``` sh
+xrdcp root://cmsxrootd.fnal.gov//store/mc/path/to/file /some/local/path
+```
