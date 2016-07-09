@@ -1,12 +1,12 @@
 ---
 layout: post
 date: 2016-07-07 07:50:45
-title: XRootD
+title: Xrootd
 categories: [howto]
 tags: [ROOT, CMS]
 ---
 
-Xrootd is a service that allows the user to remotely read data located at various CMS sites. The protocol detail can be found at following TWiki pages:
+Xrootd is a service implemented in [ROOT](https://root.cern.ch/) that allows the user to remotely read data located at various CMS sites. The protocol detail can be found at following TWiki pages:
 
 - <https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookXrootdService>
 
