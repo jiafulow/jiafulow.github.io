@@ -18,7 +18,7 @@ permalink: /blog/categories/
 
           <ul class="category-list">
             <!-- This loops through the categories -->
-            {% assign categories = site.categories | sort: first %}
+            {% assign categories = site.categories | sort %}
             {% for category in categories %}
             <li class="category-list-item"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>
               <span id="{{ category[0] | slugify }}">{{ category[0] }}</span>
