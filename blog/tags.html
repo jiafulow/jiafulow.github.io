@@ -29,7 +29,7 @@ permalink: /blog/tags/
                 <li class="post-list-item"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><br/>
                   <span class="post-meta"><time>{{ post.date | date: "%b %-d, %Y" }}</time>
                     {% if post.tags.size > 0 %}
-                    {% assign tags_list = post.tags | sort: first %}
+                    {% assign tags_list = post.tags | sort %}
                     | Tagged {% include tags_list.html %}
                     {% endif %}
                   </span>

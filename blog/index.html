@@ -15,11 +15,11 @@ title: Blog
             <h1 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
             <p class="post-meta">Posted on <a href="{{ post.url | prepend: site.baseurl }}"><time>{{ post.date | date: "%b %-d, %Y" }}</time></a>
               {% if post.categories.size > 0 %}
-              {% assign categories_list = post.categories | sort: first %}
+              {% assign categories_list = post.categories | sort %}
               in {% include categories_list.html %}
               {% endif %}
               {% if post.tags.size > 0 %}
-              {% assign tags_list = post.tags | sort: first %}
+              {% assign tags_list = post.tags | sort %}
               | Tagged {% include tags_list.html %}
               {% endif %}
             </p>

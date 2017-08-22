@@ -49,7 +49,7 @@ sass:
   sass_dir: assets/stylesheets/
   #style: compressed
 
-gems:
+plugins:
   - jemoji
   - jekyll-mentions
   - jekyll-redirect-from
