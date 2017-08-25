@@ -2,8 +2,8 @@
 layout: post
 date: 2017-07-20 18:52:56
 title: EOS Utilities
-categories: [howto]
-tags: [CMSSW, CMS, eos, disk]
+categories: [bookmarks]
+tags: [CMS, LPC, eos]
 ---
 
 Useful links on EOS utilities at FNAL LPC:
