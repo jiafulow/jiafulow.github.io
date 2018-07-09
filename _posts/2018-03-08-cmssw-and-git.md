@@ -10,3 +10,4 @@ Useful links about Git:
 
 - <http://cms-sw.github.io/faq.html>
 - <https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial>
+- <https://indico.cern.ch/event/726620/> (Git/GitHub HATS@LPC May 2018)
