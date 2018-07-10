@@ -37,7 +37,7 @@ To validate the installation, try the following in python:
 
 ``` python
 import tensorflow as tf
-print(tensorflow.__version__)
+print(tf.__version__)
 # Output: 1.8.0
 hello = tf.constant('Hello, TensorFlow!')
 sess = tf.Session()
@@ -49,3 +49,8 @@ When you leave, you can call `source deactivate` to exit the `conda` environment
 
 Note that when  the `conda` environment isactivated, the `$PATH` is prepended with `<your-install-location>/envs/tensorflow_conda/bin`. In some cases, you might also want to prepend `$LD_LIBRARY_PATH` with `<your-install-location>/envs/tensorflow_conda/lib`. This will help `tensorflow` find and import all the necessary CUDA libraries such as `libcudart.so.XYZ`, `libcublas.so.XYZ`, `libcudnn.so.XYZ` and whatnot.
 
+Finally, to also install other machine learning-related libraries
+
+``` sh
+pip install -U pip keras sklearn matplotlib jupyter
+```
