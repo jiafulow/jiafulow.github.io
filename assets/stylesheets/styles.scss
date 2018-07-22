@@ -87,8 +87,10 @@ $pre-line-height:             1.4 !default;
 
 $web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700" !default;
 @import url($web-font-path);
-$font-awesome-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css";
+$font-awesome-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 @import url($font-awesome-path);
+$academicons-path: "https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css";
+@import url($academicons-path);
 
 // Code
 // -------------------------

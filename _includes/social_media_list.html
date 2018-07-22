@@ -4,21 +4,28 @@
     {% if site.github_username %}
     <li class="social-media-list-item">
       <i class="fa fa-github-square fa-lg"></i>
-      <a href="https://github.com/{{ site.github_username }}">{{ site.github_username }}</a>
+      <a href="https://github.com/{{ site.github_username }}">https://github.com/{{ site.github_username }}</a>
     </li>
     {% endif %}
   
     {% if site.linkedin_username %}
     <li class="social-media-list-item">
       <i class="fa my-fa-linkedin-square fa-lg"></i>
-      <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">{{ site.linkedin_username }}</a>
+      <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">https://www.linkedin.com/in/{{ site.linkedin_username }}</a>
     </li>
     {% endif %}
   
     {% if site.twitter_username %}
     <li class="social-media-list-item">
       <i class="fa my-fa-twitter-square fa-lg"></i>
-      <a href="https://twitter.com/{{ site.twitter_username }}">{{ site.twitter_username }}</a>
+      <a href="https://twitter.com/{{ site.twitter_username }}">https://twitter.com/{{ site.twitter_username }}</a>
+    </li>
+    {% endif %}
+
+    {% if site.orcid_username %}
+    <li class="social-media-list-item">
+      <i class="ai ai-orcid-square ai-lg"></i>
+      <a href="https://orcid.org/{{ site.orcid_username }}">https://orcid.org/{{ site.orcid_username }}</a>
     </li>
     {% endif %}
   
