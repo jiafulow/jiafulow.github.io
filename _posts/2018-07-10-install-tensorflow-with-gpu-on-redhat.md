@@ -24,12 +24,13 @@ sh Miniconda3-latest-Linux-x86_64.sh
 
 Accept the license, enter your preferred install location, then say 'yes' to prepend the install location to your `$PATH` environment variable.
 
-Once `conda` has been installed, now it's time to install Tensorflow. The instructions come from this [Tensorflow page](https://www.tensorflow.org/install/install_linux#InstallingAnaconda), but adapted a little bit for my purpose. I just downloaded the `tensorflow-gpu` package that is provided by Anaconda.
+Once `conda` has been installed, now it's time to install Tensorflow. The instructions come from this [Tensorflow page](https://www.tensorflow.org/install/install_linux#InstallingAnaconda), but adapted a little bit for my purpose. I just downloaded the `tensorflow-gpu` package that is [provided by Anaconda](https://anaconda.org/anaconda/tensorflow-gpu).
 
 ``` sh
 conda update conda
 conda create -n tensorflow_conda pip python=2.7
 source activate tensorflow_conda
+conda install -c anaconda cudatoolkit=9.0
 conda install -c anaconda tensorflow-gpu
 ```
 
@@ -49,8 +50,16 @@ When you leave, you can call `source deactivate` to exit the `conda` environment
 
 Note that when  the `conda` environment isactivated, the `$PATH` is prepended with `<your-install-location>/envs/tensorflow_conda/bin`. In some cases, you might also want to prepend `$LD_LIBRARY_PATH` with `<your-install-location>/envs/tensorflow_conda/lib`. This will help `tensorflow` find and import all the necessary CUDA libraries such as `libcudart.so.XYZ`, `libcublas.so.XYZ`, `libcudnn.so.XYZ` and whatnot.
 
-Finally, to also install other machine learning-related libraries
+Finally, to also install other machine learning-related libraries:
 
 ``` sh
-pip install -U pip keras sklearn matplotlib jupyter
+pip install -U pip
+pip install keras sklearn matplotlib jupyter
 ```
+
+In case you want to remove the environment:
+
+``` sh
+conda remove --name tensorflow_conda --all
+```
+
