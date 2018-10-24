@@ -16,7 +16,7 @@ Once you have a valid grid proxy (obtained by doing `voms-proxy-init --voms cms`
 TFile *f = TFile::Open("root://cmsxrootd.fnal.gov//store/mc/path/to/file");
 ```
 
-The prefix `root://cmsxrootd.fnal.gov/` is known as the redirector. In this case, it is the Fermilab redirector. 
+The prefix `root://cmsxrootd.fnal.gov/` is known as the redirector. In this case, it is the Fermilab redirector. There are also `root://xrootd-cms.infn.it/` for Europe regional redirector, and `root://cms-xrd-global.cern.ch/` for global redirector.
 The path `/store/mc/...` or `/store/data/...` is known as the Logical File Name (LFN), which is the global identifier of an official CMS dataset. 
 You can also access non-official files stored under `/store/user/username/...` at any CMS storage element that provides Xrootd service.
 To download the file, you can use `xrdcp`:
@@ -35,4 +35,10 @@ or:
 
 ```sh
 export X509_USER_PROXY=`voms-proxy-info -path`
+```
+
+To debug what's wrong with Xrootd, do 
+
+```sh
+export XRD_LOGLEVEL=Debug
 ```
