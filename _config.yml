@@ -34,6 +34,11 @@ permalink: /blog/:year/:month/:day/:title/
 # Blog separator
 excerpt_separator: <!--more-->
 
+# Collections
+collections:
+  permaposts:
+    output: true
+
 # Build settings
 #markdown: redcarpet
 markdown: kramdown
