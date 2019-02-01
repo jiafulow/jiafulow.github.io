@@ -3,7 +3,7 @@ layout: post
 date: 2018-03-08 16:58:23
 title: CMSSW and Git
 categories: [bookmarks]
-tags: [CMS, git]
+tags: [CMS, CMSSW, git]
 ---
 
 Useful links about Git:

@@ -3,7 +3,7 @@ layout: post
 date: 2016-10-31 15:58:22
 title: Branchless deltaPhi in C++
 categories: [codes]
-tags: [math, physics, cpp]
+tags: [programming, physics, cpp]
 ---
 
 I recently found that CMSSW has a very nice implementation of deltaPhi calculation with a very clever use of `std::round()`. See <https://github.com/cms-sw/cmssw/blob/CMSSW_8_1_X/DataFormats/Math/interface/deltaPhi.h>

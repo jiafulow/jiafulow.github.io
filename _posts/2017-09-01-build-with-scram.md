@@ -3,7 +3,7 @@ layout: post
 date: 2017-09-01 13:19:39
 title: Build with SCRAM
 categories: [howto]
-tags: [CMSSW, CMS]
+tags: [CMSSW, CMS, scram]
 ---
 
 [SCRAM](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram) is the tool used to compile/build [CMSSW](http://cms-sw.github.io/) projects. Every CMS user should be familiar with `scram b` which is basically like `make`. Here are a few tips beyond the basic `scram b`:

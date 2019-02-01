@@ -3,7 +3,7 @@ layout: post
 date: 2018-10-01 14:42:16
 title: Binary Cross Entropy in Tensorflow
 categories: [math]
-tags: [machine learning, neural network]
+tags: [machine learning, neural network, tensorflow]
 ---
 
 In Tensorflow, the binary cross entropy loss function is implemented in a way to ensure stability and avoid overflow. The formulation can be found in [the official doc](https://www.tensorflow.org/api_docs/python/tf/nn/sigmoid_cross_entropy_with_logits). But it's not very easy to follow when it's written in pseudo-code. So I decided to type it in TeX (replacing the notation $z$ by $y$).
