@@ -2,7 +2,7 @@
 layout: post
 date: 2017-08-22 14:04:35
 title: CMS Plot Styles
-categories: [howto]
+categories: [bookmarks]
 tags: [CMS, ROOT]
 ---
 
