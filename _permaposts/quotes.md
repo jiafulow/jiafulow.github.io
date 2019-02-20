@@ -11,3 +11,5 @@ My favorite quotes.
 - &ldquo;Premature optimization is the root of all evil.&rdquo; &ndash;&ndash; Donald Knuth (1974)
 
 - &ldquo;L'essenziale è invisibile agli occhi.&rdquo; &ndash;&ndash; Antoine de Saint-Exupéry (1943), translated
+
+- &ldquo;When you have eliminated the impossible, whatever remains, however improbable, must be the truth.&rdquo;  &ndash;&ndash; Sir Arthur Conan Doyle (1890)
