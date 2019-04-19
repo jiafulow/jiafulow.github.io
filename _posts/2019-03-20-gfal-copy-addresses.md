@@ -14,3 +14,5 @@ Here are some examples for CMS sites with GridFTP protocol:
 - UF: `gsiftp://cmsio.rc.ufl.edu//cms/data/store/user/...`
 
 A quick way to find out these addresses is to check the [CMS FTS monitoring](https://fts3.cern.ch:8449/fts3/ftsmon/#/) website.
+
+- If you have the 'fts_id', you can append it to the end of the URL: <https://fts3.cern.ch:8449/fts3/ftsmon/#/job/fts_id>
