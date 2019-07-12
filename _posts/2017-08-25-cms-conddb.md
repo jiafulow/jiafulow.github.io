@@ -3,7 +3,7 @@ layout: post
 date: 2017-08-25 15:18:22
 title: CMS Conditions Database
 categories: [bookmarks]
-tags: [CMS]
+tags: [CMS, conddb]
 ---
 
 CMS Conditions Database (CondDB):

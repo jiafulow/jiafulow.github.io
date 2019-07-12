@@ -3,7 +3,7 @@ layout: post
 date: 2019-03-29 17:43:49
 title: Bayesian statistics
 categories: [math]
-tags: [statistics]
+tags: [statistics, probability]
 ---
 
 This is just a note to self.
