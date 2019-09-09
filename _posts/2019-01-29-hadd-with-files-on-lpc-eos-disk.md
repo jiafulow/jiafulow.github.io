@@ -18,28 +18,23 @@ directories = [
 
 outfile = '/tmp/jiafu/ntuple.root'
 
-def call_cmd(cmd, shell=False):
-  if shell:
-    import subprocess
-    p = subprocess.call(cmd, shell=True)
-    return p
-  else:
-    import shlex, subprocess
-    p = subprocess.Popen(shlex.split(cmd), stdout=subprocess.PIPE)
-    lines = p.stdout.read().split()
-    return lines
+def call_cmd(cmd):
+  import shlex, subprocess
+  p = subprocess.Popen(shlex.split(cmd), stdout=subprocess.PIPE)
+  lines = p.stdout.read().split()
+  return lines
 
-# Find root files
-all_lines = []
-for directory in directories:
-  cmd = 'xrdfs root://cmseos.fnal.gov ls -u {0}'.format(directory)
-  lines = call_cmd(cmd)
-  lines = [line for line in lines if line.endswith('.root')]
-  all_lines += lines
-
-infiles = ' '.join(all_lines)
+def list_input_files(directories):
+  all_lines = []
+  for directory in directories:
+    cmd = 'xrdfs root://cmseos.fnal.gov ls -u {0}'.format(directory)
+    lines = call_cmd(cmd)
+    lines = [line for line in lines if line.endswith('.root')]
+    all_lines += lines
+  return ' '.join(all_lines)
 
 # Merge root files
+infiles = list_input_files(directories)
 cmd = 'hadd -f {0} {1}'.format(outfile, infiles)
 lines = call_cmd(cmd)
 #print '\n'.join(lines)
