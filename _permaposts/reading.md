@@ -4,8 +4,6 @@ title: Reading
 date: 2018-10-26
 ---
 
-Some of the best papers/articles/books I've read.
-
 - ["Google's secret and Linear Algebra"](http://verso.mat.uam.es/~pablo.fernandez/ems63-pablo-fernandez_final.pdf) by Pablo Fernández Gallardo (2004)
 
 <div class="text-indent">

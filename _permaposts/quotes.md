@@ -15,3 +15,5 @@ My favorite quotes.
 - &ldquo;When you have eliminated the impossible, whatever remains, however improbable, must be the truth.&rdquo; &ndash;&ndash; Sir Arthur Conan Doyle (1890)
 
 - &ldquo;Some people, when confronted with a problem, think "I know, I'll use regular expressions." Now they have two problems.&rdquo; &ndash;&ndash; Jamie Zawinski (1997)
+
+- &ldquo;non di solo pane vive l'uomo.&rdquo; &ndash;&ndash; Italian proverb
