@@ -17,3 +17,5 @@ My favorite quotes.
 - &ldquo;Some people, when confronted with a problem, think "I know, I'll use regular expressions." Now they have two problems.&rdquo; &ndash;&ndash; Jamie Zawinski (1997)
 
 - &ldquo;non di solo pane vive l'uomo.&rdquo; &ndash;&ndash; Italian proverb
+
+- &ldquo;There's nothing more permanent than a temporary hack.&rdquo; &ndash;&ndash; Kyle Simpson
