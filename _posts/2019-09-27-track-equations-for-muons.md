@@ -16,7 +16,7 @@ $$
 z(r) = z_{0} + \cot{\theta} \left[2R \sin^{-1}\left(\frac{r}{2R}\right)\right]
 $$
 
-where $R = \frac{p_{\mathrm{T}}}{0.003 B}$, $R$ and $r$ are in cm and $B$ is in Tesla. A muon with $p_{\mathrm{T}} = 2~\text{GeV}$ in the CMS experiment ($B = 3.8~\text{T}$) has $R = 1.75~\text{m}$.
+where $R = \frac{p_{\mathrm{T}}}{0.003 B}$, $R$ and $r$ are in cm and $B$ is the magnetic field in Tesla. The constant 0.003 is the speed of light multiplied by the necessary conversion factors. A muon with $p_{\mathrm{T}} = 2~\text{GeV}$ in the CMS experiment ($B = 3.8~\text{T}$) has $R = 1.75~\text{m}$.
 
 In the endcap geometry, the track equations are:
 
@@ -38,6 +38,7 @@ $$
 
 For the endcap muon trigger in CMS, one has to take into account several considerations:
 
+- Detector planes perpendicular (instead of parallel) to the solenoid magnetic field;
 - Significant multiple scattering;
 - Significant energy loss;
 - Neutron background;
