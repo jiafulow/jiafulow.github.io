@@ -33,7 +33,10 @@ where $R \cot{\theta} = \frac{p_{\mathrm{z}}}{0.003 B}$, $z$ is in cm. By the wa
 When considering a vertex-unconstrained fit, with transverse impact parameter $d_{0} \neq 0$, the $\phi_{r}$ equation becomes:
 
 $$
-\phi(r) \approx \phi_{0} - \frac{r}{2R} - \frac{d_{0}}{r}
+\begin{align*}
+\sin(\phi - \phi_{0}) &= -\frac{r}{2R} \frac{\left(1-{d_{0}}^2/r^2\right)}{\left(1 + d_{0}/R\right)} - \frac{d_{0}}{r}  \\
+  &\approx -\frac{r}{2R} - \frac{d_{0}}{r}
+\end{align*}
 $$
 
 For the endcap muon trigger in CMS, one has to take into account several considerations:
