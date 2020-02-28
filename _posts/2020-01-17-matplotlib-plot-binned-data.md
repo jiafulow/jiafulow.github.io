@@ -13,14 +13,14 @@ I found that the [rootpy](http://www.rootpy.org/) project has implemented method
 Based on the example, I wrote some simple functions that take binned data that exist as a Numpy array and plot it using Matplotlib `hist` or `hist2d`.
 
 ``` python
-def hist_on_binned_array(hist, edges, ax=None):
+def hist_on_binned_array(hist, edges, ax=None, **kwargs):
   if ax is None:
     ax = plt.gca()
   x = (edges[1:] + edges[:-1])/2
-  h, edges, patches = ax.hist(x, weights=hist, bins=edges)
+  h, edges, patches = ax.hist(x, weights=hist, bins=edges, **kwargs)
   return h, edges, patches
 
-def hist2d_on_binned_array(hist, xedges, yedges, ax=None, cmap=None, vmin=None, vmax=None, colorbar=False):
+def hist2d_on_binned_array(hist, xedges, yedges, colorbar=False, ax=None, **kwargs):
   if ax is None:
     ax = plt.gca()
   xdata = (xedges[1:] + xedges[:-1])/2
@@ -29,7 +29,7 @@ def hist2d_on_binned_array(hist, xedges, yedges, ax=None, cmap=None, vmin=None, 
   x = xv.ravel()
   y = yv.ravel()
   z = hist.T.ravel()
-  h, xedges, yedges, im = ax.hist2d(x, y, weights=z, bins=(xedges, yedges), cmap=cmap, vmin=vmin, vmax=vmax)
+  h, xedges, yedges, im = ax.hist2d(x, y, weights=z, bins=(xedges, yedges), **kwargs)
   if colorbar:
     cb = ax.figure.colorbar(im, ax=ax)
   return h, xedges, yedges, im
