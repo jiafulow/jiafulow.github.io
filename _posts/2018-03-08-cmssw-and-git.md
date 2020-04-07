@@ -2,7 +2,7 @@
 layout: post
 date: 2018-03-08 16:58:23
 title: CMSSW and Git
-categories: [bookmarks]
+categories: [howto]
 tags: [CMS, CMSSW, git]
 ---
 

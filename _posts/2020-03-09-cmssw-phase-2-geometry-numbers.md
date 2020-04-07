@@ -2,7 +2,7 @@
 layout: post
 date: 2020-03-09 16:18:27
 title: "CMSSW Phase-2 geometry numbering"
-categories: [bookmarks]
+categories: [howto]
 tags: [cms, cmssw]
 ---
 
