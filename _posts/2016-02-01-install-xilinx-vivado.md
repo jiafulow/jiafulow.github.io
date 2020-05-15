@@ -3,7 +3,7 @@ layout: post
 date: 2016-02-01 02:11:31.413289
 title: Install Xilinx Vivado 2015.4 on Ubuntu 14.04
 categories: [howto]
-tags: [fpga, linux, ubuntu, trusty tahr, xilinx, vivado, SDK]
+tags: [fpga, linux, ubuntu, trusty tahr, xilinx, vivado]
 ---
 
 The user guide for Xilinx Vivado 2015.4 installation is **[UG973][1]**. More info about Vivado Design Suite can be found on [Xilinx Products][2] page.

@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2017-11-08 14:18:40
-title: CMS Global Tag
+title: CMSSW GlobalTag
 categories: [bookmarks]
 tags: [CMSSW, CMS]
 ---

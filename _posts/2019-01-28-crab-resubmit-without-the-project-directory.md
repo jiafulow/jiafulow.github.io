@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2019-01-28 12:12:45
-title: CRAB resubmit without the project directory
+title: "CRAB: Resubmit without the project directory"
 categories: [howto]
 tags: [CMS, CMSSW, crab, grid]
 ---

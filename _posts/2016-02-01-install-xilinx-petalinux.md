@@ -3,7 +3,7 @@ layout: post
 date: 2016-02-01 02:11:32.313692
 title: Install Xilinx PetaLinux 2015.4 on Ubuntu 14.04
 categories: [howto]
-tags: [embedded linux, linux, ubuntu, trusty tahr, xilinx, petalinux, SDK, zynq]
+tags: [embedded linux, linux, ubuntu, trusty tahr, xilinx, petalinux, zynq]
 ---
 
 The user guide for Xilinx PetaLinux 2015.4 installation is **[UG1144][1]**. It is best used together with Xilinx Vivado 2015.4 version (see my last post about how to install Vivado). More info about PetaLinux embedded OS can be found on [Xilinx Products][2] page, and on the [Xilinx Wiki][3] site.
