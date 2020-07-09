@@ -6,9 +6,9 @@ categories: [codes]
 tags: [python, numpy]
 ---
 
-When you split your task into multiple jobs, you would need a way to merge the output files. ROOT allows you to merge files using the [hadd](https://root.cern.ch/how/how-merge-histogram-files) program. It finds the histograms and trees in the ROOT files and merges them. 
+When you split your task into multiple jobs, you would need a way to merge the output files. ROOT allows you to merge files using the [hadd](https://root.cern.ch/how/how-merge-histogram-files) program. It finds the histograms and trees from multiple ROOT files and merges them. 
 
-As I started to move away from ROOT to the python environment, I kind of miss hadd. So I wrote a script that emulates it to merge numpy arrays from multiple .npz files. It can be used in the following way (I named the script as 'hadd_npz.py'):
+As I started to move away from ROOT to the python environment, I kind of miss hadd. So I wrote a script that emulates it to merge numpy arrays from multiple .npz files. It can be used in the following way (I named the script as `hadd_npz.py`):
 
 ```
 python hadd_npz.py out_add.npz out_*.npz
@@ -51,7 +51,7 @@ class Hadd(object):
         for k in data.files:
           self.d[k].append(data[k])
 
-    # Merge via np.vstack()
+    # Merge arrays via np.vstack()
     print('hadding...')
     for k, v in self.d.iteritems():
       vv = np.vstack(v)
