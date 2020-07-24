@@ -18,4 +18,4 @@ My favorite quotes.
 
 - &ldquo;non di solo pane vive l'uomo.&rdquo; &ndash;&ndash; Italian proverb
 
-- &ldquo;There's nothing more permanent than a temporary hack.&rdquo; &ndash;&ndash; Kyle Simpson
+- &ldquo;There is nothing more permanent than a temporary hack.&rdquo; &ndash;&ndash; Kyle Simpson (2015)
