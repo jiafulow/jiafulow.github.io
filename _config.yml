@@ -2,7 +2,7 @@
 title: Jia Fu Low
 author:
   name: Jia Fu Low
-  email: jiafu.low@gmail.com
+  email: jia.fu.low@cern.ch
 description: > # this means to ignore newlines until "baseurl:"
   An awesome description for an awesome site.
 baseurl: "" # the subpath of your site, e.g. /blog/
@@ -43,10 +43,13 @@ collections:
 #markdown: redcarpet
 markdown: kramdown
 #highlighter: pygments
+highlighter: rouge
 
 kramdown:
   input: GFM
   hard_wrap: false
+  math_engine: mathjax
+  syntax_highlighter: rouge
 
 redcarpet:
   extensions: ["no_intra_emphasis", "tables", "fenced_code_blocks", "autolink", "strikethrough", "with_toc_data"]
