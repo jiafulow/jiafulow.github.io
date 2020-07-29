@@ -11,3 +11,17 @@ CMSConnect is a more powerful alternative to condor that allows users to submit 
 - <https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCMSConnect>
 - <http://connect.uscms.org/>
 - <http://docs.uscms.org/CMS+Connect+Quickstart>
+
+When using the CMSConnect, one has to specify the "project" name in the submit script. For UF, it is:
+
+```
++ProjectName="cms.org.ufl"
+```
+
+To submit jobs to SLC7 machines, one has to specify:
+
+```
++REQUIRED_OS="rhel7"
+```
+
+I'm using the [CMSConnet "client"](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCMSConnect#Using_the_Connect_client) on UF HiPerGator as it is the only way to submit condor jobs from there.

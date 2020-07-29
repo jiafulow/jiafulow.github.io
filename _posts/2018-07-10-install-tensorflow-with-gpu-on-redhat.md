@@ -3,7 +3,7 @@ layout: post
 date: 2018-07-10 11:11:21
 title: Install Tensorflow with GPU support on Red Hat Linux
 categories: [howto]
-tags: [linux, redhat, machine learning, tensorflow, python, conda, GPU]
+tags: [linux, rhel, centos, machine learning, tensorflow, python, conda, anaconda]
 ---
 
 I had the chance to play with [Tensorflow](https://www.tensorflow.org/), a high performance machine learning framework/library originally developed by Google. These are my installation notes.
