@@ -62,5 +62,17 @@ conda remove --name tf --all
 To update conda:
 
 ``` bash
-conda update conda
+conda update -n base conda
+```
+
+The conda equivalent of `pip freeze > requirements.txt`:
+
+``` bash
+conda env export > environment.yml
+```
+
+And the conda equivalent of `pip install -r requirements.txt`:
+
+``` bash
+conda env create -f environment.yml
 ```
