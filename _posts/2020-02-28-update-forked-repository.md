@@ -11,7 +11,7 @@ When you fork a repository on GitHub, you get a copy of the upstream repository.
 - <https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork>
 - <https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/merging-an-upstream-repository-into-your-fork>
 
-Suppose you start by forking a repo, and `git clone` from the forked repo (as opposed to the upstream repo). In your working area, if you do `git remote -v`, you should see something like:
+Suppose you start by forking a repo, and `git clone` from the forked repo (as opposed to the upstream repo). If you do `git remote -v` in your working area, you should see something like:
 
 ``` shell
 git remote -v
@@ -19,13 +19,13 @@ git remote -v
 #  origin git@github.com:YOUR_USERNAME/YOUR_FORK (push)
 ```
 
-You want to add a new remote repo (upstream):
+Now, you want to add the upstream as a new remote:
 
 ``` shell
 git remote add upstream git@github.com:ORIGINAL_OWNER/ORIGINAL_REPOSITORY
 ```
 
-You can verify that you have added it successfully by doing `git remote -v` again.
+To verify that you have added it successfully, you can do `git remote -v` again.
 
 Suppose the branch you want to update is the 'master' branch. In your working area, the master branch is pointing to the fork remote, not to the upstream remote. This can be confusing. To avoid the confusion, I suggest to rename the existing master branch into something else:
 
@@ -33,7 +33,7 @@ Suppose the branch you want to update is the 'master' branch. In your working ar
 git branch -m YOUR_BRANCH
 ```
 
-You can verify that you have renamed it successfully by doing `git branch`.
+To verify that you have renamed it successfully, you can do `git branch`.
 
 Push this branch to the fork remote:
 
@@ -41,14 +41,14 @@ Push this branch to the fork remote:
 git push -u origin YOUR_BRANCH
 ```
 
-Now checkout the master branch from the upstream remote. From now on, the master branch is pointing to the upstream remote:
+Then, check out the master branch from the upstream remote. From now on, the master branch is pointing to the upstream remote:
 
 ``` shell
 git fetch upstream
 git checkout -t upstream/master
 ```
 
-Push this recreated master branch to your fork remote, overwriting what is still there:
+Push this recreated master branch to your fork remote, overwriting what is currently there:
 
 ``` shell
 git push --force origin master
@@ -63,9 +63,3 @@ git pull
 git push origin master
 ```
 
-To apply the changes from `master` to `YOUR_BRANCH`:
-
-``` shell
-git checkout YOUR_BRANCH
-git merge master
-```
