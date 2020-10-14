@@ -16,6 +16,8 @@ tags: [bash, linux]
 
 ### Git
 
+- Pro Git book: <https://git-scm.com/book/en/v2>
+
 ### Regex
 
 - Regular expressions cheat sheet: <https://cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/>

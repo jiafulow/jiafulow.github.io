@@ -22,16 +22,18 @@ The number of bits of the data types can affect the resource usage. For instance
 - `ap_uint<65>` (65-bit unsigned integer)
 
 The library also supports fixed-point data types. Examples of how to define them (the two template arguments denote the total num of bits and the num of integer bits; the difference being the num of fractional bits):
-- `ap_fixed<11, 6>` (11-bit signed word, 6 integer bits)
-- `ap_ufixed<12, 11>` (12-bit unsigned word, 1 fractional bit)
+- `ap_fixed<11, 6>` (11-bit signed word, 6 integer bits, 5 fractional bits)
+- `ap_ufixed<12, 11>` (12-bit unsigned word, 11 integer bits, 1 fractional bit)
+
+The bit widths can be accessed at compile time by `ap_[u]int<W>::width` and by `ap_[u]fixed<W,I>::width` and `ap_[u]fixed<W,I>::iwidth`.
 
 When assigning a value from a narrower word to a wider one, the value is sign-extended if the source variable is signed; the value is zero-extended if the source variable is unsigned. When assigning a value from a wider word to a narrower one, the bits beyond the most significant bit (MSB) of the destination variable are truncated. It doesn't matter if the destination variable is signed or unsigned.
 
 In addition, the library also provides useful bit manipulation methods such as:
 - `length()` returns the number of bits.
 - `sign()` returns `true` if negative; `false` if positive.
-- `operator [] (int bit)` returns the specified bit.
-- `range(unsigned Hi, unsigned Lo)` or `operator () (unsigned Hi, unsigned Lo)` returns the value represented by the specified range of bits.
+- `operator [] (int bit)` returns the specified bit. The least significant bit (LSB) has index 0, the most significant bit (MSB) has index W - 1.
+- `range(unsigned Hi, unsigned Lo)` or `operator () (unsigned Hi, unsigned Lo)` returns the value represented by the specified range of bits. If Hi has a value less than Lo, the bits are returned in reverse order.
 - `test(unsigned i)` returns `true` if the specified bit is 1; `false` otherwise.
 - `set(unsigned i, bool v)` sets the specified bit to the boolean value.
 - `set(unsigned i)` sets the specified bit to the value 1.
