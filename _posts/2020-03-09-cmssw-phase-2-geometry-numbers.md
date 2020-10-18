@@ -3,7 +3,7 @@ layout: post
 date: 2020-03-09 16:18:27
 title: "CMSSW Phase-2 geometry numbering"
 categories: [howto]
-tags: [cms, cmssw]
+tags: [CMS, CMSSW, CMS Upgrade]
 ---
 
 The various Phase-2 geometry descriptions are documented in [Configuration/Geometry/README.md](https://github.com/cms-sw/cmssw/blob/master/Configuration/Geometry/README.md).
