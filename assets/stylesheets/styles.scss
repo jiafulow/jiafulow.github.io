@@ -17,9 +17,9 @@ $brand-primary:          #AD2324 !default;
 $brand-inverse:          #1A3333 !default;
 
 //== Typography
-$font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, "Liberation Sans", "Segoe UI", Arial, sans-serif !default;
+$font-family-sans-serif:  "Segoe UI", Roboto, "Helvetica Neue", "Liberation Sans", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
-$font-family-monospace:   Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-monospace:   SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 
 $font-size-base:          16px !default;
 $font-size-large:         ceil(($font-size-base * 1.2)) !default; // ~18px
@@ -85,11 +85,11 @@ $pre-line-height:             1.4 !default;
 // Typography
 // -------------------------
 
-$web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700" !default;
-@import url($web-font-path);
-$font-awesome-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+//$font-awesome-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+$font-awesome-path: "font-awesome.min.css";
 @import url($font-awesome-path);
-$academicons-path: "https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css";
+//$academicons-path: "https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css";
+$academicons-path: "academicons.min.css";
 @import url($academicons-path);
 
 // Code

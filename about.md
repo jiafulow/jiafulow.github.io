@@ -34,8 +34,3 @@ My CV:
 My online profiles:
 
 {% include social_media_list.html %}
-
-My appearances on media:
-
-{% include media_appearances.html %}
-
