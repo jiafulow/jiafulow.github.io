@@ -4,6 +4,8 @@ title: Reading
 date: 2018-10-26
 ---
 
+Some recommended reading.
+
 - [Triggering on Heavy Flavors at Hadron Colliders](https://doi.org/10.1146/annurev.nucl.012809.104501) (<a href="{{ "/assets/papers/annurev.nucl.012809.104501.pdf" | prepend: site.baseurl }}">copy</a>) by Luciano Ristori and Giovanni Punzi. (2010)
 
 <div class="text-indent">
