@@ -60,10 +60,16 @@ $$
 \operatorname{softminus}(x) = \min(0, x) - \log(1 + e^{-|x|})
 $$
 
-While for the sigmoid function, you can simply call $\tanh(x)$, because $\tanh(x)$ is just a scaled $\operatorname{sigmoid}(x)$.
+While for the sigmoid function, you can simply call the hyperbolic tangent function, because $\tanh(x)$ is just a scaled $\operatorname{sigmoid}(x)$.
 
 $$
 \operatorname{sigmoid}(x) = \frac{1}{2} \left[1 + \tanh\left(\frac{x}{2}\right)\right]
+$$
+
+As a reminder, $\tanh(x)$ is defined as:
+
+$$
+\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \frac{1 - e^{-2x}}{1 + e^{-2x}}
 $$
 
 All these functions are easily written with NumPy.
@@ -77,7 +83,11 @@ softminus = lambda x: x - softplus(x)
 
 sigmoid = lambda x: 1 / (1 + np.exp(-x))
 
-logit = lambda x: np.log(x / (1 - x))
+one_minus_sigmoid = lambda x: 1 / (1 + np.exp(x))
+
+logit = lambda x: np.log(x) - np.log1p(-x)
+
+softplusinv = lambda x: np.log(np.expm1(x))
 
 safe_softplus = lambda x: x * (x >= 0) + np.log1p(np.exp(-np.abs(x)))
 
@@ -85,7 +95,7 @@ safe_softminus = lambda x: x * (x < 0) - np.log1p(np.exp(-np.abs(x)))
 
 safe_sigmoid = lambda x: 0.5 * (1 + np.tanh(0.5 * x))
 
-softplusinv = lambda x: np.log(np.expm1(x))
+safe_one_minus_sigmoid = lambda x: 0.5 * (1 + np.tanh(0.5 * -x))
 ```
 
 

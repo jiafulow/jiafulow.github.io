@@ -55,6 +55,7 @@ I also find these resources from Xilinx very useful:
 
 - <https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_2/ug871-vivado-high-level-synthesis-tutorial.pdf>
 - <https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_2/ug902-vivado-high-level-synthesis.pdf>
+- <https://www.xilinx.com/support/documentation/sw_manuals/ug998-vivado-intro-fpga-design-hls.pdf>
 - <https://github.com/Xilinx/HLS-Tiny-Tutorials>
 - <https://xilinx.github.io/Vitis_Accel_Examples/master/html/cpp.html>
 - <https://www.xilinx.com/html_docs/xilinx2020_2/vitis_doc/hls_pragmas.html>
