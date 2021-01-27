@@ -10,7 +10,14 @@ CMSConnect is a more powerful alternative to condor that allows users to submit 
 
 - <https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCMSConnect>
 - <http://connect.uscms.org/>
-- <http://docs.uscms.org/CMS+Connect+Quickstart>
+- <https://ci-connect.atlassian.net/wiki/spaces/CMS/overview>
+  - <https://ci-connect.atlassian.net/wiki/spaces/CMS/pages/6783080/CMS+Connect+Quickstart>
+  - <https://ci-connect.atlassian.net/wiki/spaces/CMS/pages/23691271/Proxy+Certificates>
+  - <https://ci-connect.atlassian.net/wiki/spaces/CMS/pages/27000849/Quick+Condor+Tutorial>
+
+In particular, this page shows how to add the public SSH key to your account:
+
+- [https://ci-connect.atlassian.net/wiki/spaces/CMS/pages/57436024/Generate...](https://ci-connect.atlassian.net/wiki/spaces/CMS/pages/57436024/Generate+SSH+key+pair+and+add+the+public+key+to+your+account)
 
 When using the CMSConnect, one has to specify the "project" name in the submit script. For UF, it is:
 
