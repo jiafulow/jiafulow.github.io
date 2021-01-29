@@ -16,6 +16,9 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 $brand-primary:          #AD2324 !default;
 $brand-inverse:          #1A3333 !default;
 
+//== Scaffolding
+$body-bg:               #f9f9f9 !default;
+
 //== Typography
 $font-family-sans-serif:  "Segoe UI", Roboto, "Helvetica Neue", "Liberation Sans", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
@@ -57,17 +60,20 @@ $navbar-inverse-toggle-hover-bg:            $navbar-inverse-link-hover-bg !defau
 $navbar-inverse-toggle-icon-bar-bg:         $navbar-inverse-link-color !default;
 $navbar-inverse-toggle-border-color:        $navbar-inverse-border !default;
 
+//== Pagination
+$pagination-bg:                        $body-bg !default;
+
 //== Wells
 $well-bg:                     $gray-lighter !default;
 
 //== Code
 $code-color:                  $gray-dark !default;
-$code-bg:                     #f5f5f5 !default;
+$code-bg:                     $gray-lighter !default;
 
 $kbd-color:                   #555 !default;
 $kbd-bg:                      #fcfcfc !default;
 
-$pre-bg:                      #f5f5f5 !default;
+$pre-bg:                      #fff !default;
 $pre-color:                   $gray-dark !default;
 $pre-border-color:            #ccc !default;
 $pre-scrollable-max-height:   340px !default;
