@@ -2,7 +2,7 @@
 layout: post
 date: 2019-07-03 10:12:29
 title: "TensorFlow in CMSSW"
-categories: [howto]
+categories: [notes]
 tags: [CMS, CMSSW, tensorflow, machine learning, cpp]
 ---
 

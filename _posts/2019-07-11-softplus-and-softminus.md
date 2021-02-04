@@ -89,6 +89,8 @@ logit = lambda x: np.log(x) - np.log1p(-x)
 
 softplusinv = lambda x: np.log(np.expm1(x))
 
+softminusinv = lambda x: x - np.log(-np.expm1(x))
+
 safe_softplus = lambda x: x * (x >= 0) + np.log1p(np.exp(-np.abs(x)))
 
 safe_softminus = lambda x: x * (x < 0) - np.log1p(np.exp(-np.abs(x)))

@@ -3,7 +3,7 @@ layout: post
 date: 2020-12-30 17:35:44
 title: "Running Python tasks in parallel"
 categories: [notes]
-tags: [python, parallel computing]
+tags: [python, multithreading, multiprocessing]
 ---
 
 There are many options to run Python tasks in parallel. This provides a brief description for some of the options.

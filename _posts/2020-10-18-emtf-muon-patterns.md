@@ -3,7 +3,7 @@ layout: post
 date: 2020-10-18 10:34:56
 title: EMTF muon patterns
 categories: [notes]
-tags: [CMS, EMTF, track finder, muon trigger, pattern recognition]
+tags: [CMS, EMTF, track finder, muon, muon trigger, pattern recognition]
 ---
 
 In EMTF, pattern recognition is done using a set of pre-defined patterns to detect muon trigger primitives from the 4 CSC stations that are consistent with the signatures of a muon. Initially, a set of 9 patterns were used. These patterns have different shapes which separate muons of different p<sub>T</sub> and charges. Each pattern is assigned a "straightness" code which is larger for a straighter pattern. Later (around Sept 2016), a smaller set of patterns have been adopted. This new set contains only 5 patterns and does not distinguish the muon charges. The original set of patterns is called "asymmetric", while the new set is called "symmetric". One can think of the symmetric patterns as the "OR" of the asymmetric patterns of the same straightness. They are illustrated below.

@@ -3,7 +3,7 @@ layout: post
 date: 2020-10-19 21:10:45
 title: CSC muon patterns (Run-1,2)
 categories: [notes]
-tags: [CMS, CSC, trigger primitive finder, pattern recognition]
+tags: [CMS, CSC, muon, muon trigger, pattern recognition]
 ---
 
 A CSC chamber consists of 6 detector layers. A set of pre-defined patterns are used to detect muons from the 6-layer coincidence in the "comparator" digis. The patterns used for CLCT and ALCT comparator digis during Run-1 & Run-2 are illustrated below. They will be replaced by a new set of patterns in the upcoming Run-3.
