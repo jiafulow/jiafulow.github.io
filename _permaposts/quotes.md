@@ -31,3 +31,5 @@ My favorite quotes.
 - &ldquo;I think there is a world market for maybe five computers.&rdquo; &ndash;&ndash; Thomas Watson (1943)
 
 - &ldquo;There are only two kinds of languages: the ones people complain about and the ones nobody uses.&rdquo; &ndash;&ndash; Bjarne Stroustrup
+
+- &ldquo;In time, every post tends to be occupied by an employee who is incompetent to carry out its duties.&rdquo; &ndash;&ndash; Laurence J. Peter & Raymond Hull (1969)
