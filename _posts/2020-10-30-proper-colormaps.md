@@ -16,8 +16,11 @@ Proper colormaps for scientific plots (not [rainbow](https://www.climate-lab-boo
   - <https://peterkovesi.com/projects/colourmaps/>
 - Scientific colour maps:
   - <http://www.fabiocrameri.ch/colourmaps.php>
+- The yt project:
+  - <https://yt-project.org/doc/visualizing/colormaps/index.html>
 
 References:
 
 - D. Borland and R. M. Taylor Ii, [Rainbow color map (still) considered harmful](https://doi.org/10.1109/MCG.2007.323435), IEEE Computer Graphics and Applications 27 (2007) 2, 14-17.
+- R. Kosara, [How the Rainbow color map misleads](https://eagereyes.org/basics/rainbow-color-map), <https://eagereyes.org/basics/rainbow-color-map> (2013).
 - F. Crameri, G.E. Shephard, and P.J. Heron, [The misuse of colour in science communication](https://doi.org/10.1038/s41467-020-19160-7), Nature Commun. 11 (2020) 1, 5444.

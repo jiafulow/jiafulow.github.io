@@ -3,7 +3,7 @@ layout: post
 date: 2019-01-28 12:12:45
 title: "CRAB: Resubmit without the project directory"
 categories: [howto]
-tags: [CMS, CMSSW, crab, grid]
+tags: [CMS, CMSSW, crab, grid computing]
 ---
 
 The CRAB project directory is the directory that is created when you make a new CRAB project (i.e. when you do `crab submit`). Sometimes you might have removed the project directory too quickly, before you realize that you want to resubmit some of the jobs. But without the project directory, you cannot call `crab resubmit`.

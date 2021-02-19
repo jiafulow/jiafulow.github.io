@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2018-07-10 11:11:21
-title: Install Tensorflow with GPU support on Red Hat Linux
+title: Install TensorFlow with GPU support on Red Hat Linux
 categories: [howto]
 tags: [linux, rhel, centos, machine learning, tensorflow, python, conda, anaconda]
 ---

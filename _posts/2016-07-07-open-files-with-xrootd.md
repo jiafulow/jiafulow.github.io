@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2016-07-07 07:50:45
-title: Xrootd
+title: Open files with Xrootd
 categories: [howto]
 tags: [ROOT, CMS]
 ---

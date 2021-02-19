@@ -45,7 +45,7 @@ Note that the Vivado HLS tool only provides estimates for resource usage. To get
 
 Also note that Vivado HLS defines the macro `__SYNTHESIS__` when synthesis is performend. This can be used to exclude non-synthesizable code, such as `std::cout`.
 
-Also note that Vivado HLS (v2019.2) uses gcc 4.6.3, which has support for C++11 via the flag `-std=c++0x`. By default, the C simulation is performed in debug mode.
+Also note that Vivado HLS (v2020.1) uses gcc 4.6.3, which has support for C++11 via the flag `-std=c++0x`. By default, the C simulation is performed in debug mode. *EDIT*: Vivado HLS has been discontinued since v2020.1. It has been replaced by Vitis HLS.
 
 Also note that for C/RTL co-simulation, the default tool is xsim and the default language used for RTL is Verilog.
 
@@ -53,8 +53,8 @@ Also note that for C/RTL co-simulation, the default tool is xsim and the default
 
 I also find these resources from Xilinx very useful:
 
-- <https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_2/ug871-vivado-high-level-synthesis-tutorial.pdf>
-- <https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_2/ug902-vivado-high-level-synthesis.pdf>
+- <https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_1/ug871-vivado-high-level-synthesis-tutorial.pdf>
+- <https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_1/ug902-vivado-high-level-synthesis.pdf>
 - <https://www.xilinx.com/support/documentation/sw_manuals/ug998-vivado-intro-fpga-design-hls.pdf>
 - <https://github.com/Xilinx/HLS-Tiny-Tutorials>
 - <https://xilinx.github.io/Vitis_Accel_Examples/master/html/cpp.html>

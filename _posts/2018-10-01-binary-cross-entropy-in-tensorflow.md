@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2018-10-01 14:42:16
-title: Binary Cross Entropy in Tensorflow
+title: Binary cross entropy in TensorFlow
 categories: [math]
 tags: [machine learning, neural network, tensorflow]
 ---

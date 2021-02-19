@@ -3,7 +3,7 @@ layout: post
 date: 2016-07-04 12:31:56
 title: cmsDriver
 categories: [bookmarks]
-tags: [CMSSW, CMS, generator]
+tags: [CMSSW, CMS, event simulation]
 ---
 
 `cmsDriver.py` is a tool in [CMSSW](http://cms-sw.github.io/) that is used to create workflows for sample generation. Its syntax and usage are explained in the following TWiki pages:

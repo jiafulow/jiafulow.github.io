@@ -3,7 +3,7 @@ layout: post
 date: 2019-02-01 14:07:01
 title: CMSConnect
 categories: [bookmarks]
-tags: [CMS, CMSSW, grid]
+tags: [CMS, CMSSW, grid computing]
 ---
 
 CMSConnect is a more powerful alternative to condor that allows users to submit jobs to multiple sites on the CMS computing grid.

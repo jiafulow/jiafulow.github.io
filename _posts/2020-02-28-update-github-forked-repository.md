@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2020-02-28 14:32:59
-title: "Update forked repository"
+title: "Update GitHub forked repository"
 categories: [howto]
 tags: [git, github]
 ---

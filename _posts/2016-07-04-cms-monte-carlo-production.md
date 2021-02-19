@@ -3,7 +3,7 @@ layout: post
 date: 2016-07-04 12:31:56
 title: CMS Monte Carlo Production
 categories: [howto]
-tags: [CMSSW, CMS, generator]
+tags: [CMSSW, CMS, event simulation]
 ---
 
 [McM](https://cms-pdmv.cern.ch/mcm/) is a webpage used for CERN CMS Monte Carlo Request Management. It is documented at:
