@@ -12,6 +12,7 @@ $gray-dark:              lighten($gray-base, 20.0%) !default; // #333
 $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             lighten($gray-base, 50.0%) !default; // #808080
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+$gray-lightest:          lighten($gray-base, 96.5%) !default; // #f6f6f6
 
 $brand-primary:          #AD2324 !default;
 $brand-inverse:          #1A3333 !default;
@@ -73,13 +74,16 @@ $code-bg:                     $gray-lighter !default;
 $kbd-color:                   #555 !default;
 $kbd-bg:                      #fcfcfc !default;
 
-$pre-bg:                      #fff !default;
+$pre-bg:                      $gray-lightest !default;
 $pre-color:                   $gray-dark !default;
 $pre-border-color:            #ccc !default;
 $pre-scrollable-max-height:   340px !default;
 $pre-font-size-base:          14px !default;
 $pre-font-size:               ceil(($pre-font-size-base * 0.9)) !default;
 $pre-line-height:             1.4 !default;
+
+//== Type
+$blockquote-font-size:        $font-size-base !default;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
