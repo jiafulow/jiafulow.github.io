@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2016-07-04 12:31:56
-title: cmsDriver
+title: Event generation with cmsDriver
 categories: [bookmarks]
 tags: [CMSSW, CMS, event simulation]
 ---

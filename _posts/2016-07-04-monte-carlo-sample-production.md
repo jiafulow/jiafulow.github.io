@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2016-07-04 12:31:56
-title: CMS Monte Carlo Production
+title: Monte Carlo sample production
 categories: [howto]
 tags: [CMSSW, CMS, event simulation]
 ---
