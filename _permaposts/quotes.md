@@ -12,6 +12,8 @@ My favorite quotes.
 
 - &ldquo;Premature optimization is the root of all evil.&rdquo; &ndash;&ndash; Donald Knuth (1974)
 
+- &ldquo;When in doubt, use brute force.&rdquo; &ndash;&ndash; Ken Thompson
+
 - &ldquo;Be conservative in what you do, be liberal in what you accept from others.&rdquo; &ndash;&ndash; Jon Postel (1981)
 
 - &ldquo;L'essenziale è invisibile agli occhi.&rdquo; &ndash;&ndash; Antoine de Saint-Exupéry (1943), translated
@@ -31,5 +33,7 @@ My favorite quotes.
 - &ldquo;I think there is a world market for maybe five computers.&rdquo; &ndash;&ndash; Thomas Watson (1943)
 
 - &ldquo;There are only two kinds of languages: the ones people complain about and the ones nobody uses.&rdquo; &ndash;&ndash; Bjarne Stroustrup
+
+- &ldquo;There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies.&rdquo; &ndash;&ndash; C.A.R. Hoare (1980)
 
 - &ldquo;In time, every post tends to be occupied by an employee who is incompetent to carry out its duties.&rdquo; &ndash;&ndash; Laurence J. Peter & Raymond Hull (1969)
