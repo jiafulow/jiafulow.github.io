@@ -1,9 +1,9 @@
 ---
 layout: post
 date: 2019-09-13 17:02:29
-title: "Grid tools on the UF HiPerGator"
+title: "Grid tools on UF HiPerGator"
 categories: [howto]
-tags: [grid computing, crab, hipergator, cvmfs]
+tags: [UF, grid computing, crab, cvmfs]
 ---
 
 Recently I moved my codes to the UF HiPerGator machines (also referred to as the HPC machines) which are running RHEL 7. Info about HiPerGator can be found on:
