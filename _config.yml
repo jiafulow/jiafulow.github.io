@@ -1,5 +1,5 @@
 # Site settings
-title: Jia Fu Low
+title: jf
 author:
   name: Jia Fu Low
   email: jia.fu.low@cern.ch
@@ -60,7 +60,6 @@ sass:
 
 plugins:
   - jemoji
-  - jekyll-mentions
   - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-feed
