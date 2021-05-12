@@ -22,11 +22,12 @@ From the discussion in this [pull request](https://github.com/cms-sw/cmssw/pull/
 git cms-addpkg Utilities/StaticAnalyzers
 ```
 
-Then, call `scram b`.
+Then, call `scram b` with certain environment variables.
 
 ``` bash
 export USER_CXXFLAGS="-DEDM_ML_DEBUG -w"
 export USER_LLVM_CHECKERS="-enable-checker threadsafety -enable-checker optional.ClassChecker -enable-checker cms -disable-checker cms.FunctionDumper"
 scram b -k -j $(nproc) checker
 ```
-The static analyzer results can be viewed in a web browser.
+
+The static analyzer results can be viewed in a web browser. See also: <https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideStaticAnalyzer>.
