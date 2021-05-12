@@ -11,7 +11,7 @@ tags: [CMS, LPC, eos, file transfer]
 This is just a note for myself. The following are the addresses that I always use (with the [GridFTP](https://opensciencegrid.org/docs/data/gridftp/) protocol):
 
 - LPC: `gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/...`
-- UF: `gsiftp://cmsio.rc.ufl.edu//cms/data/store/user/...`
+- UF: `gsiftp://cmsio.rc.ufl.edu//cmsuf/data/store/user/...`
 
 A quick way to find out these addresses is to check the CMS [FTS monitoring](https://fts3.cern.ch:8449/fts3/ftsmon/#/) website.
 

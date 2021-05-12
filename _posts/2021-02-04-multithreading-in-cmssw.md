@@ -9,8 +9,8 @@ tags: [CMS, CMSSW, multithreading]
 Documentation about how to do multithreading in the CMSSW framework can be found at the following twikis:
 
 - [Types of Modules in the Threaded Framework](https://twiki.cern.ch/twiki/bin/view/CMSPublic/FWMultithreadedFrameworkModuleTypes)
-  - [C++ Interface Description for Stream Modules](https://twiki.cern.ch/twiki/bin/view/CMSPublic/FWMultithreadedFrameworkStreamModuleInterface)
-  - [C++ Interface Description for Global Modules](https://twiki.cern.ch/twiki/bin/view/CMSPublic/FWMultithreadedFrameworkGlobalModuleInterface)
+  - [C++ Interface Description for Stream Modules](https://twiki.cern.ch/twiki/bin/view/CMSPublic/FWMultithreadedFrameworkStreamModuleInterface) (typically used for EDProducer and EDFilter)
+  - [C++ Interface Description for Global Modules](https://twiki.cern.ch/twiki/bin/view/CMSPublic/FWMultithreadedFrameworkGlobalModuleInterface) (typically used for EDAnalyzer and OutputModule)
   - [C++ Interface Description for One Modules](https://twiki.cern.ch/twiki/bin/view/CMSPublic/FWMultithreadedFrameworkOneModuleInterface)
 - [Framework and Event Data Model Offline Guide](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideFrameWork#Multithreading)
 
@@ -22,11 +22,12 @@ From the discussion in this [pull request](https://github.com/cms-sw/cmssw/pull/
 git cms-addpkg Utilities/StaticAnalyzers
 ```
 
-Then, call `scram b`.
+Then, call `scram b` with certain environment variables.
 
 ``` bash
 export USER_CXXFLAGS="-DEDM_ML_DEBUG -w"
 export USER_LLVM_CHECKERS="-enable-checker threadsafety -enable-checker optional.ClassChecker -enable-checker cms -disable-checker cms.FunctionDumper"
 scram b -k -j $(nproc) checker
 ```
-The static analyzer results can be viewed in a web browser.
+
+The static analyzer results can be viewed in a web browser. See also: <https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideStaticAnalyzer>.

@@ -20,3 +20,4 @@ For the documentation for SCRAM, see:
 
 - <https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram>
 - <https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideBuildFile>
+- <https://scram.readthedocs.io/>
