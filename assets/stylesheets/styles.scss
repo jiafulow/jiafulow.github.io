@@ -110,6 +110,10 @@ pre {
   line-height: $pre-line-height;
 }
 
+a code {
+  color: $link-color;
+}
+
 // END Override Bootstrap variables
 // --------------------------------------------------
 
@@ -235,9 +239,10 @@ body {
 /* Markdown */
 .post-content table {
     display: block;
+    overflow: auto;
     width: 100%;
     max-width: 100%;
-    overflow: auto;
+    margin-bottom: $line-height-computed;
 }
 .post-content table th {
     font-weight: 600;
