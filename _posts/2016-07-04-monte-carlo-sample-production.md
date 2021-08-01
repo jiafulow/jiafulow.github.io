@@ -25,3 +25,6 @@ When the DAS web interface is not working, one can also do the search from the c
 
 A quicker way is simply editing the URL:
 - e.g. <https://cms-pdmv.cern.ch/mcm/requests?produce=/TTJets_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISpring16DR80-PUSpring16RAWAODSIM_80X_mcRun2_asymptotic_2016_v3-v2/RAWAODSIM>
+
+There is also a list of all the official campaigns:
+- <https://github.com/CMSCompOps/WmAgentScripts/blob/master/campaigns.json>

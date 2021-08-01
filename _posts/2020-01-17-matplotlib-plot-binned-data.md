@@ -13,25 +13,27 @@ I found that the [rootpy](http://www.rootpy.org/) project has implemented method
 Based on the example, I wrote some simple functions that take binned data that exist as a Numpy array and plot it using Matplotlib `hist` or `hist2d`.
 
 ``` python
-def hist_on_binned_array(hist, edges, ax=None, **kwargs):
+def hist_on_binned_data(hist, edges, ax=None, **kwargs):
+  from matplotlib.pyplot import gca
   if ax is None:
-    ax = plt.gca()
-  x = (edges[1:] + edges[:-1])/2
+    ax = gca()
+  x = (edges[1:] + edges[:-1]) / 2
   h, edges, patches = ax.hist(x, weights=hist, bins=edges, **kwargs)
-  return h, edges, patches
+  return (h, edges, patches)
 
-def hist2d_on_binned_array(hist, xedges, yedges, colorbar=False, ax=None, **kwargs):
+def hist2d_on_binned_data(hist, xedges, yedges, colorbar=False, ax=None, **kwargs):
+  from matplotlib.pyplot import gca
   if ax is None:
-    ax = plt.gca()
-  xdata = (xedges[1:] + xedges[:-1])/2
-  ydata = (yedges[1:] + yedges[:-1])/2
+    ax = gca()
+  xdata = (xedges[1:] + xedges[:-1]) / 2
+  ydata = (yedges[1:] + yedges[:-1]) / 2
   xv, yv = np.meshgrid(xdata, ydata)
   x = xv.ravel()
   y = yv.ravel()
   z = hist.T.ravel()
-  h, xedges, yedges, im = ax.hist2d(x, y, weights=z, bins=(xedges, yedges), **kwargs)
+  h, xedges, yedges, image = ax.hist2d(x, y, weights=z, bins=(xedges, yedges), **kwargs)
   if colorbar:
-    cb = ax.figure.colorbar(im, ax=ax)
-  return h, xedges, yedges, im
+    cb = ax.figure.colorbar(image, ax=ax)
+  return (h, xedges, yedges, image)
 ```
 
