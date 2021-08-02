@@ -10,7 +10,9 @@ There are a number of "Don't do this" when working with the FNAL LPC EOS disk. T
 
 Recently I had to merge root files (using `hadd`) in multiple directories on EOS, and it turned out to be not so straight forward using the EOS or Xrootd commands. So I had to do some python, listed below.
 
-``` python
+```
+#!/usr/bin/env python
+
 directories = [
   '/eos/uscms/store/group/l1upgrades/L1MuonTrigger/P2_10_4_0/SingleMuon_Overlap_4GeV/ParticleGuns/CRAB3/190125_014345/0000/',
   '/eos/uscms/store/group/l1upgrades/L1MuonTrigger/P2_10_4_0/SingleMuon_Overlap_4GeV/ParticleGuns/CRAB3/190125_014345/0001/',
@@ -33,10 +35,10 @@ def list_input_files(directories):
     all_lines += lines
   return ' '.join(all_lines)
 
-# Merge root files
-infiles = list_input_files(directories)
-cmd = 'hadd -f {0} {1}'.format(outfile, infiles)
-lines = call_cmd(cmd)
-#print '\n'.join(lines)
+# Main
+if __name__ == '__main__':
+  infiles = list_input_files(directories)
+  cmd = 'hadd -f {0} {1}'.format(outfile, infiles)
+  lines = call_cmd(cmd)
+  #print '\n'.join(lines)
 ```
-

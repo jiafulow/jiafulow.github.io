@@ -3,7 +3,7 @@ layout: post
 date: 2019-02-17 12:53:51
 title: Merge arrays from multiple npz files
 categories: [codes]
-tags: [python, numpy]
+tags: [python, numpy, programming]
 ---
 
 When splitting your task into multiple jobs, you'll need a way to merge the output files. ROOT allows you to merge files using the [hadd](https://web.archive.org/web/20171120164643/https://root.cern.ch/how/how-merge-histogram-files) program.
