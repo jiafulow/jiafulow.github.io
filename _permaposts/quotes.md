@@ -41,3 +41,9 @@ My favorite quotes.
 - &ldquo;In time, every post tends to be occupied by an employee who is incompetent to carry out its duties.&rdquo; (a.k.a. [Peter's Corollary](https://en.wikipedia.org/wiki/Peter_principle)) &ndash;&ndash; Laurence J. Peter & Raymond Hull (1969)
 
 - &ldquo;When a measure becomes a target, it ceases to be a good measure.&rdquo; (a.k.a. [Goodhart's law](https://en.wikipedia.org/wiki/Goodhart%27s_law)) &ndash;&ndash; Marilyn Strathern (1997)
+
+- &ldquo;In an information-rich world, the wealth of information means a dearth of something else: a scarcity of whatever it is that information consumes. What information consumes is rather obvious: it consumes the attention of its recipients. Hence a wealth of information creates a poverty of attention and a need to allocate that attention efficiently among the overabundance of information sources that might consume it.&rdquo; &ndash;&ndash; Herbert A. Simon (1971)
+
+- &ldquo;Conservatism consists of exactly one proposition, to wit: There must be in-groups whom the law protects but does not bind, alongside out-groups whom the law binds but does not protect.&rdquo; &ndash;&ndash; Frank Wilhoit (2018)
+
+- &ldquo;If that is so, it remains for us to live as though it were not so.&rdquo; &ndash;&ndash; H. G. Wells (1895)
