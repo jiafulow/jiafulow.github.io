@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: ''
 subtitle: ''
 description: ''
 keywords:
 author: ''
-language: en
+language: en-US
 timezone: ''
 
 # URL
@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: minimal
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
