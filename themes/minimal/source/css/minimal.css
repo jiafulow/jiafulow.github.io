@@ -1,18 +1,67 @@
+/* ---------------- */
+/* Dark Mode Styles */
+/* ---------------- */
+:root {
+    /* Fonts */
+    --font-family-base: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-family-code: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+    --font-size-base: 14px;
+    --font-size-small: 11px;
+    --font-size-h1: 28px;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* General Colors */
+    --bg-color: #1a1a1a;
+    --font-color: #cccccc;
+    --border-color: #383838;
+
+    /* Heading Colors */
+    --heading-color-primary: #f0f0f0;
+    --heading-color-secondary: #e0e0e0;
+    --heading-color-tertiary: #d0d0d0;
+
+    /* Link Colors */
+    --link-color: #8ab4f8;
+    --link-hover-color: #a6c8ff;
+    --link-color-small: #bbbbbb;
+
+    /* Specific Component Colors */
+    --code-bg-color: #282828;
+    --code-font-color: #e0e0e0;
+    --downloads-bg: #222222;
+    --downloads-border: #444444;
+    --downloads-a-active-bg: #333333;
+
+    /* KBD Colors */
+    --kbd-bg: #333d46;
+    --kbd-border: #5d6771;
+    --kbd-border-bottom: #6f7a85;
+    --kbd-box-shadow: #6f7a85;
+    --kbd-font-color: #e0e0e0;
+
+    /* Optional */
+    color-scheme: dark;
+}
+
 body {
-    background-color: #fff;
+    background-color: var(--bg-color);
     padding: 50px;
-    font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #727272;
-    font-weight: 400;
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    font-family: var(--font-family-base);
+    color: var(--font-color);
+    font-weight: var(--font-weight-normal);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #222;
-    margin: 0 0 20px;
+    color: var(--heading-color-primary);
+    margin-bottom: 20px;
 }
 
 p, ul, ol, table, pre, dl {
-    margin: 0 0 20px;
+    margin-bottom: 20px;
 }
 
 h1, h2, h3 {
@@ -20,36 +69,36 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 28px;
+    font-size: var(--font-size-h1);
 }
 
 h2 {
-    color: #393939;
+    color: var(--heading-color-secondary);
 }
 
 h3, h4, h5, h6 {
-    color: #494949;
+    color: var(--heading-color-tertiary);
 }
 
 a {
-    color: #267CB9;
+    color: var(--link-color);
     text-decoration: none;
 }
 
 a:hover, a:focus {
-    color: #069;
-    font-weight: bold;
+    color: var(--link-hover-color);
+    font-weight: var(--font-weight-bold);
 }
 
 a small {
-    font-size: 11px;
-    color: #777;
+    font-size: var(--font-size-small);
+    color: var(--link-color-small);
     margin-top: -0.3em;
     display: block;
 }
 
 a:hover small {
-    color: #777;
+    color: var(--link-color-small);
 }
 
 .wrapper {
@@ -58,22 +107,22 @@ a:hover small {
 }
 
 blockquote {
-    border-left: 1px solid #e5e5e5;
+    border-left: 1px solid var(--border-color);
     margin: 0;
     padding: 0 0 0 20px;
     font-style: italic;
 }
 
 code, pre {
-    font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
-    color: #333;
+    font-family: var(--font-family-code);
+    color: var(--code-font-color);
 }
 
 pre {
     padding: 8px 15px;
-    background: #f8f8f8;
+    background: var(--code-bg-color);
     border-radius: 5px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--border-color);
     overflow-x: auto;
 }
 
@@ -85,16 +134,16 @@ table {
 th, td {
     text-align: left;
     padding: 5px 10px;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid var(--border-color);
 }
 
 dt {
-    color: #444;
-    font-weight: 700;
+    color: var(--heading-color-tertiary);
+    font-weight: var(--font-weight-bold);
 }
 
 th {
-    color: #444;
+    color: var(--heading-color-tertiary);
 }
 
 img {
@@ -102,14 +151,14 @@ img {
 }
 
 kbd {
-    background-color: #fafbfc;
-    border: 1px solid #c6cbd1;
-    border-bottom-color: #959da5;
+    background-color: var(--kbd-bg);
+    border: 1px solid var(--kbd-border);
+    border-bottom-color: var(--kbd-border-bottom);
     border-radius: 3px;
-    box-shadow: inset 0 -1px 0 #959da5;
-    color: #444d56;
+    box-shadow: inset 0 -1px 0 var(--kbd-box-shadow);
+    color: var(--kbd-font-color);
     display: inline-block;
-    font-size: 11px;
+    font-size: var(--font-size-small);
     line-height: 10px;
     padding: 3px 5px;
     vertical-align: middle;
@@ -126,16 +175,16 @@ ul.downloads {
     list-style: none;
     height: 40px;
     padding: 0;
-    background: #f4f4f4;
+    background: var(--downloads-bg);
     border-radius: 5px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--downloads-border);
     width: 270px;
 }
 
 .downloads li {
     width: 89px;
     float: left;
-    border-right: 1px solid #e0e0e0;
+    border-right: 1px solid var(--downloads-border);
     height: 40px;
 }
 
@@ -149,8 +198,8 @@ ul.downloads {
 
 .downloads a {
     line-height: 1;
-    font-size: 11px;
-    color: #676767;
+    font-size: var(--font-size-small);
+    color: var(--link-color-small);
     display: block;
     text-align: center;
     padding-top: 6px;
@@ -158,17 +207,17 @@ ul.downloads {
 }
 
 .downloads a:hover, .downloads a:focus {
-    color: #675C5C;
-    font-weight: bold;
+    color: #b3b3b3; /* Keeping this specific color as it's not a general variable */
+    font-weight: var(--font-weight-bold);
 }
 
 .downloads ul a:active {
-    background-color: #f0f0f0;
+    background-color: var(--downloads-a-active-bg);
 }
 
 strong {
-    color: #222;
-    font-weight: 700;
+    color: var(--heading-color-primary);
+    font-weight: var(--font-weight-bold);
 }
 
 .downloads li + li + li {
@@ -177,9 +226,9 @@ strong {
 }
 
 .downloads a strong {
-    font-size: 14px;
+    font-size: var(--font-size-base);
     display: block;
-    color: #222;
+    color: var(--heading-color-primary);
 }
 
 section {
@@ -189,12 +238,12 @@ section {
 }
 
 small {
-    font-size: 11px;
+    font-size: var(--font-size-small);
 }
 
 hr {
     border: 0;
-    background: #e5e5e5;
+    background: var(--border-color);
     height: 1px;
     margin: 0 0 20px;
 }
@@ -207,6 +256,51 @@ footer {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
+/* ----------------- */
+/* Light Mode Styles */
+/* ----------------- */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* General Colors */
+        --bg-color: #fff;
+        --font-color: #727272;
+        --border-color: #e5e5e5;
+
+        /* Heading Colors */
+        --heading-color-primary: #222;
+        --heading-color-secondary: #393939;
+        --heading-color-tertiary: #494949;
+
+        /* Link Colors */
+        --link-color: #267CB9;
+        --link-hover-color: #069;
+        --link-color-small: #777;
+
+        /* Specific Component Colors */
+        --code-bg-color: #f8f8f8;
+        --code-font-color: #333;
+        --downloads-bg: #f4f4f4;
+        --downloads-border: #e0e0e0;
+        --downloads-a-active-bg: #f0f0f0;
+
+        /* KBD Colors */
+        --kbd-bg: #fafbfc;
+        --kbd-border: #c6cbd1;
+        --kbd-border-bottom: #959da5;
+        --kbd-box-shadow: #959da5;
+        --kbd-font-color: #444d56;
+
+        /* Optional */
+        color-scheme: light;
+    }
+
+    /* Specific overrides for hardcoded colors that weren't generalized into variables */
+    .downloads a:hover, .downloads a:focus {
+        color: #675C5C;
+    }
+}
+
+/* Media Queries */
 @media print, screen and (max-width: 960px) {
     div.wrapper {
         width: auto;
@@ -224,7 +318,7 @@ footer {
     }
 
     section {
-        border: 1px solid #e5e5e5;
+        border: 1px solid var(--border-color);
         border-width: 1px 0;
         padding: 20px 0;
         margin: 0 0 20px;
