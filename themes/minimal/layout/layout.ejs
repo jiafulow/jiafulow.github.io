@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><% if (page.title){ %><%= page.title %> | <% } %><%= config.title %></title>
+    <title><% if (page.title){ %><%= page.title %><% } %><% if (config.title){ %> | <%= config.title %><% } %></title>
+
+    <meta name="color-scheme" content="dark light">
     <% if (config.highlight.enable){ %>
       <%- css('https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css') %>
     <% } %>
+    <%- css('css/minireset.css') %>
     <%- css('css/minimal.css') %>
-    <% if (theme.fancybox){ %>
-      <%- css('fancybox/jquery.fancybox.min.css') %>
-    <% } %>
-    <%- css('https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css') %>
   </head>
   <body>
     <div class="wrapper">
       <header>
+        <img class="avatar" src="/css/images/avatar.jpg" alt="">
+        <p class="username"><%= config.username %></p>
       </header>
       <section>
       <%- body %>
       </section>
       <footer>
+        <p>&copy; <span id="current-year"></span> My Awesome Website. All rights reserved.</p>
       </footer>
+
+      <script>
+        // Optional: Dynamically update the copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+      </script>
     </div>
   </body>
 </html>
