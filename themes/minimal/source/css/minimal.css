@@ -32,6 +32,7 @@
     --downloads-bg: #222222;
     --downloads-border: #444444;
     --downloads-a-active-bg: #333333;
+    --username-color: #9198a1;
 
     /* KBD Colors */
     --kbd-bg: #333d46;
@@ -165,7 +166,7 @@ kbd {
 }
 
 header {
-    width: 270px;
+    width: 300px;
     float: left;
     position: fixed;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -231,8 +232,25 @@ strong {
     color: var(--heading-color-primary);
 }
 
+.avatar {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    display: block;
+    vertical-align: middle;
+}
+
+.username {
+    font-size: 20px;
+    font-style: normal;
+    line-height: 24px;
+    color: var(--username-color);
+}
+
 section {
-    width: 500px;
+    width: 470px;
     float: right;
     padding-bottom: 50px;
 }
@@ -282,6 +300,7 @@ footer {
         --downloads-bg: #f4f4f4;
         --downloads-border: #e0e0e0;
         --downloads-a-active-bg: #f0f0f0;
+        --username-color: #59636e;
 
         /* KBD Colors */
         --kbd-bg: #fafbfc;
@@ -314,7 +333,7 @@ footer {
     }
 
     header {
-        padding-right: 320px;
+        padding-right: 350px;
     }
 
     section {
