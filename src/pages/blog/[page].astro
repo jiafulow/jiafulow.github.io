@@ -1,0 +1,94 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content'
+import BlogCard from '@/components/BlogCard.astro'
+import Pagination from '@/components/Pagination.astro'
+import BaseLayout from '@/layouts/Layout.astro'
+import type { GetStaticPaths, Page } from 'astro'
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	const allPosts: CollectionEntry<"blog">[] = await getCollection('blog', ({ data }) => {
+		return data.draft !== true
+	})
+
+	const sortedPosts = allPosts.sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+	)
+
+	const pageSize = 9
+	const totalPages = Math.ceil(sortedPosts.length / pageSize)
+
+	// Generate pages starting from 2 (page 1 is /blog/index.astro)
+	return Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map(pageNum => {
+		const start = (pageNum - 1) * pageSize
+		const end = start + pageSize
+
+		return {
+			params: { page: String(pageNum) },
+			props: {
+				page: {
+					data: sortedPosts.slice(start, end),
+					start,
+					end: Math.min(end - 1, sortedPosts.length - 1),
+					size: pageSize,
+					total: sortedPosts.length,
+					currentPage: pageNum,
+					lastPage: totalPages,
+					url: {
+						current: `/blog/${pageNum}`,
+						prev: pageNum === 2 ? '/blog' : `/blog/${pageNum - 1}`,
+						next: pageNum < totalPages ? `/blog/${pageNum + 1}` : undefined,
+					}
+				}
+			}
+		}
+	})
+}
+
+type Props = {
+	page: Page<CollectionEntry<'blog'>>
+}
+
+const { page } = Astro.props as Props
+const currentPage = page.currentPage || 1
+const totalPages = page.lastPage || 1
+---
+
+<BaseLayout 
+	title={`Blog${currentPage > 1 ? ` - Page ${currentPage}` : ''}`} 
+	description="Welcome to my blog! Here you'll find a collection of my thoughts and experiences."
+	prevUrl={page.url.prev}
+	nextUrl={page.url.next}
+>
+	<main class="app-container pt-32 pb-16">
+		<div class="space-y-4">
+			<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+				Blog
+			</h1>
+			<p class="md:w-2/3 text-lg leading-relaxed text-secondary dark:text-secondary-dark">
+				Welcome to my blog! Here you'll find a collection of my thoughts and
+				experiences. I hope you enjoy reading them as much as I enjoy writing
+				them.
+			</p>
+		</div>
+	</main>
+
+	<section class="app-container pb-20" aria-label="Blog posts">
+		<ul class="posts-grid-container" role="list">
+			{
+				page.data.map((post) => (
+					<li>
+						<BlogCard post={post} />
+					</li>
+				))
+			}
+		</ul>
+
+		<!-- Pagination Controls -->
+		<Pagination
+			currentPage={currentPage}
+			totalPages={totalPages}
+			prevUrl={page.url.prev}
+			nextUrl={page.url.next}
+		/>
+	</section>
+</BaseLayout>

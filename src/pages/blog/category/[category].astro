@@ -1,0 +1,74 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content'
+import BlogCard from '@/components/BlogCard.astro'
+import BaseLayout from '@/layouts/Layout.astro'
+import { Icon } from 'astro-icon/components'
+
+export async function getStaticPaths() {
+	const allPosts: CollectionEntry<"blog">[] = await getCollection('blog', ({ data }) => {
+		return data.draft !== true
+	})
+
+	// Get all unique categories
+	const categories = [...new Set(allPosts.map(post => post.data.category))]
+
+	return categories.map(category => {
+		const filteredPosts = allPosts
+			.filter(post => post.data.category === category)
+			.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+
+		return {
+			params: { category: category.toLowerCase().replace(/\s+/g, '-') },
+			props: { posts: filteredPosts, category }
+		}
+	})
+}
+
+const { posts, category } = Astro.props
+---
+
+<BaseLayout 
+	title={`${category} - Blog`}
+	description={`Browse all posts in the ${category} category.`}
+>
+	<main class="app-container pt-32 pb-16">
+		<div class="space-y-6">
+			<!-- Back Link -->
+			<a 
+				href="/blog"
+				class="inline-flex items-center gap-2 text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
+			>
+				<Icon name="mdi:arrow-left" class="w-5 h-5" aria-hidden="true" />
+				<span>Back to all posts</span>
+			</a>
+
+			<!-- Header -->
+			<div class="space-y-4">
+				<div class="flex items-center gap-3">
+					<div class="px-4 py-2 rounded-full bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark border border-primary/20 dark:border-primary-dark/20">
+						<Icon name="mdi:folder" class="w-5 h-5 inline mr-2" aria-hidden="true" />
+						{category}
+					</div>
+				</div>
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+					{category}
+				</h1>
+				<p class="text-lg text-secondary dark:text-secondary-dark">
+					{posts.length} {posts.length === 1 ? 'post' : 'posts'} in this category
+				</p>
+			</div>
+		</div>
+	</main>
+
+	<section class="app-container pb-20" aria-label={`Posts in ${category} category`}>
+		<ul class="posts-grid-container" role="list">
+			{
+				posts.map((post) => (
+					<li>
+						<BlogCard post={post} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</BaseLayout>

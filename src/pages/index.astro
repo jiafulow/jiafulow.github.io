@@ -1,0 +1,252 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { site, SocialLinks } from "@/config/site";
+import { home } from "@/config/page";
+import { Icon } from "astro-icon/components";
+import BlogCard from "@/components/BlogCard.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const allPosts: CollectionEntry<"blog">[] = await getCollection("blog");
+const posts = allPosts
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 4);
+---
+
+<Layout
+	title={home.title}
+	description={home.description}
+	url={home.url}
+	image={home.url}
+>
+	<!-- Hero Section -->
+	<main
+		class="app-container flex flex-col gap-8 justify-center py-32 md:py-40 pt-40 md:pt-48 relative min-h-[85vh]"
+	>
+		<div class="space-y-3 animate-fade-in">
+			<p class="text-lg md:text-xl text-secondary dark:text-secondary-dark">👋 Hey there! I'm</p>
+			<h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground dark:text-foreground-dark">
+				Max Bytefield
+			</h1>
+		</div>
+		<p class="text-lg md:text-xl max-w-2xl leading-relaxed text-secondary dark:text-secondary-dark">
+			Full-stack developer who turns coffee into code, bugs into features, and chaos into elegant solutions. Currently building cool stuff with TypeScript, React, and whatever shiny framework catches my eye. ☕️✨
+		</p>
+		<div class="flex flex-wrap gap-4 pt-2">
+			<a
+				class="btn-primary inline-flex items-center gap-2"
+				href="/hire"
+				aria-label="Book a 30-minute introductory call"
+			>
+				Book a 30-min Intro
+				<Icon height={18} name="mdi:calendar-clock" aria-hidden="true" />
+			</a>
+			<a
+				class="btn-secondary inline-flex items-center gap-2"
+				href="/about"
+				aria-label="Read more about Max Bytefield"
+			>
+				Learn More About Me
+				<Icon size={18} name="mdi:arrow-right" aria-hidden="true" />
+			</a>
+		</div>
+		<nav aria-label="Social media links" class="flex flex-wrap gap-4 pt-4 border-t border-border/30 dark:border-border-dark/30 mt-4">
+			{
+				SocialLinks.map((link) => (
+					<a
+						class="font-medium text-primary dark:text-primary-dark hover:text-accent dark:hover:text-accent-dark transition-colors duration-150"
+						href={link.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={`Visit Max Bytefield on ${link.name}`}
+					>
+						{link.name}
+					</a>
+				))
+			}
+		</nav>
+	</main>
+
+	<!-- What I Do Section -->
+	<section class="app-container py-16" aria-labelledby="services-heading">
+		<div class="space-y-8">
+			<div class="space-y-3">
+				<h2 id="services-heading" class="section-title">What I Do</h2>
+				<p class="text-lg text-secondary dark:text-secondary-dark max-w-3xl">
+					I help teams ship better software faster. Whether you need a full-stack developer, API architect, or technical advisor, I bring expertise across the modern web stack.
+				</p>
+			</div>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<Icon name="mdi:code-braces" class="w-8 h-8 mb-4 text-primary dark:text-primary-dark" aria-hidden="true" />
+					<h3 class="text-xl font-semibold mb-3">Full-Stack Development</h3>
+					<p class="text-secondary dark:text-secondary-dark leading-relaxed">
+						From React frontends to Node.js backends, I build end-to-end solutions that scale. TypeScript is my love language.
+					</p>
+				</div>
+				<div class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<Icon name="mdi:api" class="w-8 h-8 mb-4 text-primary dark:text-primary-dark" aria-hidden="true" />
+					<h3 class="text-xl font-semibold mb-3">API Architecture</h3>
+					<p class="text-secondary dark:text-secondary-dark leading-relaxed">
+						RESTful or GraphQL, I design APIs that are intuitive, well-documented, and actually enjoyable to use.
+					</p>
+				</div>
+				<div class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<Icon name="mdi:lightning-bolt" class="w-8 h-8 mb-4 text-primary dark:text-primary-dark" aria-hidden="true" />
+					<h3 class="text-xl font-semibold mb-3">Performance Optimization</h3>
+					<p class="text-secondary dark:text-secondary-dark leading-relaxed">
+						Slow apps lose users. I identify bottlenecks and implement solutions that make your application blazingly fast.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured Projects Section -->
+	<section class="app-container py-16" aria-labelledby="featured-projects-heading">
+		<div class="space-y-8">
+			<div class="flex items-end justify-between">
+				<div class="space-y-3">
+					<h2 id="featured-projects-heading" class="section-title">Featured Projects</h2>
+					<p class="text-lg text-secondary dark:text-secondary-dark max-w-2xl">
+						Recent work that solves real problems and demonstrates what I can build.
+					</p>
+				</div>
+				<a class="btn-secondary hidden md:inline-flex items-center gap-2" href="/projects" aria-label="View all projects">
+					View All Projects
+					<Icon size={18} name="mdi:arrow-right" aria-hidden="true" />
+				</a>
+			</div>
+			<div class="grid md:grid-cols-2 gap-6">
+				<article class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<div class="flex items-start justify-between mb-4">
+						<h3 class="text-2xl font-semibold">QuickAPI</h3>
+						<div class="flex gap-2">
+							<a
+								href="https://github.com/maxbytefield/quickapi"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
+								aria-label="View QuickAPI on GitHub"
+							>
+								<Icon name="mdi:github" class="w-5 h-5" aria-hidden="true" />
+							</a>
+							<a
+								href="https://quickapi.dev"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
+								aria-label="Visit QuickAPI website"
+							>
+								<Icon name="mdi:open-in-new" class="w-5 h-5" aria-hidden="true" />
+							</a>
+						</div>
+					</div>
+					<p class="text-secondary dark:text-secondary-dark leading-relaxed mb-4">
+						TypeScript library for building type-safe REST APIs. Reduces API boilerplate by 60% while maintaining full type safety.
+					</p>
+					<div class="flex flex-wrap gap-2 mb-4">
+						<span class="px-2 py-1 text-xs rounded bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark border border-primary/20 dark:border-primary-dark/20">TypeScript</span>
+						<span class="px-2 py-1 text-xs rounded bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark border border-primary/20 dark:border-primary-dark/20">Node.js</span>
+						<span class="px-2 py-1 text-xs rounded bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark border border-primary/20 dark:border-primary-dark/20">OpenAPI</span>
+					</div>
+					<div class="text-sm text-accent dark:text-accent-dark">
+						→ 2.5k+ GitHub stars • Used in production by 50+ teams
+					</div>
+				</article>
+				<article class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<div class="flex items-start justify-between mb-4">
+						<h3 class="text-2xl font-semibold">React Hook Collection</h3>
+						<div class="flex gap-2">
+							<a
+								href="https://github.com/maxbytefield/react-hooks"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
+								aria-label="View React Hook Collection on GitHub"
+							>
+								<Icon name="mdi:github" class="w-5 h-5" aria-hidden="true" />
+							</a>
+							<a
+								href="https://hooks.maxbytefield.dev"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
+								aria-label="Visit React Hook Collection website"
+							>
+								<Icon name="mdi:open-in-new" class="w-5 h-5" aria-hidden="true" />
+							</a>
+						</div>
+					</div>
+					<p class="text-secondary dark:text-secondary-dark leading-relaxed mb-4">
+						Production-ready React hooks that eliminate common implementation bugs. Fully typed, tested, and tree-shakeable.
+					</p>
+					<div class="flex flex-wrap gap-2 mb-4">
+						<span class="px-2 py-1 text-xs rounded bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark border border-primary/20 dark:border-primary-dark/20">React</span>
+						<span class="px-2 py-1 text-xs rounded bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark border border-primary/20 dark:border-primary-dark/20">TypeScript</span>
+						<span class="px-2 py-1 text-xs rounded bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark border border-primary/20 dark:border-primary-dark/20">Testing</span>
+					</div>
+					<div class="text-sm text-accent dark:text-accent-dark">
+						→ 100% test coverage • 30k+ weekly downloads
+					</div>
+				</article>
+			</div>
+			<div class="flex justify-start pt-4 md:hidden">
+				<a class="btn-secondary inline-flex items-center gap-2" href="/projects" aria-label="View all projects">
+					View All Projects
+					<Icon size={18} name="mdi:arrow-right" aria-hidden="true" />
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Recent Posts Section -->
+	<section class="app-container py-16" aria-labelledby="recent-posts-heading">
+		<div class="space-y-8">
+			<div class="space-y-3">
+				<h2 id="recent-posts-heading" class="section-title">Recent Posts</h2>
+				<p class="text-lg text-secondary dark:text-secondary-dark max-w-2xl">
+					Practical guides, hard-won lessons, and occasional rants about web development.
+				</p>
+			</div>
+			<div class="posts-grid-container">
+				{posts.map((post) => <BlogCard post={post} />)}
+			</div>
+			<div class="flex justify-start pt-4">
+				<a class="btn-secondary inline-flex items-center gap-2" href="/blog" aria-label="View all blog posts">
+					View All Posts
+					<Icon size={18} name="mdi:arrow-right" aria-hidden="true" />
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="app-container py-16 pb-24">
+		<div class="p-8 md:p-12 rounded-lg border border-border dark:border-border-dark bg-gradient-to-br from-primary/5 to-accent/5 dark:from-primary-dark/5 dark:to-accent-dark/5">
+			<div class="max-w-2xl">
+				<h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
+				<p class="text-lg text-secondary dark:text-secondary-dark leading-relaxed mb-6">
+					Got a project idea? Need help scaling your application? Or just want to chat about code? I'm available for consulting, contract work, and technical advisory roles.
+				</p>
+				<div class="flex flex-wrap gap-3">
+					<a
+						class="btn-primary inline-flex items-center gap-2"
+						href="/hire"
+						aria-label="Book a 30-minute introductory call to discuss your project"
+					>
+						Book a 30-min Intro
+						<Icon height={18} name="mdi:calendar-clock" aria-hidden="true" />
+					</a>
+					<a
+						class="btn-secondary inline-flex items-center gap-2"
+						href="mailto:hello@maxbytefield.dev"
+						aria-label="Email Max Bytefield at hello@maxbytefield.dev"
+					>
+						Email Me
+						<Icon height={18} name="mdi:email" aria-hidden="true" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

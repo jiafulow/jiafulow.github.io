@@ -1,0 +1,259 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+const title = "Work With Me | Max Bytefield";
+const description = "Available for consulting, contract work, and technical advisory. Let's build something great together.";
+---
+
+<Layout title={title} description={description} url="/hire" image="/hire">
+	<main class="app-container py-32 md:py-40 pt-40 md:pt-48">
+		<!-- Header -->
+		<div class="max-w-3xl mb-16 space-y-4">
+			<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+				Let's Work Together
+			</h1>
+			<p class="text-xl text-secondary dark:text-secondary-dark leading-relaxed">
+				I help teams ship better software faster. Whether you need a full-stack developer, API architect, or technical advisor, I bring deep expertise across the modern web stack.
+			</p>
+		</div>
+
+		<!-- Services -->
+		<section class="mb-20" aria-labelledby="services-heading">
+			<h2 id="services-heading" class="text-3xl font-bold mb-8">What I Offer</h2>
+			<div class="grid md:grid-cols-2 gap-8">
+				<article class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<Icon name="mdi:code-braces" class="w-10 h-10 mb-4 text-primary dark:text-primary-dark" aria-hidden="true" />
+					<h3 class="text-2xl font-semibold mb-3">Full-Stack Development</h3>
+					<p class="text-secondary dark:text-secondary-dark leading-relaxed mb-4">
+						End-to-end application development with React, Next.js, Node.js, and TypeScript. I build scalable, maintainable solutions that your team can evolve.
+					</p>
+					<ul class="space-y-2 text-sm text-secondary dark:text-secondary-dark">
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>Frontend architecture & component systems</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>Backend APIs & database design</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>Performance optimization & scaling</span>
+						</li>
+					</ul>
+				</article>
+
+				<article class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<Icon name="mdi:api" class="w-10 h-10 mb-4 text-primary dark:text-primary-dark" aria-hidden="true" />
+					<h3 class="text-2xl font-semibold mb-3">API Architecture & Design</h3>
+					<p class="text-secondary dark:text-secondary-dark leading-relaxed mb-4">
+						Design and build APIs that developers actually enjoy using. RESTful, GraphQL, or whatever fits your use case best.
+					</p>
+					<ul class="space-y-2 text-sm text-secondary dark:text-secondary-dark">
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>API strategy & architecture planning</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>OpenAPI/Swagger documentation</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>Developer experience optimization</span>
+						</li>
+					</ul>
+				</article>
+
+				<article class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<Icon name="mdi:school" class="w-10 h-10 mb-4 text-primary dark:text-primary-dark" aria-hidden="true" />
+					<h3 class="text-2xl font-semibold mb-3">Technical Advisory & Mentoring</h3>
+					<p class="text-secondary dark:text-secondary-dark leading-relaxed mb-4">
+						Level up your team's skills or get strategic guidance on technical decisions. I help teams adopt best practices and avoid common pitfalls.
+					</p>
+					<ul class="space-y-2 text-sm text-secondary dark:text-secondary-dark">
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>Code reviews & architecture guidance</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>Team training & workshops</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>Technology stack evaluation</span>
+						</li>
+					</ul>
+				</article>
+
+				<article class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<Icon name="mdi:wrench" class="w-10 h-10 mb-4 text-primary dark:text-primary-dark" aria-hidden="true" />
+					<h3 class="text-2xl font-semibold mb-3">Technical Rescue & Optimization</h3>
+					<p class="text-secondary dark:text-secondary-dark leading-relaxed mb-4">
+						Got a slow app, legacy codebase, or production fire? I diagnose issues and implement fixes that make a measurable difference.
+					</p>
+					<ul class="space-y-2 text-sm text-secondary dark:text-secondary-dark">
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>Performance profiling & optimization</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>Legacy code modernization</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<Icon name="mdi:check-circle" class="w-5 h-5 mt-0.5 text-accent dark:text-accent-dark flex-shrink-0" aria-hidden="true" />
+							<span>Technical debt reduction</span>
+						</li>
+					</ul>
+				</article>
+			</div>
+		</section>
+
+		<!-- Pricing -->
+		<section class="mb-20" aria-labelledby="pricing-heading">
+			<h2 id="pricing-heading" class="text-3xl font-bold mb-8">How I Work</h2>
+			<div class="grid md:grid-cols-3 gap-6">
+				<div class="p-6 rounded-lg border border-border dark:border-border-dark">
+					<h3 class="text-xl font-semibold mb-3">Hourly Consulting</h3>
+					<div class="text-3xl font-bold mb-4">$150<span class="text-lg text-secondary dark:text-secondary-dark">/hour</span></div>
+					<p class="text-sm text-secondary dark:text-secondary-dark mb-4">
+						Perfect for quick fixes, code reviews, or strategic advice. Minimum 2-hour blocks.
+					</p>
+					<ul class="space-y-2 text-sm">
+						<li class="flex items-center gap-2">
+							<Icon name="mdi:check" class="w-4 h-4 text-accent dark:text-accent-dark" aria-hidden="true" />
+							<span>Pay as you go</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon name="mdi:check" class="w-4 h-4 text-accent dark:text-accent-dark" aria-hidden="true" />
+							<span>Flexible scheduling</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="p-6 rounded-lg border-2 border-primary dark:border-primary-dark bg-primary/5 dark:bg-primary-dark/5">
+					<div class="inline-block px-3 py-1 mb-3 text-xs font-semibold rounded-full bg-primary dark:bg-primary-dark text-white">
+						Most Popular
+					</div>
+					<h3 class="text-xl font-semibold mb-3">Project-Based</h3>
+					<div class="text-3xl font-bold mb-4">Custom<span class="text-lg text-secondary dark:text-secondary-dark"> pricing</span></div>
+					<p class="text-sm text-secondary dark:text-secondary-dark mb-4">
+						Fixed-scope projects with clear deliverables and milestones. Let's discuss your needs.
+					</p>
+					<ul class="space-y-2 text-sm">
+						<li class="flex items-center gap-2">
+							<Icon name="mdi:check" class="w-4 h-4 text-accent dark:text-accent-dark" aria-hidden="true" />
+							<span>Fixed price</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon name="mdi:check" class="w-4 h-4 text-accent dark:text-accent-dark" aria-hidden="true" />
+							<span>Clear deliverables</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon name="mdi:check" class="w-4 h-4 text-accent dark:text-accent-dark" aria-hidden="true" />
+							<span>Milestone payments</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="p-6 rounded-lg border border-border dark:border-border-dark">
+					<h3 class="text-xl font-semibold mb-3">Retained Support</h3>
+					<div class="text-3xl font-bold mb-4">$5k+<span class="text-lg text-secondary dark:text-secondary-dark">/month</span></div>
+					<p class="text-sm text-secondary dark:text-secondary-dark mb-4">
+						Ongoing availability for teams that need consistent support and guidance.
+					</p>
+					<ul class="space-y-2 text-sm">
+						<li class="flex items-center gap-2">
+							<Icon name="mdi:check" class="w-4 h-4 text-accent dark:text-accent-dark" aria-hidden="true" />
+							<span>Priority support</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon name="mdi:check" class="w-4 h-4 text-accent dark:text-accent-dark" aria-hidden="true" />
+							<span>Regular check-ins</span>
+						</li>
+						<li class="flex items-center gap-2">
+							<Icon name="mdi:check" class="w-4 h-4 text-accent dark:text-accent-dark" aria-hidden="true" />
+							<span>Discounted rates</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Process -->
+		<section class="mb-20" aria-labelledby="process-heading">
+			<h2 id="process-heading" class="text-3xl font-bold mb-8">How We'll Work Together</h2>
+			<div class="grid md:grid-cols-4 gap-6">
+				<div class="text-center">
+					<div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary-dark/10 flex items-center justify-center mx-auto mb-4 text-xl font-bold text-primary dark:text-primary-dark">
+						1
+					</div>
+					<h3 class="font-semibold mb-2">Discovery Call</h3>
+					<p class="text-sm text-secondary dark:text-secondary-dark">
+						30-minute intro to discuss your needs, goals, and how I can help.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary-dark/10 flex items-center justify-center mx-auto mb-4 text-xl font-bold text-primary dark:text-primary-dark">
+						2
+					</div>
+					<h3 class="font-semibold mb-2">Proposal</h3>
+					<p class="text-sm text-secondary dark:text-secondary-dark">
+						Detailed scope, timeline, and pricing tailored to your project.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary-dark/10 flex items-center justify-center mx-auto mb-4 text-xl font-bold text-primary dark:text-primary-dark">
+						3
+					</div>
+					<h3 class="font-semibold mb-2">Execution</h3>
+					<p class="text-sm text-secondary dark:text-secondary-dark">
+						Regular updates, clear communication, and iterative delivery.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary-dark/10 flex items-center justify-center mx-auto mb-4 text-xl font-bold text-primary dark:text-primary-dark">
+						4
+					</div>
+					<h3 class="font-semibold mb-2">Success</h3>
+					<p class="text-sm text-secondary dark:text-secondary-dark">
+						Delivered solution plus documentation and knowledge transfer.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="p-8 md:p-12 rounded-lg border border-border dark:border-border-dark bg-gradient-to-br from-primary/5 to-accent/5 dark:from-primary-dark/5 dark:to-accent-dark/5">
+			<div class="max-w-2xl">
+				<h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+				<p class="text-lg text-secondary dark:text-secondary-dark leading-relaxed mb-6">
+					Let's chat about your project. No pressure, no sales pitch—just a conversation about how I can help you succeed.
+				</p>
+				<div class="flex flex-wrap gap-3">
+					<a
+						class="btn-primary inline-flex items-center gap-2"
+						href="https://calendly.com/maxbytefield/30min"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Book a 30-minute introductory call on Calendly"
+					>
+						Book a 30-min Intro
+						<Icon height={18} name="mdi:calendar-clock" aria-hidden="true" />
+					</a>
+					<a
+						class="btn-secondary inline-flex items-center gap-2"
+						href="mailto:hello@maxbytefield.dev?subject=Project%20Inquiry"
+						aria-label="Email Max Bytefield about your project"
+					>
+						Email Me
+						<Icon height={18} name="mdi:email" aria-hidden="true" />
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>

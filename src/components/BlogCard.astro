@@ -1,0 +1,90 @@
+---
+import { site } from '@/config/site'
+import FormattedDate from '@/components/FormattedDate.astro'
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+
+const { post } = Astro.props
+
+const blogImages = import.meta.glob<{ default: ImageMetadata }>(
+	'/src/assets/posts/**/*.{jpeg,jpg,png,gif}'
+)
+
+const coverImagePath = `/src/assets/posts/${post.slug}-cover.jpg`
+
+// Create URL-friendly slugs for category and tags
+const categorySlug = post.data.category?.toLowerCase().replace(/\s+/g, '-') || 'uncategorized'
+const firstTag = post.data.tags?.[0]
+const firstTagSlug = firstTag?.toLowerCase().replace(/\s+/g, '-')
+---
+
+<article class="h-full group">
+	<a
+		href={`/blog/${post.id}/`}
+		class="flex flex-col gap-3 h-full"
+		aria-label={`Read article: ${post.data.title}`}
+	>
+		{
+			blogImages[coverImagePath] && (
+				<div class="relative overflow-hidden rounded-lg">
+					<Image
+						src={blogImages[coverImagePath]()}
+						alt={`Cover image for ${post.data.title}`}
+						class="object-cover aspect-video"
+					/>
+				</div>
+			)
+		}
+		<div class="flex flex-col gap-2 flex-1">
+			<!-- Category -->
+			{post.data.category && (
+				<div class="flex items-center gap-2">
+					<span class="px-3 py-1 text-xs rounded-full bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark border border-primary/20 dark:border-primary-dark/20">
+						{post.data.category}
+					</span>
+				</div>
+			)}
+
+			<h3
+				class="text-xl font-semibold group-hover:text-primary dark:group-hover:text-primary-dark transition-colors duration-150 line-clamp-2"
+			>
+				{post.data.title}
+			</h3>
+			<p class="line-clamp-2 text-subtext-1 dark:text-subtext-1-dark leading-relaxed text-sm">
+				{post.data.description}
+			</p>
+
+			<!-- Tags (show first 2) -->
+			{post.data.tags && post.data.tags.length > 0 && (
+				<div class="flex items-center gap-2 flex-wrap">
+					{post.data.tags.slice(0, 2).map((tag: string) => (
+						<span class="text-xs text-accent dark:text-accent-dark">
+							#{tag}
+						</span>
+					))}
+					{post.data.tags.length > 2 && (
+						<span class="text-xs text-secondary dark:text-secondary-dark">
+							+{post.data.tags.length - 2}
+						</span>
+					)}
+				</div>
+			)}
+
+			<div class="flex items-center gap-3 mt-auto text-xs text-subtext-1 dark:text-subtext-1-dark">
+				<time datetime={post.data.pubDate.toISOString()}>
+					<FormattedDate date={post.data.pubDate} />
+				</time>
+				{post.data.readingTime && (
+					<>
+						<span aria-hidden="true">•</span>
+						<span class="flex items-center gap-1">
+							<Icon name="mdi:clock-outline" class="w-3.5 h-3.5" aria-hidden="true" />
+							{post.data.readingTime}
+						</span>
+					</>
+				)}
+			</div>
+		</div>
+	</a>
+</article>

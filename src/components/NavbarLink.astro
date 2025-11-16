@@ -1,0 +1,48 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'a'>
+
+const { href, class: className, ...props } = Astro.props
+
+const { pathname } = Astro.url
+const isActive =
+	href === pathname ||
+	href === pathname.replace(/\/$/, '') ||
+	(pathname.startsWith('/blog') && href === '/blog')
+---
+
+<a href={href} class:list={[className, { active: isActive }]} {...props}>
+	<slot />
+</a>
+<style>
+	@reference "../styles/main.css";
+
+	a {
+		@apply relative transition-colors duration-150;
+		/* Ensure sufficient contrast in default state */
+		@apply text-foreground dark:text-foreground-dark;
+	}
+	
+	a:hover {
+		@apply text-primary dark:text-primary-dark;
+	}
+	
+	a.active {
+		@apply text-primary dark:text-primary-dark font-semibold;
+	}
+	
+	/* Visual indicator for link state - not relying on color alone */
+	a::after {
+		content: '';
+		@apply absolute -bottom-1 left-0 w-0 h-0.5 bg-primary dark:bg-primary-dark transition-all duration-150;
+	}
+	
+	a:hover::after {
+		@apply w-full opacity-50;
+	}
+	
+	a.active::after {
+		@apply w-full;
+	}
+</style>

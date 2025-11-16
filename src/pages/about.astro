@@ -1,0 +1,162 @@
+---
+import BaseLayout from '@/layouts/Layout.astro'
+import { about } from '@/config/page'
+import { SocialLinks } from '@/config/site'
+import { Icon } from 'astro-icon/components'
+import NewsletterSignup from '@/components/NewsletterSignup.astro'
+
+const expertise = [
+	{
+		icon: 'mdi:code-braces',
+		title: 'Full-Stack Development',
+		description: 'From React frontends to Node.js backends, I build end-to-end solutions that scale. TypeScript is my love language.',
+	},
+	{
+		icon: 'mdi:api',
+		title: 'API Architecture',
+		description: 'RESTful or GraphQL, I design APIs that are intuitive, documented, and actually enjoyable to use.',
+	},
+	{
+		icon: 'mdi:pencil',
+		title: 'Technical Writing',
+		description: 'Translating complex tech concepts into clear, engaging content that developers actually want to read.',
+	},
+	{
+		icon: 'mdi:open-source-initiative',
+		title: 'Open Source Advocate',
+		description: 'Active contributor and maintainer. I believe the best code is shared code.',
+	},
+]
+
+const topics = [
+	'TypeScript & JavaScript',
+	'React & Next.js',
+	'Node.js & Backend Architecture',
+	'API Design & GraphQL',
+	'Developer Experience (DX)',
+	'Testing & Quality',
+	'Web Performance',
+	'Dev Tools & Productivity',
+]
+---
+
+<BaseLayout {...about}>
+	<main class="app-container pt-32 pb-20">
+		<div class="space-y-16">
+			<!-- Header Section -->
+			<header class="space-y-6">
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+					About Max
+				</h1>
+				<p class="text-xl md:text-2xl text-secondary dark:text-secondary-dark max-w-3xl leading-relaxed">
+					Hi! I'm Max Bytefield, a full-stack developer who believes every bug is just an undocumented feature waiting to be discovered. I spend my days crafting clean code, my evenings debugging mysterious production issues, and my nights dreaming in TypeScript.
+				</p>
+			</header>
+
+			<!-- Main Content -->
+			<div class="grid lg:grid-cols-3 gap-12">
+				<!-- Main Column -->
+				<div class="lg:col-span-2 space-y-12">
+					<!-- Bio Section -->
+					<section class="space-y-4">
+						<h2 class="text-3xl font-bold">The Origin Story</h2>
+						<div class="prose prose-lg dark:prose-invert prose-headings:font-bold prose-a:text-primary dark:prose-a:text-primary-dark prose-a:no-underline hover:prose-a:underline">
+							<p>My journey into development started with a broken computer and too much curiosity. After accidentally deleting System32 (we've all been there, right?), I decided it was time to actually understand how these magical boxes work.</p>
+							<p>Fast forward through countless Stack Overflow tabs, gallons of coffee, and one very patient rubber duck—I've become a full-stack developer with a passion for creating elegant solutions to complex problems. My specialty? Making APIs that don't make other developers cry.</p>
+							<p>When I'm not crafting code, you'll find me contributing to open source, writing about my development adventures, or explaining to my non-tech friends that "I don't fix printers."</p>
+						</div>
+					</section>
+
+					<!-- Expertise Section -->
+					<section class="space-y-6">
+						<h2 class="text-3xl font-bold">What I Bring to the Table</h2>
+						<div class="grid md:grid-cols-2 gap-6">
+							{expertise.map((skill) => (
+								<div class="p-6 rounded-2xl bg-surface dark:bg-surface-dark border border-border dark:border-border-dark">
+									<div class="flex items-start gap-4">
+										<div class="p-3 rounded-xl bg-primary/10 dark:bg-primary-dark/10">
+											<Icon name={skill.icon} class="w-6 h-6 text-primary dark:text-primary-dark" aria-hidden="true" />
+										</div>
+										<div class="space-y-2">
+											<h3 class="text-xl font-semibold">{skill.title}</h3>
+											<p class="text-secondary dark:text-secondary-dark">
+												{skill.description}
+											</p>
+										</div>
+									</div>
+								</div>
+							))}
+						</div>
+					</section>
+
+					<!-- Topics I Write About -->
+					<section class="space-y-4">
+						<h2 class="text-3xl font-bold">My Favorite Tech Topics</h2>
+						<div class="flex flex-wrap gap-3">
+							{topics.map((tag) => (
+								<span class="px-4 py-2 rounded-full bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark border border-primary/20 dark:border-primary-dark/20">
+									{tag}
+								</span>
+							))}
+						</div>
+					</section>
+				</div>
+
+				<!-- Sidebar -->
+				<aside class="space-y-8">
+					<!-- Contact Card -->
+					<div class="p-6 rounded-2xl bg-surface dark:bg-surface-dark border border-border dark:border-border-dark sticky top-28">
+						<div class="space-y-6">
+							<h3 class="text-2xl font-bold">Get in Touch</h3>
+							
+							<!-- Social Links -->
+							<nav aria-label="Social media links" class="space-y-3">
+								{SocialLinks.map((link) => (
+									<a
+										href={link.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 dark:hover:bg-primary-dark/5 transition-colors group"
+										aria-label={`Visit my ${link.name} profile`}
+									>
+										<Icon 
+											name={
+												link.name === 'GitHub' ? 'mdi:github' :
+												link.name === 'LinkedIn' ? 'mdi:linkedin' :
+												link.name.includes('Twitter') || link.name.includes('X') ? 'mdi:twitter' :
+												link.name === 'Instagram' ? 'mdi:instagram' :
+												'mdi:web'
+											}
+											class="w-5 h-5 text-secondary dark:text-secondary-dark group-hover:text-primary dark:group-hover:text-primary-dark transition-colors"
+											aria-hidden="true"
+										/>
+										<span class="text-secondary dark:text-secondary-dark group-hover:text-primary dark:group-hover:text-primary-dark transition-colors">
+											{link.name}
+										</span>
+									</a>
+								))}
+							</nav>
+
+							<!-- Email Button -->
+							<a
+								href="mailto:hello@maxbytefield.dev"
+								class="btn-primary w-full justify-center"
+								aria-label="Send me an email"
+							>
+								<Icon name="mdi:email" class="w-5 h-5" aria-hidden="true" />
+								<span>Send Email</span>
+							</a>
+						</div>
+					</div>
+				</aside>
+			</div>
+
+			<!-- Newsletter Section -->
+			<section class="pt-12 border-t border-border dark:border-border-dark">
+				<div class="max-w-3xl mx-auto">
+					<NewsletterSignup />
+				</div>
+			</section>
+		</div>
+	</main>
+</BaseLayout>

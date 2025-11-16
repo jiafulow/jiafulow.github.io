@@ -1,0 +1,234 @@
+---
+import BaseLayout from '@/layouts/Layout.astro'
+import { Icon } from 'astro-icon/components'
+
+const pageData = {
+	title: "Uses - Max Bytefield",
+	description: "Tools, software, and gear that Max uses daily for development and staying caffeinated.",
+	url: "https://www.maxbytefield.dev/uses",
+	image: "https://www.maxbytefield.dev/og-image.png",
+}
+
+const categories = [
+	{
+		name: "Development Arsenal",
+		icon: "mdi:code-braces",
+		items: [
+			{
+				name: "Visual Studio Code",
+				description: "My daily driver - customized with enough extensions to make it run like a sloth, but look like a race car",
+				url: "https://code.visualstudio.com/"
+			},
+			{
+				name: "Warp Terminal",
+				description: "Because life's too short for slow terminal emulators. Plus, it has AI built in!",
+				url: "https://www.warp.dev/"
+			},
+			{
+				name: "Postman",
+				description: "For when I need to yell at APIs professionally",
+				url: "https://www.postman.com/"
+			},
+			{
+				name: "Docker",
+				description: "It works on my container",
+				url: "https://www.docker.com/"
+			}
+		]
+	},
+	{
+		name: "Tech Stack Favorites",
+		icon: "mdi:code-tags",
+		items: [
+			{
+				name: "TypeScript",
+				description: "JavaScript with trust issues (in a good way)",
+				url: "https://www.typescriptlang.org/"
+			},
+			{
+				name: "React + Next.js",
+				description: "For building UIs that don't make users cry",
+				url: "https://nextjs.org/"
+			},
+			{
+				name: "Node.js",
+				description: "JavaScript on the backend - because we needed more chaos",
+				url: "https://nodejs.org/"
+			},
+			{
+				name: "Astro",
+				description: "For when you want your site to be fast AND cool",
+				url: "https://astro.build/"
+			},
+			{
+				name: "Tailwind CSS",
+				description: "Never writing custom CSS again (okay, maybe sometimes)",
+				url: "https://tailwindcss.com/"
+			}
+		]
+	},
+	{
+		name: "Productivity Tools",
+		icon: "mdi:brain",
+		items: [
+			{
+				name: "Notion",
+				description: "Where my organized chaos lives - tasks, notes, and existential thoughts",
+				url: "https://notion.so/"
+			},
+			{
+				name: "Raycast",
+				description: "Spotlight on steroids. Changed my Mac workflow completely",
+				url: "https://raycast.com/"
+			},
+			{
+				name: "Arc Browser",
+				description: "A browser that's actually trying to reinvent browsing",
+				url: "https://arc.net/"
+			},
+			{
+				name: "Linear",
+				description: "Issue tracking that doesn't feel like bureaucracy",
+				url: "https://linear.app/"
+			},
+			{
+				name: "Obsidian",
+				description: "For building my second brain (first one needs backup)",
+				url: "https://obsidian.md/"
+			}
+		]
+	},
+	{
+		name: "Design & Content",
+		icon: "mdi:palette",
+		items: [
+			{
+				name: "Figma",
+				description: "For pretending I'm a designer",
+				url: "https://figma.com/"
+			},
+			{
+				name: "Excalidraw",
+				description: "Quick diagrams that look hand-drawn (because they kind of are)",
+				url: "https://excalidraw.com/"
+			},
+			{
+				name: "Shots",
+				description: "Making my screenshots look professional on social media",
+				url: "https://shots.so/"
+			},
+			{
+				name: "Carbon",
+				description: "Beautiful code screenshots that make my code look better than it is",
+				url: "https://carbon.now.sh/"
+			}
+		]
+	},
+	{
+		name: "Hardware Setup",
+		icon: "mdi:laptop",
+		items: [
+			{
+				name: "MacBook Pro 16\"",
+				description: "M2 Max, 32GB RAM - Absolute beast that never complains (unlike me)",
+				url: null
+			},
+			{
+				name: "LG UltraFine 5K Display",
+				description: "So many pixels. So. Many. Pixels.",
+				url: null
+			},
+			{
+				name: "Keychron K2 Pro",
+				description: "Mechanical keyboard - because my neighbors needed to know I'm typing",
+				url: null
+			},
+			{
+				name: "Logitech MX Master 3S",
+				description: "A mouse so comfortable I forget it exists",
+				url: null
+			},
+			{
+				name: "Sony WH-1000XM5",
+				description: "Noise canceling headphones for when I need to pretend the world doesn't exist",
+				url: null
+			},
+			{
+				name: "Ember Smart Mug",
+				description: "Keeps my coffee at the perfect temperature - because cold coffee is a crime",
+				url: null
+			}
+		]
+	}
+]
+---
+
+<BaseLayout {...pageData}>
+	<main class="app-container pt-32 pb-20">
+		<div class="space-y-16">
+			<!-- Header -->
+			<header class="space-y-6">
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+					My Toolbox
+				</h1>
+				<p class="text-xl md:text-2xl text-secondary dark:text-secondary-dark max-w-3xl leading-relaxed">
+					The tools, software, and gear I use to turn caffeine into code. This setup is constantly evolving, much like my understanding of CSS Grid. Inspired by <a href="https://uses.tech" target="_blank" rel="noopener noreferrer" class="text-primary dark:text-primary-dark hover:underline">uses.tech</a>.
+				</p>
+			</header>
+
+			<!-- Content -->
+			<div class="space-y-12">
+				{categories.map((category) => (
+					<section class="space-y-6">
+						<h2 class="text-3xl font-bold flex items-center gap-3">
+							<div class="p-3 rounded-xl bg-primary/10 dark:bg-primary-dark/10">
+								<Icon name={category.icon} class="w-6 h-6 text-primary dark:text-primary-dark" aria-hidden="true" />
+							</div>
+							{category.name}
+						</h2>
+						<ul class="grid md:grid-cols-2 gap-4" role="list">
+							{category.items.map((item) => (
+								<li class="p-6 rounded-2xl bg-surface dark:bg-surface-dark border border-border dark:border-border-dark hover:border-primary dark:hover:border-primary-dark transition-colors">
+									{item.url ? (
+										<a href={item.url} target="_blank" rel="noopener noreferrer" class="block space-y-2 group">
+											<div class="flex items-start justify-between gap-2">
+												<h3 class="text-xl font-semibold group-hover:text-primary dark:group-hover:text-primary-dark transition-colors">
+													{item.name}
+												</h3>
+												<Icon name="mdi:open-in-new" class="w-5 h-5 text-secondary dark:text-secondary-dark opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+											</div>
+											<p class="text-secondary dark:text-secondary-dark leading-relaxed">
+												{item.description}
+											</p>
+										</a>
+									) : (
+										<div class="space-y-2">
+											<h3 class="text-xl font-semibold">
+												{item.name}
+											</h3>
+											<p class="text-secondary dark:text-secondary-dark leading-relaxed">
+												{item.description}
+											</p>
+										</div>
+									)}
+								</li>
+							))}
+						</ul>
+					</section>
+				))}
+			</div>
+
+			<!-- Footer Note -->
+			<footer class="pt-12 border-t border-border dark:border-border-dark">
+				<div class="space-y-3">
+					<p class="text-secondary dark:text-secondary-dark">
+						💡 This page is updated regularly as I discover new tools or realize I've been using something wrong the whole time.
+					</p>
+					<p class="text-sm text-secondary dark:text-secondary-dark">
+						Last updated: October 2025 • Some links may be affiliate links, but I only recommend tools I actually use and love.
+					</p>
+				</div>
+			</footer>
+		</div>
+	</main>
+</BaseLayout>

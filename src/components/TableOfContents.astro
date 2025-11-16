@@ -1,0 +1,55 @@
+---
+import type { MarkdownHeading } from 'astro'
+
+interface Props {
+	headings: MarkdownHeading[]
+}
+
+const { headings } = Astro.props
+
+// Group headings: h2 as top-level, h3 as nested under previous h2
+interface TOCHeading extends MarkdownHeading {
+	children: MarkdownHeading[]
+}
+const toc: TOCHeading[] = []
+let lastH2: TOCHeading | null = null
+for (const heading of headings) {
+	if (heading.depth === 2) {
+		lastH2 = { ...heading, children: [] }
+		toc.push(lastH2)
+	} else if (heading.depth === 3 && lastH2) {
+		lastH2.children.push(heading)
+	}
+}
+---
+
+{
+	toc.length > 0 ? (
+		<nav class="p-4 rounded-lg border border-border dark:border-border-dark" aria-label="Table of contents">
+			<h2 class="text-xs font-semibold uppercase tracking-wide mb-3 text-foreground dark:text-foreground-dark">On This Page</h2>
+			<ul class="space-y-1.5 text-sm" role="list">
+				{toc.map((h2) => (
+					<li>
+						<a class="text-foreground dark:text-foreground-dark hover:text-primary dark:hover:text-primary-dark transition-colors duration-150 underline decoration-1 underline-offset-2 decoration-border dark:decoration-border-dark hover:decoration-primary dark:hover:decoration-primary-dark" href={`#${h2.slug}`}>
+							{h2.text}
+						</a>
+						{h2.children.length > 0 && (
+							<ul class="ml-3 mt-1.5 space-y-1.5 border-l border-border dark:border-border-dark pl-3" role="list">
+								{h2.children.map((h3) => (
+									<li>
+										<a
+											class="text-sm text-foreground dark:text-foreground-dark hover:text-primary dark:hover:text-primary-dark transition-colors duration-150 underline decoration-1 underline-offset-2 decoration-border dark:decoration-border-dark hover:decoration-primary dark:hover:decoration-primary-dark"
+											href={`#${h3.slug}`}
+										>
+											{h3.text}
+										</a>
+									</li>
+								))}
+							</ul>
+						)}
+					</li>
+				))}
+			</ul>
+		</nav>
+	) : null
+}

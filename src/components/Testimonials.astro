@@ -1,0 +1,63 @@
+---
+interface Testimonial {
+	name: string
+	role: string
+	company: string
+	avatar: string | null
+	quote: string
+	project: string
+}
+
+interface Props {
+	testimonials: Testimonial[]
+}
+
+const { testimonials } = Astro.props
+---
+
+<section class="py-16" aria-labelledby="testimonials-heading">
+	<div class="space-y-8">
+		<div class="space-y-3">
+			<h2 id="testimonials-heading" class="section-title">What People Say</h2>
+			<p class="text-lg text-secondary dark:text-secondary-dark max-w-2xl">
+				Feedback from clients, collaborators, and the developer community.
+			</p>
+		</div>
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{
+				testimonials.map((testimonial) => (
+					<article class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+						<div class="flex items-start gap-4 mb-4">
+							{testimonial.avatar ? (
+								<img
+									src={testimonial.avatar}
+									alt={`${testimonial.name} avatar`}
+									class="w-12 h-12 rounded-full"
+								/>
+							) : (
+								<div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary-dark/10 flex items-center justify-center text-primary dark:text-primary-dark font-semibold">
+									{testimonial.name.charAt(0)}
+								</div>
+							)}
+							<div>
+								<div class="font-semibold">{testimonial.name}</div>
+								<div class="text-sm text-secondary dark:text-secondary-dark">
+									{testimonial.role}
+								</div>
+								<div class="text-xs text-accent dark:text-accent-dark">
+									{testimonial.company}
+								</div>
+							</div>
+						</div>
+						<blockquote class="text-sm leading-relaxed text-secondary dark:text-secondary-dark mb-3">
+							"{testimonial.quote}"
+						</blockquote>
+						<div class="text-xs text-accent dark:text-accent-dark font-medium">
+							→ {testimonial.project}
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

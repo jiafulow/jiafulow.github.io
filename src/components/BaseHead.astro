@@ -1,0 +1,159 @@
+---
+import type { PageProps } from "@/types";
+import { site } from "@/config/site";
+
+const { title, description, image, url, type = 'website', publishedTime, modifiedTime, author, tags, noindex = false, category, prevUrl, nextUrl, alternates } = Astro.props as PageProps;
+
+// Generate canonical URL - normalize trailing slashes and ensure absolute URL
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonicalURL = new URL(pathname === '/' ? '/' : pathname, site.url).toString();
+
+// Use dynamic OG image if no custom image is provided
+const ogImage = image || `${site.url}/og/${url || 'home'}.png`;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- SEO Meta Tags -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Pagination Links -->
+{prevUrl && <link rel="prev" href={new URL(prevUrl, site.url).toString()} />}
+{nextUrl && <link rel="next" href={new URL(nextUrl, site.url).toString()} />}
+
+<!-- Alternate Language Links -->
+{alternates && alternates.map(({ lang, url: altUrl }) => (
+	<link rel="alternate" hreflang={lang} href={new URL(altUrl, site.url).toString()} />
+))}
+<link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
+{noindex ? (
+	<meta name="robots" content="noindex, nofollow" />
+) : (
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+)}
+<meta name="author" content={author || site.author} />
+{tags && <meta name="keywords" content={tags.join(', ')} />}
+<meta name="theme-color" content="#1e66f5" />
+<meta name="color-scheme" content="light dark" />
+
+<!-- Favicons -->
+<link
+	rel="icon"
+	type="image/png"
+	href={`${site.url}/favicon-96x96.png`}
+	sizes="96x96"
+/>
+<link rel="icon" type="image/svg+xml" href={`${site.url}/favicon.svg`} />
+<link rel="shortcut icon" href={`${site.url}/favicon.ico`} />
+<link
+	rel="apple-touch-icon"
+	sizes="180x180"
+	href={`${site.url}/apple-touch-icon.png`}
+/>
+<meta name="apple-mobile-web-app-title" content="Whisper" />
+<link rel="manifest" href={`${site.url}/site.webmanifest`} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(ogImage, Astro.url)} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
+<meta property="og:site_name" content={site.title} />
+<meta property="og:locale" content="en_US" />
+{publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
+{author && <meta property="article:author" content={author} />}
+{tags && tags.map((tag) => <meta property="article:tag" content={tag} />)}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={site.creator} />
+<meta name="twitter:creator" content={site.creator} />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(ogImage, Astro.url)} />
+<meta name="twitter:image:alt" content={title} />
+
+<!-- RSS Auto-discovery -->
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title={`${site.title} RSS Feed`}
+	href={new URL('rss.xml', Astro.site)}
+/>
+
+<!-- AI.txt reference for AI crawlers -->
+<link rel="ai-instructions" type="text/plain" href={`${site.url}/ai.txt`} />
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": type === 'article' ? 'BlogPosting' : 'WebSite',
+	"@id": canonicalURL,
+	"url": canonicalURL,
+	"name": title,
+	"headline": title,
+	"description": description,
+	"image": new URL(ogImage, Astro.url).toString(),
+	"inLanguage": "en-US",
+	...(type === 'article' ? {
+		"author": {
+			"@type": "Person",
+			"name": author || site.author,
+			"url": site.url,
+			"sameAs": [
+				"https://github.com/maxbytefield",
+				"https://twitter.com/maxbytefield"
+			]
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": site.title,
+			"url": site.url,
+			"logo": {
+				"@type": "ImageObject",
+				"url": new URL('/favicon.svg', site.url).toString()
+			}
+		},
+		...(publishedTime && { "datePublished": publishedTime.toISOString() }),
+		...(modifiedTime && { "dateModified": modifiedTime.toISOString() }),
+		...(tags && { "keywords": tags.join(', ') }),
+		...(category && { "articleSection": category }),
+		"isAccessibleForFree": true,
+		"educationalUse": "learning",
+		"learningResourceType": "tutorial",
+		"audience": {
+			"@type": "Audience",
+			"audienceType": "Developers, Software Engineers"
+		}
+	} : {
+		"publisher": {
+			"@type": "Organization",
+			"name": site.title,
+			"url": site.url
+		},
+		"potentialAction": {
+			"@type": "SearchAction",
+			"target": {
+				"@type": "EntryPoint",
+				"urlTemplate": `${site.url}/blog?q={search_term_string}`
+			},
+			"query-input": "required name=search_term_string"
+		}
+	})
+})} />

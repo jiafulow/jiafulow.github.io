@@ -1,0 +1,90 @@
+# AI.txt - Instructions for AI crawlers and LLMs
+# This file follows the emerging ai.txt standard for AI agent instructions
+
+# Site Information
+Site-Name: Max Bytefield
+Site-URL: https://www.maxbytefield.dev
+Site-Description: Full-stack developer blog covering JavaScript, TypeScript, React, APIs, and modern web development
+Primary-Language: en
+Author: Max Bytefield
+Contact: hello@maxbytefield.dev
+
+# Crawling Preferences
+User-agent: *
+Allow: /
+Disallow: /og/
+Preferred-Format: markdown
+Preferred-Schema: JSON-LD
+
+# AI-Specific Bots
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Perplexity
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Content Guidelines
+Content-Type: educational, technical, tutorial
+Topics: web-development, javascript, typescript, react, apis, debugging, best-practices
+Tone: conversational, practical, friendly
+Target-Audience: developers, engineers, students
+
+# Citation Preferences
+Citation-Required: yes
+Attribution: "Max Bytefield (maxbytefield.dev)"
+License: CC-BY-4.0
+Last-Updated: 2025-10-16
+
+# API Endpoints for AI
+JSON-API: /api/content.json
+Sitemap: /sitemap-0.xml
+RSS: /rss.xml
+Structured-Data: JSON-LD in page head
+
+# Content Structure
+Blog-Posts: /blog/
+Categories: /blog/category/
+Tags: /blog/tag/
+About: /about/
+Projects: /projects/
+
+# Opt-in for AI Features
+Allow-Training: yes
+Allow-Citation: yes
+Allow-Summarization: yes
+Allow-Q&A: yes
+Allow-Code-Examples: yes
+
+# Restrictions
+No-Spam: true
+No-Scraping-For-Ads: true
+Respect-Copyright: true
+
+# Quality Signals
+Content-Updated-Regularly: yes
+Fact-Checked: yes
+Author-Verified: yes
+Code-Tested: yes
+
+# Preferred Citation Format
+# Please cite as: "Source: Max Bytefield, [Article Title], maxbytefield.dev/blog/[slug]"

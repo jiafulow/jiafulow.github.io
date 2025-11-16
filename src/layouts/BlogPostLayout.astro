@@ -1,0 +1,188 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import FormattedDate from '@/components/FormattedDate.astro'
+import type { MarkdownHeading, ImageMetadata } from 'astro'
+import TableOfContents from '@/components/TableOfContents.astro'
+
+type Props = CollectionEntry<'blog'>['data'] & {
+	headings: MarkdownHeading[]
+	slug: string
+	remarkPluginFrontmatter: Record<string, string>
+}
+
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	coverImageCredit,
+	headings,
+	slug,
+	remarkPluginFrontmatter,
+	category,
+	tags,
+} = Astro.props
+
+import BaseLayout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import { site } from '@/config/site'
+
+// Generate OG image URL for this blog post
+const ogImageUrl = `blog/${slug.replace('.md', '')}`
+
+const blogImages = import.meta.glob<{ default: ImageMetadata }>(
+	'/src/assets/blogimages/**/*.{jpeg,jpg,png,gif}'
+)
+
+const coverImagePath = `/src/assets/blogimages/${slug}/cover.jpg`
+
+const lastModified = new Date(remarkPluginFrontmatter.lastModified).toLocaleDateString(
+    'en-US',
+    {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    }
+)
+
+// Create URL-friendly slugs
+const categorySlug = category?.toLowerCase().replace(/\s+/g, '-') || 'uncategorized'
+---
+
+<BaseLayout 
+	title={title} 
+	description={description} 
+	url={ogImageUrl}
+	type="article"
+	publishedTime={pubDate}
+	modifiedTime={updatedDate}
+	author={site.author}
+	tags={tags}
+	category={category}
+>
+	<main>
+		<article>
+			<div
+				class="app-container flex flex-col lg:flex-row-reverse justify-between gap-8 py-24 relative"
+			>
+				<aside class="md:w-1/4 relative" aria-label="Table of contents">
+					<div class="sticky top-0 md:top-28 hidden lg:block">
+						<TableOfContents headings={headings} />
+					</div>
+				</aside>
+				<div class="grow w-full md:max-w-[75ch]">
+					<header class="space-y-6">
+						<h1 class="text-4xl sm:text-5xl lg:text-6xl leading-tight font-black">
+							{title}
+						</h1>
+
+						<!-- Category and Tags -->
+						{(category || (tags && tags.length > 0)) && (
+							<div class="flex items-center gap-3 flex-wrap">
+								{category && (
+									<a
+										href={`/blog/category/${categorySlug}`}
+										class="px-4 py-2 rounded-full bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark border border-primary/20 dark:border-primary-dark/20 hover:bg-primary/20 dark:hover:bg-primary-dark/20 transition-colors"
+									>
+										<Icon name="mdi:folder" class="w-4 h-4 inline mr-1" aria-hidden="true" />
+										{category}
+									</a>
+								)}
+								{tags && tags.length > 0 && tags.map((tag: string) => {
+									const tagSlug = tag.toLowerCase().replace(/\s+/g, '-')
+									return (
+										<a
+											href={`/blog/tag/${tagSlug}`}
+											class="px-3 py-1 rounded-full text-sm bg-accent/10 dark:bg-accent-dark/10 text-accent dark:text-accent-dark border border-accent/20 dark:border-accent-dark/20 hover:bg-accent/20 dark:hover:bg-accent-dark/20 transition-colors"
+										>
+											#{tag}
+										</a>
+									)
+								})}
+							</div>
+						)}
+
+						<div class="flex items-center gap-4 flex-wrap text-secondary dark:text-secondary-dark border-l-4 border-primary dark:border-primary-dark pl-4">
+							<!-- Publish date -->
+							<time datetime={pubDate.toISOString()} class="flex items-center gap-2">
+								<Icon
+									name="mdi:calendar-month-outline"
+									class="text-primary dark:text-primary-dark"
+									aria-hidden="true"
+								/>
+								<FormattedDate date={pubDate} />
+							</time>
+
+							<!-- Updated date -->
+							{
+								updatedDate && (
+									<time datetime={updatedDate.toISOString()} class="flex items-center gap-2">
+										<Icon
+											name="mdi:calendar-refresh-outline"
+											class="text-primary dark:text-primary-dark"
+											aria-hidden="true"
+										/>
+										<span>Updated: <FormattedDate date={updatedDate} /></span>
+									</time>
+								)
+							}
+
+							<!-- Read time -->
+							<span class="flex items-center gap-2">
+								<Icon
+									name="mdi:clock-time-four-outline"
+									class="text-primary dark:text-primary-dark"
+									aria-hidden="true"
+								/>
+								{remarkPluginFrontmatter.minutesRead}
+							</span>
+						</div>
+
+						{
+							blogImages[coverImagePath] && (
+								<div class="rounded-2xl overflow-hidden shadow-xl">
+									<Image
+										src={blogImages[coverImagePath]()}
+										alt={`Cover image for ${title}`}
+										class="w-full"
+									/>
+									{coverImageCredit && (
+										<p class="mt-4 text-sm text-secondary dark:text-secondary-dark italic">
+											Image Credit: {coverImageCredit}
+										</p>
+									)}
+								</div>
+							)
+						}
+					</header>
+					<div
+						class="prose prose-neutral prose-lg md:prose-xl dark:prose-invert prose-img:rounded-2xl prose-figure:text-center prose-img:mx-auto prose-img:shadow-lg prose-headings:font-bold prose-a:text-primary dark:prose-a:text-primary-dark prose-a:underline prose-a:decoration-2 prose-a:decoration-primary/40 dark:prose-a:decoration-primary-dark/40 prose-a:underline-offset-2 hover:prose-a:decoration-primary dark:hover:prose-a:decoration-primary-dark mt-12"
+					>
+						<slot />
+					</div>
+
+					<!-- Suggest edit -->
+					<footer class="mt-16 pt-8 border-t border-border dark:border-border-dark">
+						<div class="flex flex-col md:flex-row justify-between gap-4">
+							<a
+								href={`https://github.com/yashjawale/yashjawale.github.io/edit/main/src/content/blog/${slug}.md`}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="inline-flex items-center gap-2 text-sm text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
+								aria-label="Suggest an edit to this article on GitHub (opens in new tab)"
+								>
+								<Icon name="mdi:pencil-outline" aria-hidden="true" />
+								<span>Suggest an edit</span>
+							</a>
+							<p class="text-sm text-secondary dark:text-secondary-dark">
+								<span class="sr-only">Article last modified on </span>
+								Last modified: <time datetime={remarkPluginFrontmatter.lastModified}>{lastModified}</time>
+							</p>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</article>
+	</main>
+</BaseLayout>

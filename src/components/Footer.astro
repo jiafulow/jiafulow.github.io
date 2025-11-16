@@ -1,0 +1,108 @@
+---
+import { SocialLinks, WebsiteLinks } from '@/config/site';
+import LogoSVG from '../assets/logo.svg'
+import { Icon } from 'astro-icon/components'
+
+const today = new Date()
+---
+
+<footer class="border-t border-border dark:border-border-dark mt-16">
+	<div class="app-container py-12">
+		<div class="grid md:grid-cols-4 gap-10 mb-8">
+			<!-- Brand -->
+			<div>
+				<a href="/" class="block w-fit hover:opacity-75 transition-opacity duration-150 mb-4" aria-label="Go to homepage">
+					<LogoSVG height={32} width={32} />
+				</a>
+				<p class="text-sm text-secondary dark:text-secondary-dark">
+					Full-stack developer building elegant solutions to complex problems.
+				</p>
+			</div>
+
+			<!-- Navigation -->
+			<nav aria-label="Footer navigation">
+				<h3 class="font-semibold mb-3 text-sm uppercase tracking-wide">Navigation</h3>
+				<ul class="space-y-2 text-sm" role="list">
+					{
+						WebsiteLinks.filter((link) => link.name !== 'Home').map((link) => (
+							<li>
+								<a
+									class="text-foreground dark:text-foreground-dark hover:text-primary dark:hover:text-primary-dark transition-colors duration-150 underline decoration-1 underline-offset-2 decoration-border dark:decoration-border-dark hover:decoration-primary dark:hover:decoration-primary-dark"
+									href={link.url}
+									target={link.url.charAt(0) === 'h' ? '_blank' : '_self'}
+									rel={link.url.charAt(0) === 'h' ? 'noopener noreferrer' : undefined}
+								>
+									{link.name}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<!-- Social -->
+			<nav aria-label="Social media links">
+				<h3 class="font-semibold mb-3 text-sm uppercase tracking-wide">Connect</h3>
+				<ul class="space-y-2 text-sm" role="list">
+					{
+						SocialLinks.map((link) => (
+							<li>
+								<a
+									class="text-foreground dark:text-foreground-dark hover:text-primary dark:hover:text-primary-dark transition-colors duration-150 underline decoration-1 underline-offset-2 decoration-border dark:decoration-border-dark hover:decoration-primary dark:hover:decoration-primary-dark"
+									href={link.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={`Visit Max Bytefield on ${link.name}`}
+								>
+									{link.name}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<!-- Contact -->
+			<div>
+				<h3 class="font-semibold mb-3 text-sm uppercase tracking-wide">Contact</h3>
+				<ul class="space-y-2 text-sm" role="list">
+					<li>
+						<a
+							class="text-foreground dark:text-foreground-dark hover:text-primary dark:hover:text-primary-dark transition-colors duration-150 underline decoration-1 underline-offset-2 decoration-border dark:decoration-border-dark hover:decoration-primary dark:hover:decoration-primary-dark"
+							href="mailto:hello@maxbytefield.dev"
+							aria-label="Email Max Bytefield at hello@maxbytefield.dev"
+						>
+							hello@maxbytefield.dev
+						</a>
+					</li>
+					<li>
+						<a
+							href="/rss.xml"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-foreground dark:text-foreground-dark hover:text-primary dark:hover:text-primary-dark transition-colors duration-150 inline-flex items-center gap-2 underline decoration-1 underline-offset-2 decoration-border dark:decoration-border-dark hover:decoration-primary dark:hover:decoration-primary-dark"
+							aria-label="Subscribe to RSS feed"
+						>
+							<Icon name="mdi:rss" class="w-4 h-4" aria-hidden="true" />
+							RSS Feed
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Copyright -->
+		<div class="pt-8 border-t border-border/50 dark:border-border-dark/50">
+			<p class="text-xs text-foreground dark:text-foreground-dark text-center">
+				&copy; {today.getFullYear()} Max Bytefield. Powered by <a
+					class="text-primary dark:text-primary-dark hover:text-accent dark:hover:text-accent-dark transition-colors underline decoration-1 underline-offset-2 decoration-primary/40 dark:decoration-primary-dark/40 hover:decoration-accent dark:hover:decoration-accent-dark"
+					href="https://github.com/juststeveking/whisper-theme"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="View Whisper theme on GitHub"
+					>Whisper</a
+				>.
+			</p>
+		</div>
+	</div>
+</footer>

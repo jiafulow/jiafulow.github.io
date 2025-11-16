@@ -1,0 +1,183 @@
+---
+import BaseLayout from '@/layouts/Layout.astro'
+import { Icon } from 'astro-icon/components'
+
+const pageData = {
+	title: "Now - Max Bytefield",
+	description: "What Max is currently working on and focusing on right now.",
+	url: "https://www.maxbytefield.dev/now",
+	image: "https://www.maxbytefield.dev/og-image.png",
+}
+
+const currentDate = new Date().toLocaleDateString('en-US', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+})
+
+const projects = [
+	{
+		emoji: "🚀",
+		title: "DevTools CLI v2.0",
+		description: "Rebuilding my developer productivity CLI from the ground up with better TypeScript types, plugin architecture, and 100% more emoji. Because who says terminals can't be fun?"
+	},
+	{
+		emoji: "📚",
+		title: "\"APIs That Don't Suck\" Guide",
+		description: "Writing a comprehensive guide on building RESTful and GraphQL APIs that developers will actually enjoy using. Includes real-world examples and battle-tested patterns."
+	},
+	{
+		emoji: "🎨",
+		title: "Component Library",
+		description: "Building an accessible React component library with TypeScript, because we need more components that work with screen readers and keyboards."
+	}
+]
+
+const currentFocusItems = [
+	"Building type-safe APIs with TypeScript and exploring the latest frameworks",
+	"Diving deep into web performance optimization (because users shouldn't age while waiting for pages to load)",
+	"Writing tutorials that explain complex concepts without the jargon overdose",
+	"Contributing to open source projects that make developers' lives easier"
+]
+
+const learningItems = [
+	"Rust (because apparently JavaScript isn't fast enough for everything)",
+	"Advanced TypeScript wizardry - template literals, conditional types, and other dark arts",
+	"Web3 and smart contracts (with a healthy dose of skepticism)",
+	"System design patterns for distributed systems",
+	"How to explain technical concepts without using \"basically\" or \"just\" every sentence"
+]
+
+const lifeItems = [
+	"Perfecting my coffee brewing techniques - currently obsessed with pour-over",
+	"Reading sci-fi novels and pretending they're \"research\" for my code",
+	"Gaming (mostly indie games, because I appreciate good UX everywhere)",
+	"Taking photos of random things that look \"aesthetic\"",
+	"Explaining to family members that no, I cannot fix their printer"
+]
+---
+
+<BaseLayout {...pageData}>
+	<main class="app-container pt-32 pb-20">
+		<div class="max-w-3xl space-y-12">
+			<!-- Header -->
+			<header class="space-y-6">
+				<div class="flex items-center gap-4">
+					<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+						What I'm Up To Now
+					</h1>
+					<div class="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-700 dark:text-green-400 text-sm font-medium">
+						Active
+					</div>
+				</div>
+				<p class="text-xl text-secondary dark:text-secondary-dark leading-relaxed">
+					This is my <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" class="text-primary dark:text-primary-dark hover:underline">now page</a>, inspired by Derek Sivers. Consider it a snapshot of my current adventures in code, life, and the eternal quest for bug-free deployments.
+				</p>
+				<p class="text-sm text-secondary dark:text-secondary-dark">
+					Last updated: <time datetime={new Date().toISOString()}>{currentDate}</time>
+				</p>
+			</header>
+
+			<!-- Current Focus -->
+			<section class="space-y-6">
+				<h2 class="text-3xl font-bold flex items-center gap-3">
+					<div class="p-3 rounded-xl bg-primary/10 dark:bg-primary-dark/10">
+						<Icon name="mdi:target" class="w-6 h-6 text-primary dark:text-primary-dark" aria-hidden="true" />
+					</div>
+					Current Focus
+				</h2>
+				<div class="prose prose-lg dark:prose-invert prose-headings:font-bold prose-a:text-primary dark:prose-a:text-primary-dark prose-a:no-underline hover:prose-a:underline">
+					<p>
+						Right now, I'm deep in the trenches of building developer tools that don't make people want to flip tables. My mission: creating software that sparks joy (or at least doesn't spark rage).
+					</p>
+					<p>
+						Here's what's keeping me caffeinated these days:
+					</p>
+					<ul>
+						{currentFocusItems.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</div>
+			</section>
+
+			<!-- Current Projects -->
+			<section class="space-y-6">
+				<h2 class="text-3xl font-bold flex items-center gap-3">
+					<div class="p-3 rounded-xl bg-accent/10 dark:bg-accent-dark/10">
+						<Icon name="mdi:hammer-wrench" class="w-6 h-6 text-accent dark:text-accent-dark" aria-hidden="true" />
+					</div>
+					Active Projects
+				</h2>
+				<ul class="space-y-4" role="list">
+					{projects.map((project) => (
+						<li class="p-6 rounded-2xl bg-surface dark:bg-surface-dark border border-border dark:border-border-dark">
+							<div class="space-y-2">
+								<h3 class="text-xl font-semibold">{project.emoji} {project.title}</h3>
+								<p class="text-secondary dark:text-secondary-dark leading-relaxed">
+									{project.description}
+								</p>
+							</div>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<!-- Learning -->
+			<section class="space-y-6">
+				<h2 class="text-3xl font-bold flex items-center gap-3">
+					<div class="p-3 rounded-xl bg-primary/10 dark:bg-primary-dark/10">
+						<Icon name="mdi:school" class="w-6 h-6 text-primary dark:text-primary-dark" aria-hidden="true" />
+					</div>
+					Currently Learning
+				</h2>
+				<div class="prose prose-lg dark:prose-invert prose-a:text-primary dark:prose-a:text-primary-dark prose-a:no-underline hover:prose-a:underline">
+					<ul>
+						{learningItems.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</div>
+			</section>
+
+			<!-- Life -->
+			<section class="space-y-6">
+				<h2 class="text-3xl font-bold flex items-center gap-3">
+					<div class="p-3 rounded-xl bg-accent/10 dark:bg-accent-dark/10">
+						<Icon name="mdi:heart" class="w-6 h-6 text-accent dark:text-accent-dark" aria-hidden="true" />
+					</div>
+					Life Outside the IDE
+				</h2>
+				<div class="prose prose-lg dark:prose-invert prose-a:text-primary dark:prose-a:text-primary-dark prose-a:no-underline hover:prose-a:underline">
+					<p>
+						When I manage to close VS Code (rare, but it happens), you'll find me:
+					</p>
+					<ul>
+						{lifeItems.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</div>
+			</section>
+
+			<!-- Footer CTA -->
+			<footer class="pt-12 border-t border-border dark:border-border-dark">
+				<div class="p-6 rounded-2xl bg-surface dark:bg-surface-dark border border-border dark:border-border-dark text-center space-y-4">
+					<p class="text-secondary dark:text-secondary-dark">
+						Want to follow along with my adventures? Check out my blog or hit me up!
+					</p>
+					<div class="flex gap-3 justify-center">
+						<a href="/blog" class="btn-secondary">
+							<Icon name="mdi:post" class="w-5 h-5" aria-hidden="true" />
+							<span>Read Blog</span>
+						</a>
+						<a href="/about" class="btn-primary">
+							<Icon name="mdi:email" class="w-5 h-5" aria-hidden="true" />
+							<span>Get in Touch</span>
+						</a>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</main>
+</BaseLayout>

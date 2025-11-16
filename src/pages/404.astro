@@ -1,0 +1,28 @@
+---
+import BaseLayout from '@/layouts/Layout.astro'
+import { error404 } from '@/config/page';
+---
+
+<BaseLayout {...error404}>
+	<main
+		class="app-container h-[90vh] flex flex-col gap-6 justify-center items-center"
+		role="main"
+		aria-labelledby="error-heading"
+	>
+		<h1
+			id="error-heading"
+			class="text-9xl md:text-[160px] font-bold text-primary dark:text-primary-dark"
+		>
+			404
+		</h1>
+		<div class="space-y-3 text-center max-w-md">
+			<p class="text-xl font-semibold">Oops! This Page is Lost in the Void</p>
+			<p class="text-secondary dark:text-secondary-dark">
+				Either this page doesn't exist, or it's been swallowed by a rogue null pointer. Let's get you back to safety.
+			</p>
+		</div>
+		<a class="btn-primary mt-4" href="/" aria-label="Return to home page"
+			>Beam Me Back Home
+		</a>
+	</main>
+</BaseLayout>

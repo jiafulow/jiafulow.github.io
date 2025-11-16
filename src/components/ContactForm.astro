@@ -1,0 +1,170 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div class="max-w-2xl mx-auto">
+	<form
+		id="contact-form"
+		class="space-y-6"
+		aria-label="Contact form"
+	>
+		<div>
+			<label
+				for="name"
+				class="block text-sm font-medium mb-2"
+			>
+				Your Name <span class="text-accent dark:text-accent-dark">*</span>
+			</label>
+			<input
+				type="text"
+				id="name"
+				name="name"
+				required
+				class="w-full px-4 py-3 rounded-lg border border-border dark:border-border-dark bg-base dark:bg-base-dark focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark focus:border-transparent transition-all"
+				placeholder="Max Bytefield"
+				aria-required="true"
+			/>
+		</div>
+
+		<div>
+			<label
+				for="email"
+				class="block text-sm font-medium mb-2"
+			>
+				Email Address <span class="text-accent dark:text-accent-dark">*</span>
+			</label>
+			<input
+				type="email"
+				id="email"
+				name="email"
+				required
+				class="w-full px-4 py-3 rounded-lg border border-border dark:border-border-dark bg-base dark:bg-base-dark focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark focus:border-transparent transition-all"
+				placeholder="hello@maxbytefield.dev"
+				aria-required="true"
+			/>
+		</div>
+
+		<div>
+			<label
+				for="topic"
+				class="block text-sm font-medium mb-2"
+			>
+				Topic <span class="text-accent dark:text-accent-dark">*</span>
+			</label>
+			<select
+				id="topic"
+				name="topic"
+				required
+				class="w-full px-4 py-3 rounded-lg border border-border dark:border-border-dark bg-base dark:bg-base-dark focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark focus:border-transparent transition-all"
+				aria-required="true"
+			>
+				<option value="">Select a topic...</option>
+				<option value="project">Project Inquiry</option>
+				<option value="consulting">Consulting / Advisory</option>
+				<option value="speaking">Speaking / Workshop</option>
+				<option value="collaboration">Open Source Collaboration</option>
+				<option value="other">Other</option>
+			</select>
+		</div>
+
+		<div>
+			<label
+				for="message"
+				class="block text-sm font-medium mb-2"
+			>
+				Message <span class="text-accent dark:text-accent-dark">*</span>
+			</label>
+			<textarea
+				id="message"
+				name="message"
+				required
+				rows="6"
+				class="w-full px-4 py-3 rounded-lg border border-border dark:border-border-dark bg-base dark:bg-base-dark focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark focus:border-transparent transition-all resize-vertical"
+				placeholder="Tell me about your project..."
+				aria-required="true"
+			></textarea>
+		</div>
+
+		<div class="flex flex-wrap gap-3">
+			<button
+				type="submit"
+				class="btn-primary inline-flex items-center gap-2"
+				aria-label="Send message"
+			>
+				Send Message
+				<Icon height={18} name="mdi:send" aria-hidden="true" />
+			</button>
+			<a
+				href="mailto:hello@maxbytefield.dev"
+				class="btn-secondary inline-flex items-center gap-2"
+				aria-label="Or email Max Bytefield directly at hello@maxbytefield.dev"
+			>
+				Or Email Directly
+				<Icon height={18} name="mdi:email" aria-hidden="true" />
+			</a>
+		</div>
+
+		<!-- Success/Error Messages -->
+		<div
+			id="form-success"
+			class="hidden p-4 rounded-lg bg-accent/10 dark:bg-accent-dark/10 border border-accent/20 dark:border-accent-dark/20"
+			role="alert"
+		>
+			<p class="text-accent dark:text-accent-dark">
+				✓ Message sent successfully! I'll get back to you soon.
+			</p>
+		</div>
+
+		<div
+			id="form-error"
+			class="hidden p-4 rounded-lg bg-red-500/10 border border-red-500/20"
+			role="alert"
+		>
+			<p class="text-red-600 dark:text-red-400">
+				Something went wrong. Please try emailing me directly instead.
+			</p>
+		</div>
+	</form>
+</div>
+
+<script>
+	const form = document.getElementById('contact-form') as HTMLFormElement
+	const successMsg = document.getElementById('form-success')
+	const errorMsg = document.getElementById('form-error')
+
+	if (form) {
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault()
+
+			// Hide previous messages
+			successMsg?.classList.add('hidden')
+			errorMsg?.classList.add('hidden')
+
+			const formData = new FormData(form)
+			const data = {
+				name: formData.get('name'),
+				email: formData.get('email'),
+				topic: formData.get('topic'),
+				message: formData.get('message'),
+			}
+
+			try {
+				// For now, just show success and construct mailto link as fallback
+				const subject = encodeURIComponent(`${data.topic}: Message from ${data.name}`)
+				const body = encodeURIComponent(
+					`Name: ${data.name}\nEmail: ${data.email}\nTopic: ${data.topic}\n\nMessage:\n${data.message}`
+				)
+
+				// Open mailto link
+				window.location.href = `mailto:hello@maxbytefield.dev?subject=${subject}&body=${body}`
+
+				// Show success message
+				successMsg?.classList.remove('hidden')
+				form.reset()
+			} catch (error) {
+				console.error('Form submission error:', error)
+				errorMsg?.classList.remove('hidden')
+			}
+		})
+	}
+</script>

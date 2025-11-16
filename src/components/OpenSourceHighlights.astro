@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Repo {
+	name: string
+	description: string
+	stars: number
+	language: string
+	github: string
+	highlight: string
+}
+
+interface Props {
+	repos: Repo[]
+	title?: string
+	description?: string
+}
+
+const { repos, title = "Open Source Highlights", description = "Building in public and giving back to the community" } = Astro.props
+
+function formatStars(stars: number): string {
+	if (stars >= 1000) {
+		return `${(stars / 1000).toFixed(1)}k`
+	}
+	return stars.toString()
+}
+---
+
+<section class="py-16" aria-labelledby="opensource-heading">
+	<div class="space-y-8">
+		<div class="space-y-3">
+			<h2 id="opensource-heading" class="section-title">{title}</h2>
+			<p class="text-lg text-secondary dark:text-secondary-dark max-w-2xl">
+				{description}
+			</p>
+		</div>
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{
+				repos.map((repo) => (
+					<article class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark hover:border-primary/50 dark:hover:border-primary-dark/50 transition-all duration-200">
+						<div class="flex items-start justify-between mb-3">
+							<h3 class="text-xl font-semibold">{repo.name}</h3>
+							<a
+								href={repo.github}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
+								aria-label={`View ${repo.name} on GitHub`}
+							>
+								<Icon name="mdi:github" class="w-5 h-5" aria-hidden="true" />
+							</a>
+						</div>
+						<p class="text-sm text-secondary dark:text-secondary-dark leading-relaxed mb-4">
+							{repo.description}
+						</p>
+						<div class="flex items-center gap-4 text-xs">
+							<div class="flex items-center gap-1">
+								<Icon name="mdi:star" class="w-4 h-4 text-yellow-600 dark:text-yellow-400" aria-hidden="true" />
+								<span class="font-medium">{formatStars(repo.stars)}</span>
+							</div>
+							<div class="flex items-center gap-1">
+								<span class="w-2 h-2 rounded-full bg-blue" aria-hidden="true" />
+								<span>{repo.language}</span>
+							</div>
+							<span class="ml-auto text-accent dark:text-accent-dark font-medium">
+								{repo.highlight}
+							</span>
+						</div>
+					</article>
+				))
+			}
+		</div>
+		<div class="flex justify-center pt-4">
+			<a
+				class="btn-secondary inline-flex items-center gap-2"
+				href="https://github.com/maxbytefield"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="View all projects on GitHub"
+			>
+				View All on GitHub
+				<Icon size={18} name="mdi:github" aria-hidden="true" />
+			</a>
+		</div>
+	</div>
+</section>

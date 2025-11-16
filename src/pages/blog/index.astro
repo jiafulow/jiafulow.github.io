@@ -1,0 +1,73 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content'
+import BlogCard from '@/components/BlogCard.astro'
+import Pagination from '@/components/Pagination.astro'
+import BaseLayout from '@/layouts/Layout.astro'
+
+const allPosts: CollectionEntry<"blog">[] = await getCollection('blog', ({ data }) => {
+	return data.draft !== true
+})
+
+const posts = allPosts.sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+)
+
+const currentPage = 1
+const pageSize = 9
+const totalPages = Math.ceil(posts.length / pageSize)
+const paginatedPosts = posts.slice(0, pageSize)
+
+const page = {
+	data: paginatedPosts,
+	start: 0,
+	end: Math.min(pageSize - 1, posts.length - 1),
+	size: pageSize,
+	total: posts.length,
+	currentPage: 1,
+	lastPage: totalPages,
+	url: {
+		current: '/blog',
+		prev: undefined,
+		next: totalPages > 1 ? '/blog/2' : undefined,
+	}
+}
+---
+
+<BaseLayout 
+	title="Blog" 
+	description="Welcome to my blog! Here you'll find a collection of my thoughts and experiences."
+	nextUrl={page.url.next}
+>
+	<main class="app-container pt-32 pb-16">
+		<div class="space-y-4">
+			<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+				Blog
+			</h1>
+			<p class="md:w-2/3 text-lg leading-relaxed text-secondary dark:text-secondary-dark">
+				Welcome to my blog! Here you'll find a collection of my thoughts and
+				experiences. I hope you enjoy reading them as much as I enjoy writing
+				them.
+			</p>
+		</div>
+	</main>
+
+	<section class="app-container pb-20" aria-label="Blog posts">
+		<ul class="posts-grid-container" role="list">
+			{
+				page.data.map((post) => (
+					<li>
+						<BlogCard post={post} />
+					</li>
+				))
+			}
+		</ul>
+
+		<!-- Pagination Controls -->
+		<Pagination
+			currentPage={currentPage}
+			totalPages={totalPages}
+			prevUrl={page.url.prev}
+			nextUrl={page.url.next}
+		/>
+	</section>
+</BaseLayout>

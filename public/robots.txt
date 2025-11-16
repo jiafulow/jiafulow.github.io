@@ -1,0 +1,61 @@
+# robots.txt for maxbytefield.dev
+
+# AI Instructions - see ai.txt for detailed AI crawler guidelines
+# AI.txt: https://www.maxbytefield.dev/ai.txt
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow OG image directory (not useful for search engines)
+Disallow: /og/
+
+# Sitemap location
+Sitemap: https://www.maxbytefield.dev/sitemap-index.xml
+Sitemap: https://www.maxbytefield.dev/sitemap-0.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
+
+# AI-specific crawlers (OpenAI, Anthropic, etc.)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Common search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /

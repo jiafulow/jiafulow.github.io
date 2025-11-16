@@ -1,0 +1,157 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+	currentPage: number
+	totalPages: number
+	prevUrl?: string
+	nextUrl?: string
+	baseUrl?: string
+}
+
+const { 
+	currentPage, 
+	totalPages, 
+	prevUrl, 
+	nextUrl,
+	baseUrl = '/blog'
+} = Astro.props
+
+// Generate smart page numbers with ellipsis logic
+type PageNumber = {
+	number: number
+	type: 'page' | 'ellipsis-start' | 'ellipsis-end' | 'hidden'
+}
+
+const pageNumbers: PageNumber[] = []
+
+if (totalPages <= 7) {
+	// Show all pages if 7 or fewer
+	for (let i = 1; i <= totalPages; i++) {
+		pageNumbers.push({ number: i, type: 'page' })
+	}
+} else {
+	// Always show first page
+	pageNumbers.push({ number: 1, type: 'page' })
+	
+	// Determine which pages to show around current page
+	const showPages: number[] = []
+	
+	// Show pages around current page (current ± 1)
+	for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
+		showPages.push(i)
+	}
+	
+	// Add ellipsis after first page if needed
+	if (showPages[0] > 2) {
+		pageNumbers.push({ number: 0, type: 'ellipsis-start' })
+	}
+	
+	// Add the pages around current
+	showPages.forEach(num => {
+		pageNumbers.push({ number: num, type: 'page' })
+	})
+	
+	// Add ellipsis before last page if needed
+	if (showPages[showPages.length - 1] < totalPages - 1) {
+		pageNumbers.push({ number: 0, type: 'ellipsis-end' })
+	}
+	
+	// Always show last page
+	pageNumbers.push({ number: totalPages, type: 'page' })
+}
+
+// Generate URL for a given page number
+const getPageUrl = (pageNum: number): string => {
+	if (pageNum === 1) {
+		return baseUrl
+	}
+	return `${baseUrl}/${pageNum}`
+}
+---
+
+{totalPages > 1 && (
+	<nav 
+		class="flex items-center justify-center gap-2 mt-12" 
+		aria-label="Blog pagination"
+	>
+		<!-- Previous Button -->
+		{prevUrl ? (
+			<a
+				href={prevUrl}
+				class="btn-secondary rounded-xl px-4 py-2 flex items-center gap-2"
+				aria-label="Go to previous page"
+			>
+				<Icon name="mdi:chevron-left" class="w-5 h-5" aria-hidden="true" />
+				<span class="hidden sm:inline">Previous</span>
+			</a>
+		) : (
+			<button
+				disabled
+				class="btn-secondary rounded-xl px-4 py-2 flex items-center gap-2 opacity-50 cursor-not-allowed"
+				aria-label="Previous page (not available)"
+				aria-disabled="true"
+			>
+				<Icon name="mdi:chevron-left" class="w-5 h-5" aria-hidden="true" />
+				<span class="hidden sm:inline">Previous</span>
+			</button>
+		)}
+
+		<!-- Page Numbers -->
+		<div class="flex items-center gap-1" role="list">
+			{pageNumbers.map((pageNum) => {
+				if (pageNum.type === 'ellipsis-start' || pageNum.type === 'ellipsis-end') {
+					return (
+						<span class="px-2 text-secondary dark:text-secondary-dark" aria-hidden="true">
+							…
+						</span>
+					)
+				}
+				
+				if (pageNum.number === currentPage) {
+					return (
+						<span
+							class="px-4 py-2 rounded-xl bg-primary dark:bg-primary-dark text-white font-semibold"
+							aria-current="page"
+							aria-label={`Page ${pageNum.number} (current)`}
+						>
+							{pageNum.number}
+						</span>
+					)
+				}
+				
+				return (
+					<a
+						href={getPageUrl(pageNum.number)}
+						class="px-4 py-2 rounded-xl hover:bg-surface-2 dark:hover:bg-surface-2-dark transition-colors"
+						aria-label={`Go to page ${pageNum.number}`}
+					>
+						{pageNum.number}
+					</a>
+				)
+			})}
+		</div>
+
+		<!-- Next Button -->
+		{nextUrl ? (
+			<a
+				href={nextUrl}
+				class="btn-secondary rounded-xl px-4 py-2 flex items-center gap-2"
+				aria-label="Go to next page"
+			>
+				<span class="hidden sm:inline">Next</span>
+				<Icon name="mdi:chevron-right" class="w-5 h-5" aria-hidden="true" />
+			</a>
+		) : (
+			<button
+				disabled
+				class="btn-secondary rounded-xl px-4 py-2 flex items-center gap-2 opacity-50 cursor-not-allowed"
+				aria-label="Next page (not available)"
+				aria-disabled="true"
+			>
+				<span class="hidden sm:inline">Next</span>
+				<Icon name="mdi:chevron-right" class="w-5 h-5" aria-hidden="true" />
+			</button>
+		)}
+	</nav>
+)}

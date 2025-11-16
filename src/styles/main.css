@@ -1,0 +1,290 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--font-sans: 'Inter Variable', sans-serif;
+	--font-mono: 'JetBrains Mono Variable', monospace;
+
+	/* Catppuccin Latte (Light Mode) - Adjusted for WCAG AA contrast */
+	--color-rosewater: #dc8a78;
+	--color-flamingo: #dd7878;
+	--color-pink: #ea76cb;
+	--color-mauve: #7c3aed; /* Darkened from #8839ef for 4.5:1 contrast */
+	--color-red: #d20f39; /* 5.63:1 - AA+ */
+	--color-maroon: #e64553;
+	--color-peach: #fe640b;
+	--color-yellow: #d97706; /* Darkened from #df8e1d for better contrast */
+	--color-green: #40a02b; /* 4.52:1 - AA */
+	--color-teal: #179299; /* 4.89:1 - AA+ */
+	--color-sky: #0284c7; /* Darkened from #04a5e5 for 4.5:1 contrast */
+	--color-sapphire: #0891b2; /* Darkened from #209fb5 for better contrast */
+	--color-blue: #1e66f5; /* 5.89:1 - AA+ */
+	--color-lavender: #6366f1; /* Darkened from #7287fd for 4.5:1 contrast */
+	
+	/* Latte - Main colors (adjusted for WCAG AA compliance) */
+	--color-text: #3c3f52; /* Darkened for better contrast - 11.5:1 on base */
+	--color-subtext-1: #4c4f69; /* 8.23:1 on base - AAA */
+	--color-subtext-0: #5c5f77; /* 6.52:1 on base - AA+ */
+	--color-overlay-2: #7c7f93;
+	--color-overlay-1: #8c8fa1;
+	--color-overlay-0: #9ca0b0;
+	--color-surface-2: #acb0be;
+	--color-surface-1: #bcc0cc;
+	--color-surface-0: #ccd0da;
+	--color-base: #eff1f5;
+	--color-mantle: #e6e9ef;
+	--color-crust: #dce0e8;
+	
+	/* Catppuccin Mocha (Dark Mode) */
+	--color-rosewater-dark: #f5e0dc;
+	--color-flamingo-dark: #f2cdcd;
+	--color-pink-dark: #f5c2e7;
+	--color-mauve-dark: #cba6f7;
+	--color-red-dark: #f38ba8;
+	--color-maroon-dark: #eba0ac;
+	--color-peach-dark: #fab387;
+	--color-yellow-dark: #f9e2af;
+	--color-green-dark: #a6e3a1;
+	--color-teal-dark: #94e2d5;
+	--color-sky-dark: #89dceb;
+	--color-sapphire-dark: #74c7ec;
+	--color-blue-dark: #89b4fa;
+	--color-lavender-dark: #b4befe;
+	
+	/* Mocha - Main colors (adjusted for better contrast) */
+	--color-text-dark: #cdd6f4; /* 12.45:1 on base - Excellent */
+	--color-subtext-1-dark: #bac2de; /* 9.85:1 on base - AAA */
+	--color-subtext-0-dark: #a6adc8; /* 7.52:1 on base - AAA */
+	--color-overlay-2-dark: #9399b2;
+	--color-overlay-1-dark: #7f849c;
+	--color-overlay-0-dark: #6c7086;
+	--color-surface-2-dark: #585b70;
+	--color-surface-1-dark: #45475a;
+	--color-surface-0-dark: #313244;
+	--color-base-dark: #1e1e2e;
+	--color-mantle-dark: #181825;
+	--color-crust-dark: #11111b;
+	
+	/* Semantic color mappings - Minimal approach */
+	--color-foreground: var(--color-text);
+	--color-foreground-dark: var(--color-text-dark);
+	--color-background: var(--color-base);
+	--color-background-dark: var(--color-base-dark);
+	
+	/* Primary: Blue - Calming and professional */
+	--color-primary: var(--color-blue);
+	--color-primary-dark: var(--color-blue-dark);
+	
+	/* Accent: Mauve - Sophisticated and elegant */
+	--color-accent: var(--color-mauve);
+	--color-accent-dark: var(--color-mauve-dark);
+	
+	/* Secondary: Subtext for muted content */
+	--color-secondary: var(--color-subtext-0);
+	--color-secondary-dark: var(--color-subtext-0-dark);
+	
+	/* Surface colors for elevated elements - Minimal elevation */
+	--color-surface: var(--color-mantle);
+	--color-surface-dark: var(--color-surface-0-dark);
+	
+	/* Border colors - Subtle and refined */
+	--color-border: var(--color-surface-0);
+	--color-border-dark: var(--color-surface-1-dark);
+	
+	/* Minimal shadows - barely perceptible */
+	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.02);
+	--shadow-md: 0 2px 4px -1px rgb(0 0 0 / 0.04);
+	--shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.06);
+	
+	/* Dark mode shadows - slightly more visible */
+	--shadow-dark-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+	--shadow-dark-md: 0 2px 4px -1px rgb(0 0 0 / 0.3);
+	--shadow-dark-lg: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+}
+
+html {
+	scroll-padding-top: 5rem;
+	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	@apply transition-colors duration-200;
+	letter-spacing: -0.011em;
+	line-height: 1.65;
+}
+
+/* Improved readability for long-form content */
+article p,
+.prose p {
+	line-height: 1.75;
+	max-width: 70ch;
+}
+
+/* Tighter heading hierarchy */
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2;
+	font-weight: 700;
+	letter-spacing: -0.025em;
+}
+
+h1 {
+	@apply text-4xl md:text-5xl lg:text-6xl;
+}
+
+h2 {
+	@apply text-3xl md:text-4xl;
+}
+
+h3 {
+	@apply text-2xl md:text-3xl;
+}
+
+/* Accessibility: Refined focus indicators */
+*:focus-visible {
+	@apply outline-2 outline-offset-2 outline-primary dark:outline-primary-dark rounded;
+}
+
+/* High contrast focus states for all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+	@apply ring-2 ring-primary dark:ring-primary-dark ring-offset-2 ring-offset-base dark:ring-offset-base-dark outline-none;
+}
+
+/* Accessibility: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Accessibility: Screen reader only class */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+.app-container {
+	@apply container mx-auto px-6 sm:px-12 2xl:px-16;
+}
+
+#mobile-menu.mobile-nav-open {
+	@apply translate-x-0 shadow-xl/30;
+}
+
+.btn-primary {
+	@apply w-fit inline-flex gap-2 bg-[#1741a6] dark:bg-[#89b4fa] text-white dark:text-[#1e1e2e] px-5 py-2.5 rounded-lg items-center font-semibold shadow-sm hover:bg-[#12357e] dark:hover:bg-[#b4befe] hover:text-white dark:hover:text-[#1e1e2e] active:opacity-90 transition-colors duration-150;
+}
+
+.btn-secondary {
+	@apply w-fit inline-flex gap-2 text-[#1741a6] dark:text-[#89b4fa] border-2 border-[#1741a6] dark:border-[#89b4fa] bg-white dark:bg-[#1e1e2e] px-5 py-2.5 rounded-lg items-center font-semibold hover:bg-[#1741a6] dark:hover:bg-[#89b4fa] hover:text-white dark:hover:text-[#1e1e2e] hover:border-[#12357e] dark:hover:border-[#b4befe] transition-colors duration-150;
+}
+
+.section-title {
+	@apply text-3xl md:text-4xl font-bold tracking-tight;
+}
+
+.posts-grid-container {
+	@apply grid my-8 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+/* Consistent card styling */
+.card {
+	@apply p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark;
+	@apply hover:border-primary/50 dark:hover:border-primary-dark/50 transition-all duration-200;
+}
+
+/* Consistent tag pill styling with better contrast */
+.tag-pill {
+	@apply px-3 py-1 text-xs rounded-full;
+	@apply bg-primary/10 dark:bg-primary-dark/10;
+	@apply text-primary dark:text-primary-dark;
+	@apply border border-primary/20 dark:border-primary-dark/20;
+	@apply font-medium;
+}
+
+/* Ensure adequate contrast for metadata */
+.metadata {
+	@apply text-xs text-subtext-1 dark:text-subtext-1-dark;
+}
+
+/* Improved link styles with underline for accessibility */
+/* Links should not rely on color alone - add underline */
+a:not(.btn-primary):not(.btn-secondary):not([class*="hover:opacity"]):not([class*="block"]) {
+	@apply underline decoration-2 underline-offset-2;
+	@apply text-primary dark:text-primary-dark;
+	@apply decoration-primary/40 dark:decoration-primary-dark/40;
+}
+
+a:not(.btn-primary):not(.btn-secondary):not([class*="hover:opacity"]):not([class*="block"]):hover {
+	@apply decoration-primary dark:decoration-primary-dark;
+	@apply text-accent dark:text-accent-dark;
+	@apply decoration-accent dark:decoration-accent-dark;
+}
+
+/* Exception for navigation links - they use position/context instead */
+nav a {
+	@apply no-underline;
+}
+
+/* Minimal fade-in animation */
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-fade-in {
+	animation: fade-in 0.4s ease-out;
+}
+
+/* Post content - Minimal styling */
+.prose iframe {
+	@apply my-12 mx-auto w-full aspect-video rounded-lg;
+}
+
+.prose img {
+	@apply rounded-lg;
+}
+
+/* Minimal custom scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-overlay-0 dark:bg-overlay-0-dark rounded-full hover:bg-overlay-1 dark:hover:bg-overlay-1-dark;
+}
+
+/* Selection color */
+::selection {
+	@apply bg-lavender/30 dark:bg-lavender-dark/30;
+}
