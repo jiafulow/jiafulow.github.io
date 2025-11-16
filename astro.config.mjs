@@ -28,7 +28,7 @@ export default defineConfig({
 		rehypePlugins: [rehypeFigureTitle, rehypeAccessibleEmojis],
     },
 
-    site: 'http://localhost:4321',
+    site: 'https://jiafulow.github.io',
 
     vite: {
         plugins: [tailwindcss()],

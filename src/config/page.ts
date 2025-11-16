@@ -1,26 +1,26 @@
 import type { PageProps } from "@/types";
 
 export const home: PageProps = {
-    title: "Max Bytefield - Developer Portfolio",
-    description: "Full-stack developer crafting elegant solutions with code, coffee, and a touch of chaos",
+    title: "Home",
+    description: "Description.",
     url: "home",
 };
 
 
 export const about: PageProps = {
-    title: "About - Max Bytefield",
-    description: "Get to know Max - developer, tinkerer, and perpetual learner with a passion for building cool stuff.",
+    title: "About",
+    description: "Description.",
     url: "home",
 };
 
 export const error404: PageProps = {
     title: "404 - Page Not Found",
-    description: "Looks like this page got lost in the bytecode. Let's get you back on track!",
+    description: "Description.",
     url: "home",
 };
 
 export const blog: PageProps = {
-    title: "Blog - Max Bytefield",
-    description: "Adventures in code, debugging tales, and thoughts from the trenches of software development.",
+    title: "Blog",
+    description: "Description.",
     url: "home",
 };

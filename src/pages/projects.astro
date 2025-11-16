@@ -3,61 +3,12 @@ import BaseLayout from '@/layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
 
 const pageData = {
-	title: "Projects - Max Bytefield",
-	description: "A collection of Max's open source projects, side projects, and digital experiments.",
-	url: "https://www.maxbytefield.dev/projects",
-	image: "https://www.maxbytefield.dev/og-image.png",
+	title: "Projects",
+	description: "Description.",
+	url: "home",
 }
 
 const projects = [
-	{
-		name: "QuickAPI",
-		description: "A TypeScript library for building type-safe REST APIs in minutes. Features automatic OpenAPI docs generation, request validation, and built-in error handling. Because life's too short for boilerplate.",
-		tech: ["TypeScript", "Node.js", "Express", "OpenAPI"],
-		github: "https://github.com/maxbytefield/quickapi",
-		website: "https://quickapi.dev",
-		featured: true
-	},
-	{
-		name: "DevJokes CLI",
-		description: "A command-line tool that tells programming jokes while you wait for your build to finish. Supports multiple joke categories, custom timers, and bad pun warnings. Yes, this is a real project.",
-		tech: ["Node.js", "TypeScript", "CLI", "Humor"],
-		github: "https://github.com/maxbytefield/devjokes-cli",
-		website: null,
-		featured: true
-	},
-	{
-		name: "React Hook Collection",
-		description: "A curated collection of production-ready React hooks for common use cases. Fully typed, tested, and documented. Includes hooks for debouncing, local storage, media queries, and more.",
-		tech: ["React", "TypeScript", "Hooks", "Testing Library"],
-		github: "https://github.com/maxbytefield/react-hooks",
-		website: "https://hooks.maxbytefield.dev",
-		featured: false
-	},
-	{
-		name: "Config Generator",
-		description: "Interactive CLI tool for generating configuration files for popular tools (ESLint, Prettier, TypeScript, etc.). No more copy-pasting from Stack Overflow!",
-		tech: ["Node.js", "CLI", "Templates"],
-		github: "https://github.com/maxbytefield/config-gen",
-		website: null,
-		featured: false
-	},
-	{
-		name: "Commit Message Helper",
-		description: "A Git hook that helps you write better commit messages following conventional commits. Includes emoji support because commits should be fun.",
-		tech: ["Node.js", "Git", "CLI"],
-		github: "https://github.com/maxbytefield/commit-helper",
-		website: null,
-		featured: false
-	},
-	{
-		name: "API Docs Theme",
-		description: "A beautiful, responsive theme for API documentation built with Astro. Dark mode included because developers love dark mode.",
-		tech: ["Astro", "TypeScript", "Markdown", "TailwindCSS"],
-		github: "https://github.com/maxbytefield/api-docs-theme",
-		website: "https://docs-theme.maxbytefield.dev",
-		featured: false
-	}
 ]
 
 const featuredProjects = projects.filter(p => p.featured)
@@ -70,10 +21,10 @@ const otherProjects = projects.filter(p => !p.featured)
 			<!-- Header -->
 			<header class="space-y-6">
 				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-					Projects & Experiments
+					Projects
 				</h1>
 				<p class="text-xl md:text-2xl text-secondary dark:text-secondary-dark max-w-3xl leading-relaxed">
-					A collection of things I've built in the wild lands of open source. Some solve real problems, others solve problems I invented. All are available on <a href="https://github.com/maxbytefield" target="_blank" rel="noopener noreferrer" class="text-primary dark:text-primary-dark hover:underline">GitHub</a> for your viewing pleasure.
+					My projects.
 				</p>
 			</header>
 
@@ -194,22 +145,6 @@ const otherProjects = projects.filter(p => !p.featured)
 					</div>
 				</section>
 			)}
-
-			<!-- CTA -->
-			<section class="pt-12 border-t border-border dark:border-border-dark">
-				<div class="p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 dark:from-primary-dark/10 dark:to-accent-dark/10 border border-primary/20 dark:border-primary-dark/20">
-					<div class="space-y-4 text-center max-w-2xl mx-auto">
-						<h2 class="text-2xl md:text-3xl font-bold">Got a Cool Idea?</h2>
-						<p class="text-secondary dark:text-secondary-dark">
-							I'm always down to collaborate on interesting projects, especially if they involve solving real problems or making developers' lives easier. Let's build something awesome together!
-						</p>
-						<a href="/about" class="btn-primary inline-flex">
-							<Icon name="mdi:email" class="w-5 h-5" aria-hidden="true" />
-							<span>Let's Chat</span>
-						</a>
-					</div>
-				</div>
-			</section>
 		</div>
 	</main>
 </BaseLayout>
