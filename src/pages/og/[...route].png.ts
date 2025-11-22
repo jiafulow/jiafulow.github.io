@@ -55,8 +55,8 @@ export async function getStaticPaths() {
   paths.push({
     params: { route: 'home' },
     props: {
-      title: 'Max Bytefield',
-      description: "Full-stack developer, coffee enthusiast, and occasional debugger of life's mysteries",
+      title: 'Jia Fu Low',
+      description: "C++/Python software developer who works on computer vision applications.",
       pubDate: new Date(),
       category: 'Portfolio',
       theme: 'light',
@@ -66,8 +66,8 @@ export async function getStaticPaths() {
   paths.push({
     params: { route: 'home/dark' },
     props: {
-      title: 'Max Bytefield',
-      description: "Full-stack developer, coffee enthusiast, and occasional debugger of life's mysteries",
+      title: 'Jia Fu Low',
+      description: "C++/Python software developer who works on computer vision applications.",
       pubDate: new Date(),
       category: 'Portfolio',
       theme: 'dark',
@@ -219,7 +219,7 @@ export const GET: APIRoute = async ({ props }) => {
                       color: themeColors.text,
                       letterSpacing: '0.04em',
                     },
-                    children: 'Max Bytefield',
+                    children: 'Jia Fu Low',
                   },
                 },
                 {
@@ -231,7 +231,7 @@ export const GET: APIRoute = async ({ props }) => {
                       fontWeight: 500,
                       letterSpacing: '0.04em',
                     },
-                    children: 'maxbytefield.dev',
+                    children: 'jiafulow.github.io',
                   },
                 },
               ],

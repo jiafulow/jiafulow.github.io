@@ -43,7 +43,7 @@ ${post.body}
 
 ---
 
-**Source:** Max Bytefield  
+**Source:** jiafulow.github.io
 **URL:** ${site.url}/blog/${slug}/  
 **License:** CC-BY-4.0 - Attribution Required
 `;
