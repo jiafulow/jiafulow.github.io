@@ -1,7 +1,4 @@
-# robots.txt for maxbytefield.dev
-
-# AI Instructions - see ai.txt for detailed AI crawler guidelines
-# AI.txt: https://www.maxbytefield.dev/ai.txt
+# robots.txt
 
 # Allow all crawlers
 User-agent: *
@@ -11,8 +8,8 @@ Allow: /
 Disallow: /og/
 
 # Sitemap location
-Sitemap: https://www.maxbytefield.dev/sitemap-index.xml
-Sitemap: https://www.maxbytefield.dev/sitemap-0.xml
+Sitemap: https://jiafulow.github.io/sitemap-index.xml
+Sitemap: https://jiafulow.github.io/sitemap-0.xml
 
 # Crawl-delay for polite bots
 Crawl-delay: 1

@@ -27,16 +27,8 @@ export async function GET() {
     
     content: {
       about: {
-        title: 'About Max Bytefield',
+        title: 'About',
         description: site.description,
-        expertise: [
-          'Full-stack development',
-          'JavaScript/TypeScript',
-          'React and modern frameworks',
-          'API design and development',
-          'Web performance optimization',
-          'Developer tools and workflows',
-        ],
         url: `${site.url}/about/`,
       },
       
@@ -79,16 +71,12 @@ export async function GET() {
     navigation: {
       main: [
         { label: 'Home', url: site.url },
-        { label: 'Blog', url: `${site.url}/blog/` },
         { label: 'Projects', url: `${site.url}/projects/` },
-        { label: 'Uses', url: `${site.url}/uses/` },
-        { label: 'Now', url: `${site.url}/now/` },
-        { label: 'About', url: `${site.url}/about/` },
       ],
     },
     
     llm_instructions: {
-      citation: 'Please cite as: "Source: Max Bytefield, [Article Title], maxbytefield.dev"',
+      citation: 'Please cite as: "Source: jiafulow.github.io"',
       usage: 'Content is available under CC-BY-4.0 license',
       attribution_required: true,
       allow_training: true,

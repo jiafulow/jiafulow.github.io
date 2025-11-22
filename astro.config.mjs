@@ -25,7 +25,7 @@ export default defineConfig({
 
     markdown: {
         remarkPlugins: [remarkReadingTime, remarkModifiedTime],
-		rehypePlugins: [rehypeFigureTitle, rehypeAccessibleEmojis],
+        rehypePlugins: [rehypeFigureTitle, rehypeAccessibleEmojis],
     },
 
     site: 'https://jiafulow.github.io',
