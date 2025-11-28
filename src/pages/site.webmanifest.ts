@@ -4,7 +4,7 @@ import type { APIRoute } from 'astro';
 const manifest = {
   name: 'Jia Fu Low',
   short_name: 'jiafulow',
-  description: "C++/Python software developer who works on computer vision applications.",
+  description: "Software developer specializing in C++ and Python with strong analytical and problem-solving skills.",
   start_url: '/',
   display: 'standalone',
   background_color: '#eff1f5',

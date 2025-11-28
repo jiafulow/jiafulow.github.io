@@ -2,9 +2,9 @@ import type { Site } from "@/types";
 
 export const site: Site = {
     title: "👋 Hi",
-    description: "C++/Python software developer who works on computer vision applications",
+    description: "Software developer specializing in C++ and Python with strong analytical and problem-solving skills.",
     author: "Jia Fu Low",
-    url: "http://localhost:4321",
+    url: "https://jiafulow.github.io",
 };
 
 export const WebsiteLinks = [

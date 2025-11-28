@@ -3,13 +3,6 @@ import Layout from "@/layouts/Layout.astro";
 import { site, SocialLinks } from "@/config/site";
 import { home } from "@/config/page";
 import { Icon } from "astro-icon/components";
-import BlogCard from "@/components/BlogCard.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
-
-const allPosts: CollectionEntry<"blog">[] = await getCollection("blog");
-const posts = allPosts
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 4);
 ---
 
 <Layout
@@ -20,7 +13,7 @@ const posts = allPosts
 >
 	<!-- Hero Section -->
 	<main
-		class="app-container flex flex-col gap-8 justify-center py-32 md:py-40 pt-40 md:pt-48 relative min-h-[85vh]"
+		class="app-container flex flex-col gap-8 justify-center py-32 md:py-40 pt-40 md:pt-48 relative min-h-[65vh]"
 	>
 		<div class="space-y-3 animate-fade-in">
 			<p class="text-lg md:text-xl text-secondary dark:text-secondary-dark">👋 Hey there! I'm</p>
@@ -29,7 +22,86 @@ const posts = allPosts
 			</h1>
 		</div>
 		<p class="text-lg md:text-xl max-w-2xl leading-relaxed text-secondary dark:text-secondary-dark">
-			C++/Python software developer who works on computer vision applications.
+			Software developer specializing in C++ and Python, transforming complex scientific problems into practical solutions. Currently working on point cloud segmentation and mesh processing tasks in my projects. 💻🔧
 		</p>
 	</main>
+
+	<!-- What I Do Section -->
+	<section class="app-container py-16" aria-labelledby="services-heading">
+		<div class="space-y-8">
+			<div class="space-y-3">
+				<h2 id="services-heading" class="section-title">My Tech Stack</h2>
+				<p class="text-lg text-secondary dark:text-secondary-dark max-w-3xl">
+					A set of libraries and frameworks I use to build robust, high-performance solutions across scientific computing, machine learning, and software development.
+				</p>
+			</div>
+			<div class="grid md:grid-cols-2 gap-6">
+				<div class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<div class="flex items-center gap-3 mb-4">
+						<Icon name="mdi:language-cpp" class="w-8 h-8 text-primary dark:text-primary-dark" aria-hidden="true" />
+						<h3 class="text-xl font-semibold">C++</h3>
+					</div>
+					<div class="flex flex-wrap gap-2">
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">CMake</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Boost</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Eigen</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">PCL</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">VTK</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Geometry Central</span>
+					</div>
+				</div>
+				<div class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<div class="flex items-center gap-3 mb-4">
+						<Icon name="mdi:language-python" class="w-8 h-8 text-primary dark:text-primary-dark" aria-hidden="true" />
+						<h3 class="text-xl font-semibold">Python</h3>
+					</div>
+					<div class="flex flex-wrap gap-2">
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">NumPy</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">SciPy</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Pandas</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Matplotlib</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Scikit-learn</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Scikit-image</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">PyTorch</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">TensorFlow</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">OpenCV</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Open3D</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">PyVista</span>
+					</div>
+				</div>
+				<div class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<div class="flex items-center gap-3 mb-4">
+						<Icon name="mdi:tools" class="w-8 h-8 text-primary dark:text-primary-dark" aria-hidden="true" />
+						<h3 class="text-xl font-semibold">Dev Tools</h3>
+					</div>
+					<div class="flex flex-wrap gap-2">
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Bash</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Git</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Docker</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Conda</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">GitHub Actions</span>
+					</div>
+				</div>
+				<div class="p-6 rounded-lg border border-border dark:border-border-dark bg-surface dark:bg-surface-dark">
+					<div class="flex items-center gap-3 mb-3">
+						<Icon name="mdi:dots-horizontal" class="w-8 h-8 text-primary dark:text-primary-dark" aria-hidden="true" />
+						<h3 class="text-xl font-semibold">Other Technologies</h3>
+					</div>
+					<p class="text-sm text-secondary dark:text-secondary-dark mb-3 italic">Less frequently used · Basic competence</p>
+					<div class="flex flex-wrap gap-2">
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">MATLAB</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Java</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Javascript</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Verilog</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Vitis HLS</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">FORTRAN</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">SQL</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">AWS</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Rust</span>
+						<span class="px-3 py-1 text-sm rounded-full bg-primary/10 dark:bg-primary-dark/10 text-foreground dark:text-foreground-dark">Qt</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </Layout>

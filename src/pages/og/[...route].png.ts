@@ -56,7 +56,7 @@ export async function getStaticPaths() {
     params: { route: 'home' },
     props: {
       title: 'Jia Fu Low',
-      description: "C++/Python software developer who works on computer vision applications.",
+      description: "Software developer specializing in C++ and Python with strong analytical and problem-solving skills.",
       pubDate: new Date(),
       category: 'Portfolio',
       theme: 'light',
@@ -67,7 +67,7 @@ export async function getStaticPaths() {
     params: { route: 'home/dark' },
     props: {
       title: 'Jia Fu Low',
-      description: "C++/Python software developer who works on computer vision applications.",
+      description: "Software developer specializing in C++ and Python with strong analytical and problem-solving skills.",
       pubDate: new Date(),
       category: 'Portfolio',
       theme: 'dark',
