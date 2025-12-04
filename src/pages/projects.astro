@@ -4,11 +4,52 @@ import { Icon } from 'astro-icon/components'
 
 const pageData = {
 	title: "Projects",
-	description: "Description.",
-	url: "home",
+	description: "A collection of technical projects spanning 3D processing, machine learning, and computer vision.",
 }
 
 const projects = [
+	{
+		name: "3D Segmentation in Point Clouds",
+		description: "Developed a deep learning model to extract ground support elements in underground mining scenes with over 90% recall rate. Managed training datasets and set up distributed training infrastructure on AWS.",
+		tech: ["Python", "PyTorch", "Open3D", "Scikit-learn", "AWS SageMaker"],
+		category: "Machine Learning",
+		featured: true
+	},
+	{
+		name: "Point Cloud Reconstruction & Change Tracking",
+                description: "Built algorithms to detect geometry structures and clean point clouds using Concave Hull algorithm to remove inner surfaces and occluded objects. Reconstructed surface meshes using Poisson reconstruction and implemented tracking to monitor surface changes over time intervals.",
+		tech: ["C++", "PCL", "PoissonRecon", "Docker"],
+		category: "3D Processing",
+		featured: true
+	},
+	{
+		name: "Interactive Mesh Cutting & Repair",
+		description: "Developed interactive tools for creating mesh cutting contours and planes. Implemented refinement methods including smoothing and remeshing to prepare meshes for 3D printing.",
+		tech: ["C++", "Geometry Central", "Manifold", "nanoflann"],
+		category: "3D Processing",
+		featured: true
+	},
+	{
+		name: "Speech Recognition in Noisy Environments",
+		description: "Applied state-of-the-art speech recognition models to noisy, radio-transmitted voice samples, achieving sub-20% word error rate in challenging acoustic conditions.",
+		tech: ["Python", "PyTorch", "Whisper"],
+		category: "Machine Learning",
+		featured: false
+	},
+	{
+		name: "Multi-Modal Sensor Fusion for Autonomous Driving",
+		description: "Did a demo project of multi-modal sensor fusion combining camera images and LiDAR point clouds on the nuScenes autonomous driving dataset. The fusion results are used for scene understanding and path planning.",
+		tech: ["Python", "PyTorch", "OpenCV", "Matplotlib"],
+		category: "Computer Vision",
+		featured: false
+	},
+	{
+		name: "Fraud Detection for Identity Documents",
+		description: "Trained computer vision models to detect fraudulent identity documents with only 2% false positive rate, significantly improving customer onboarding experience. Implemented text detection and OCR for automated information extraction.",
+		tech: ["Python", "PyTorch", "PyTorch Image Models", "OpenCV"],
+		category: "Computer Vision",
+		featured: true
+	}
 ]
 
 const featuredProjects = projects.filter(p => p.featured)
@@ -24,7 +65,10 @@ const otherProjects = projects.filter(p => !p.featured)
 					Projects
 				</h1>
 				<p class="text-xl md:text-2xl text-secondary dark:text-secondary-dark max-w-3xl leading-relaxed">
-					My projects.
+					A selection of technical projects I've worked on across 3D processing, machine learning, and computer vision.
+				</p>
+				<p class="text-lg text-secondary dark:text-secondary-dark max-w-3xl">
+					Prior to transitioning to industry, my academic research also encompassed statistical data analysis, distributed systems, algorithm design, pattern recognition, and performance optimization for high-throughput computing environments.
 				</p>
 			</header>
 
@@ -37,6 +81,11 @@ const otherProjects = projects.filter(p => !p.featured)
 							<article class="p-6 md:p-8 rounded-2xl bg-surface dark:bg-surface-dark border border-border dark:border-border-dark hover:border-primary dark:hover:border-primary-dark transition-all group">
 								<div class="space-y-4">
 									<div class="space-y-3">
+										<div class="flex items-center gap-3">
+											<span class="px-3 py-1 text-xs rounded-full bg-accent/10 dark:bg-accent-dark/10 text-accent dark:text-accent-dark border border-accent/20 dark:border-accent-dark/20">
+												{project.category}
+											</span>
+										</div>
 										<h3 class="text-2xl font-bold group-hover:text-primary dark:group-hover:text-primary-dark transition-colors">
 											{project.name}
 										</h3>
@@ -52,34 +101,6 @@ const otherProjects = projects.filter(p => !p.featured)
 												{tech}
 											</span>
 										))}
-									</div>
-
-									<!-- Links -->
-									<div class="flex gap-3 pt-2">
-										{project.github && (
-											<a
-												href={project.github}
-												target="_blank"
-												rel="noopener noreferrer"
-												class="btn-secondary"
-												aria-label={`View ${project.name} on GitHub`}
-											>
-												<Icon name="mdi:github" class="w-5 h-5" aria-hidden="true" />
-												<span>GitHub</span>
-											</a>
-										)}
-										{project.website && (
-											<a
-												href={project.website}
-												target="_blank"
-												rel="noopener noreferrer"
-												class="btn-primary"
-												aria-label={`Visit ${project.name} website`}
-											>
-												<Icon name="mdi:web" class="w-5 h-5" aria-hidden="true" />
-												<span>Website</span>
-											</a>
-										)}
 									</div>
 								</div>
 							</article>
@@ -97,6 +118,9 @@ const otherProjects = projects.filter(p => !p.featured)
 							<article class="p-6 rounded-2xl bg-surface dark:bg-surface-dark border border-border dark:border-border-dark hover:border-primary dark:hover:border-primary-dark transition-all group">
 								<div class="space-y-4">
 									<div class="space-y-2">
+										<span class="px-2 py-1 text-xs rounded-full bg-accent/10 dark:bg-accent-dark/10 text-accent dark:text-accent-dark inline-block">
+											{project.category}
+										</span>
 										<h3 class="text-xl font-bold group-hover:text-primary dark:group-hover:text-primary-dark transition-colors">
 											{project.name}
 										</h3>
@@ -112,31 +136,10 @@ const otherProjects = projects.filter(p => !p.featured)
 												{tech}
 											</span>
 										))}
-									</div>
-
-									<!-- Links -->
-									<div class="flex gap-2 pt-2">
-										{project.github && (
-											<a
-												href={project.github}
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
-												aria-label={`View ${project.name} on GitHub`}
-											>
-												<Icon name="mdi:github" class="w-6 h-6" aria-hidden="true" />
-											</a>
-										)}
-										{project.website && (
-											<a
-												href={project.website}
-												target="_blank"
-												rel="noopener noreferrer"
-												class="text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
-												aria-label={`Visit ${project.name} website`}
-											>
-												<Icon name="mdi:web" class="w-6 h-6" aria-hidden="true" />
-											</a>
+										{project.tech.length > 3 && (
+											<span class="px-2 py-1 text-xs rounded-full bg-primary/10 dark:bg-primary-dark/10 text-primary dark:text-primary-dark">
+												+{project.tech.length - 3}
+											</span>
 										)}
 									</div>
 								</div>
